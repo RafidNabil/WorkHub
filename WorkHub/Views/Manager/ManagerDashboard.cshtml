@@ -1,0 +1,206 @@
+﻿@{
+    ViewBag.Title = "Manager Dashboard";
+    Layout = "~/Views/Manager/ManagerIndex.cshtml";
+}
+
+<!-- Dashboard Overview -->
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">
+                    Dashboard Overview
+                    @if (Session["UserRole"] != null)
+                    {
+                        <strong> Role:</strong> @Session["UserRole"].ToString()
+                    }
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-lg-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title">Active Projects</h6>
+                                <p class="card-text">Summary of active projects.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title">Recent Task Activities</h6>
+                                <p class="card-text">Recent task activities.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title">Pending Approvals</h6>
+                                <p class="card-text">Pending approvals or actions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ Projects 
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Projects</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <h6 class="card-title">List of Current Projects</h6>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Project Name</th>
+                                    <th>Status</th>
+                                    <th>Deadline</th>
+                                    <th>Team Members</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Project A</td>
+                                    <td><span class="badge bg-label-primary">Active</span></td>
+                                    <td>2024-07-10</td>
+                                    <td>John, Jane, Bob</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-primary">View</button>
+                                        <button class="btn btn-sm btn-secondary">Edit</button>
+                                    </td>
+                                </tr>
+ Repeat for more projects 
+</tbody>
+    </table>
+</div>
+<div class="col-12 mb-4">
+    <h6 class="card-title">Create/Edit Project</h6>
+    <form>
+ Project form fields here 
+</form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ Tasks 
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Tasks</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <h6 class="card-title">List of Tasks</h6>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Task Name</th>
+                                    <th>Project</th>
+                                    <th>Priority</th>
+                                    <th>Status</th>
+                                    <th>Assigned To</th>
+                                    <th>Deadline</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Task 1</td>
+                                    <td>Project A</td>
+                                    <td><span class="badge bg-label-danger">High</span></td>
+                                    <td><span class="badge bg-label-warning">In Progress</span></td>
+                                    <td>John Doe</td>
+                                    <td>2024-06-20</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-primary">Update</button>
+                                    </td>
+                                </tr>
+ Repeat for more tasks 
+</tbody>
+    </table>
+</div>
+<div class="col-12 mb-4">
+    <h6 class="card-title">Create/Edit Task</h6>
+    <form>
+ Task form fields here 
+</form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ Team 
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Team</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <h6 class="card-title">List of Team Members</h6>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Role</th>
+                                    <th>Email</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>John Doe</td>
+                                    <td>Developer</td>
+                                    <td>john.doe@example.com</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-primary">Assign Task</button>
+                                    </td>
+                                </tr>
+ Repeat for more team members 
+</tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ Reports 
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Reports</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-lg-6 mb-4">
+                        <h6 class="card-title">Project Progress</h6>
+ Insert project progress chart here 
+</div>
+<div class="col-12 col-lg-6 mb-4">
+    <h6 class="card-title">Task Completion Rates</h6>
+ Insert task completion chart here 
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

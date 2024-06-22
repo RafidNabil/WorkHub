@@ -1,0 +1,90 @@
+﻿@model WorkHub.Models.CreateaProject
+
+@{
+    ViewBag.Title = "Create Project";
+    Layout = "~/Views/Manager/ManagerIndex.cshtml";
+}
+
+<!-- Include Font Awesome -->
+<link href="~/Content/fontawesome-all.min.css" rel="stylesheet" type="text/css" />
+
+<h2>Create Project</h2>
+<p>Fill in the details below to create a new project.</p>
+
+<form action="@Url.Action("CreateProject", "Manager")" method="post" class="needs-validation" novalidate>
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Project Details</h5>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <label for="ProjectName" class="form-label">Project Name</label>
+                <input type="text" class="form-control" id="ProjectName" name="ProjectName" placeholder="Enter project name" required>
+                <div class="invalid-feedback">
+                    Please enter a project name.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="Description" class="form-label">Description</label>
+                <textarea class="form-control" id="Description" name="Description" placeholder="Enter project description" rows="4" required></textarea>
+                <div class="invalid-feedback">
+                    Please enter a project description.
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="col-md-6">
+                    <label for="StartDate" class="form-label">Start Date</label>
+                    <input type="date" class="form-control" id="StartDate" name="StartDate" required>
+                    <div class="invalid-feedback">
+                        Please enter a start date.
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="EndDate" class="form-label">End Date</label>
+                    <input type="date" class="form-control" id="EndDate" name="EndDate" required>
+                    <div class="invalid-feedback">
+                        Please enter an end date.
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="TeamMembers" class="form-label">Team Members</label>
+                <select multiple class="form-control" id="TeamMembers" name="TeamMembers">
+                    <option value="1">John Doe</option>
+                    <option value="2">Jane Smith</option>
+                    <option value="3">Bob Johnson</option>
+                </select>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-save"></i> Save Project
+            </button>
+            <a href="@Url.Action("ManagerIndex", "Manager")" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+        </div>
+    </div>
+</form>
+
+<!-- Include Bootstrap and jQuery scripts if not already included in the layout -->
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+<!-- Custom validation script -->
+<script>
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();</script>
