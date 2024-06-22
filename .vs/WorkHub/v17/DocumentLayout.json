@@ -3,48 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|c:\\users\\hp\\desktop\\sd\\workhub-main\\workhub\\views\\superadmin\\superadmindashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\superadmin\\superadmindashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\workhub\\views\\superadmin\\superadminindex.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\superadmin\\superadminindex.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\workhub\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\workhub\\controllers\\managercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\controllers\\managercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|c:\\users\\hp\\desktop\\sd\\workhub-main\\workhub\\controllers\\commentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\controllers\\commentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\workhub\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\workhub\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|c:\\users\\hp\\desktop\\sd\\workhub-main\\workhub\\views\\home\\applicationsettings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\home\\applicationsettings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\workhub\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|c:\\users\\hp\\desktop\\sd\\workhub-main\\workhub\\views\\home\\permissionmanagement.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\home\\permissionmanagement.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\workhub\\controllers\\commentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\controllers\\commentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\workhub\\views\\home\\createuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\home\\createuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\workhub\\views\\home\\manageusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\home\\manageusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\workhub\\views\\home\\updateuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\home\\updateuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\workhub\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\workhub\\views\\comment\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -59,16 +39,40 @@
       "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\dashboard\\dashboardindex.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\workhub\\views\\manager\\managerindex.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\manager\\managerindex.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\workhub\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\workhub\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Controllers\\ManagerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WorkHub\\Controllers\\ManagerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Views\\Home\\ApplicationSettings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WorkHub\\Views\\Home\\ApplicationSettings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Views\\Home\\PermissionManagement.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WorkHub\\Views\\Home\\PermissionManagement.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Views\\Home\\createuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WorkHub\\Views\\Home\\createuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Views\\Home\\manageusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WorkHub\\Views\\Home\\manageusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Views\\Home\\UpdateUser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WorkHub\\Views\\Home\\UpdateUser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Views\\Manager\\ManagerIndex.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WorkHub\\Views\\Manager\\ManagerIndex.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -78,24 +82,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "WorkHub\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "WorkHub\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAKkAAAA/AAAA",
+              "DocumentIndex": 0,
+              "Title": "SuperAdminDashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Views\\SuperAdmin\\SuperAdminDashboard.cshtml",
+              "RelativeDocumentMoniker": "WorkHub\\Views\\SuperAdmin\\SuperAdminDashboard.cshtml",
+              "ToolTip": "C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Views\\SuperAdmin\\SuperAdminDashboard.cshtml",
+              "RelativeToolTip": "WorkHub\\Views\\SuperAdmin\\SuperAdminDashboard.cshtml",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-20T06:27:10.342Z",
+              "WhenOpened": "2024-06-22T12:43:02.227Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "WorkHub\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "WorkHub\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAFEAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-20T06:27:10.342Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "ManagerController.cs",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Controllers\\ManagerController.cs",
               "RelativeDocumentMoniker": "WorkHub\\Controllers\\ManagerController.cs",
@@ -103,12 +119,11 @@
               "RelativeToolTip": "WorkHub\\Controllers\\ManagerController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T17:58:57.113Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T17:58:57.113Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "DashboardController.cs",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Controllers\\DashboardController.cs",
               "RelativeDocumentMoniker": "WorkHub\\Controllers\\DashboardController.cs",
@@ -116,12 +131,11 @@
               "RelativeToolTip": "WorkHub\\Controllers\\DashboardController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T17:56:38.26Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T17:56:38.26Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "CommentController.cs",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Controllers\\CommentController.cs",
               "RelativeDocumentMoniker": "WorkHub\\Controllers\\CommentController.cs",
@@ -129,12 +143,11 @@
               "RelativeToolTip": "WorkHub\\Controllers\\CommentController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-22T05:04:45.847Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-22T05:04:45.847Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "WorkHub\\Controllers\\HomeController.cs",
@@ -142,25 +155,23 @@
               "RelativeToolTip": "WorkHub\\Controllers\\HomeController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAEQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-20T06:14:03.34Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-20T06:14:03.34Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "SuperAdminIndex.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Views\\SuperAdmin\\SuperAdminIndex.cshtml",
               "RelativeDocumentMoniker": "WorkHub\\Views\\SuperAdmin\\SuperAdminIndex.cshtml",
               "ToolTip": "C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Views\\SuperAdmin\\SuperAdminIndex.cshtml",
               "RelativeToolTip": "WorkHub\\Views\\SuperAdmin\\SuperAdminIndex.cshtml",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAAHsAAAAeAAAA",
+              "ViewState": "AQIAAIABAAAAAAAAAAAAAEEBAABIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-19T18:00:32.744Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T18:00:32.744Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 12,
               "Title": "ApplicationSettings.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Views\\Home\\ApplicationSettings.cshtml",
               "RelativeDocumentMoniker": "WorkHub\\Views\\Home\\ApplicationSettings.cshtml",
@@ -168,12 +179,11 @@
               "RelativeToolTip": "WorkHub\\Views\\Home\\ApplicationSettings.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-22T06:11:26.986Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-22T06:11:26.986Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 13,
               "Title": "PermissionManagement.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Views\\Home\\PermissionManagement.cshtml",
               "RelativeDocumentMoniker": "WorkHub\\Views\\Home\\PermissionManagement.cshtml",
@@ -181,12 +191,11 @@
               "RelativeToolTip": "WorkHub\\Views\\Home\\PermissionManagement.cshtml",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAABEAAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-22T06:16:34.179Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-22T06:16:34.179Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 14,
               "Title": "createuser.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Views\\Home\\createuser.cshtml",
               "RelativeDocumentMoniker": "WorkHub\\Views\\Home\\createuser.cshtml",
@@ -194,12 +203,11 @@
               "RelativeToolTip": "WorkHub\\Views\\Home\\createuser.cshtml",
               "ViewState": "AQIAABUAAAAAAAAAAAAqwDYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-20T06:11:55.689Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-20T06:11:55.689Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 15,
               "Title": "manageusers.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Views\\Home\\manageusers.cshtml",
               "RelativeDocumentMoniker": "WorkHub\\Views\\Home\\manageusers.cshtml",
@@ -207,12 +215,11 @@
               "RelativeToolTip": "WorkHub\\Views\\Home\\manageusers.cshtml",
               "ViewState": "AQIAAFsAAAAAAAAAAAAAAG4AAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-20T17:57:08.308Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-20T17:57:08.308Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 6,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Views\\Comment\\Index.cshtml",
               "RelativeDocumentMoniker": "WorkHub\\Views\\Comment\\Index.cshtml",
@@ -220,12 +227,11 @@
               "RelativeToolTip": "WorkHub\\Views\\Comment\\Index.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-21T14:16:50.054Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-21T14:16:50.054Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 16,
               "Title": "UpdateUser.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Views\\Home\\UpdateUser.cshtml",
               "RelativeDocumentMoniker": "WorkHub\\Views\\Home\\UpdateUser.cshtml",
@@ -233,12 +239,11 @@
               "RelativeToolTip": "WorkHub\\Views\\Home\\UpdateUser.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACoAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-21T13:33:07.081Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-21T13:33:07.081Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 7,
               "Title": "SuperAdminController.cs",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Controllers\\SuperAdminController.cs",
               "RelativeDocumentMoniker": "WorkHub\\Controllers\\SuperAdminController.cs",
@@ -246,12 +251,11 @@
               "RelativeToolTip": "WorkHub\\Controllers\\SuperAdminController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-20T17:55:47.072Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-20T17:55:47.072Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "ManagerIndex.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Views\\Manager\\ManagerIndex.cshtml",
               "RelativeDocumentMoniker": "WorkHub\\Views\\Manager\\ManagerIndex.cshtml",
@@ -263,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 8,
               "Title": "DashboardIndex.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Views\\Dashboard\\DashboardIndex.cshtml",
               "RelativeDocumentMoniker": "WorkHub\\Views\\Dashboard\\DashboardIndex.cshtml",
@@ -275,7 +279,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 10,
               "Title": "About.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Views\\Home\\About.cshtml",
               "RelativeDocumentMoniker": "WorkHub\\Views\\Home\\About.cshtml",
@@ -287,7 +291,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 9,
               "Title": "Error.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\Desktop\\SD\\WorkHub-main\\WorkHub\\Views\\Shared\\Error.cshtml",
               "RelativeDocumentMoniker": "WorkHub\\Views\\Shared\\Error.cshtml",
