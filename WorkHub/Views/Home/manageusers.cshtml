@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "manageusers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+    <!-- Content Wrapper-->
+    <div class="content-wrapper">
+        <!-- Content -->
+        <div class="container-xxl flex-grow-1 container-p-y">
+            <!-- Dashboard Overview -->
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">User Management</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12 mb-4">
+                                    <h6 class="card-title">List of All Users</h6>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>User Name</th>
+                                                <th>User Id</th>
+                                                <th>Role</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Bob Marley</td>
+                                                <td>101</td>
+                                                <td><span class="badge bg-label-primary">Developer</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-primary">Delete</button>
+                                                    <form action="/Home/UpdateUser" method="get" style="display: inline;">
+                                                        <button type="submit" class="btn btn-sm btn-secondary">Update</button>
+                                                    </form>
+
+                                                </td>
+                                            </tr>
+                                            <!-- Repeat for more Users -->
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Harry Potter</td>
+                                                <td>102</td>
+                                                <td><span class="badge bg-label-primary">Manager</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-primary">Delete</button>
+                                                    <button class="btn btn-sm btn-secondary">Update</button>
+                                                </td>
+                                            </tr>
+                                            <!-- Repeat for more Users -->
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Jack</td>
+                                                <td>103</td>
+                                                <td><span class="badge bg-label-primary">Developer</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-primary">Delete</button>
+                                                    <button class="btn btn-sm btn-secondary">Update</button>
+                                                </td>
+                                            </tr>
+                                            <!-- Repeat for more Users -->
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td>Jon Doe</td>
+                                                <td>106</td>
+                                                <td><span class="badge bg-label-primary">Developer</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-primary">Delete</button>
+                                                    <button class="btn btn-sm btn-secondary">Update</button>
+                                                </td>
+                                            </tr>
+                                            <!-- Repeat for more Users -->
+                                        </tbody>
+
+                                        <tbody>
+                                            <tr>
+                                                <td>Oggy</td>
+                                                <td>110</td>
+                                                <td><span class="badge bg-label-primary">Manager</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-primary">Delete</button>
+                                                    <button class="btn btn-sm btn-secondary">Update</button>
+                                                </td>
+                                            </tr>
+                                            <!-- Repeat for more Users -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <h6 class="card-title">Delete/Update Users</h6>
+                                    <form>
+                                        <!-- User form fields here -->
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /Content -->
+    </div>
+
+</body>
+
+
+
+

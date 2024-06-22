@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\WorkHub",
+    "\\WorkHub\\Controllers",
+    "\\WorkHub\\Views",
+    "\\WorkHub\\Views\\Dashboard",
+    "\\WorkHub\\Views\\Manager",
+    "\\WorkHub\\Views\\SuperAdmin"
+  ],
+  "SelectedNode": "\\WorkHub\\Views\\Manager\\ManagerIndex.cshtml",
+  "PreviewInSolutionExplorer": false
+}
