@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "Notifications";
+    Layout = "~/Views/Developer/DeveloperIndex.cshtml";
+}
+
+
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Notifications</h1>
+
+    <!-- Filters -->
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <input type="text" class="form-control" id="search" placeholder="Search notifications...">
+        </div>
+        <div class="col-md-4">
+            <select class="form-control" id="filterType">
+                <option value="">Filter by type</option>
+                <option value="Info">Info</option>
+                <option value="Warning">Warning</option>
+                <option value="Error">Error</option>
+            </select>
+        </div>
+        <div class="col-md-4 text-right">
+            <button class="btn btn-primary" onclick="markAllRead()">Mark All Read</button>
+        </div>
+    </div>
+
+    <!-- Notifications Table -->
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Message</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Server maintenance scheduled for tomorrow.</td>
+                    <td><span class="badge badge-info">Info</span></td>
+                    <td>2024-06-20</td>
+                    <td>
+                        <button class="btn btn-sm btn-success" onclick="markRead(this)"><i class="fas fa-check"></i></button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteNotification(this)"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>High memory usage detected on server.</td>
+                    <td><span class="badge badge-warning">Warning</span></td>
+                    <td>2024-06-19</td>
+                    <td>
+                        <button class="btn btn-sm btn-success" onclick="markRead(this)"><i class="fas fa-check"></i></button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteNotification(this)"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                <!-- Additional notifications can be added here -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+    <script>
+        function markRead(button) {
+            var row = button.closest('tr');
+            row.querySelector('.badge').classList.add('badge-secondary');
+            button.disabled = true;
+        }
+
+        function deleteNotification(button) {
+            var row = button.closest('tr');
+            row.remove();
+        }
+
+        function markAllRead() {
+            var rows = document.querySelectorAll('tbody tr');
+            rows.forEach(function (row) {
+                var badge = row.querySelector('.badge');
+                if (!badge.classList.contains('badge-secondary')) {
+                    badge.classList.add('badge-secondary');
+                    var button = row.querySelector('.btn-success');
+                    button.disabled = true;
+                }
+            });
+        }
+
+        // Additional JavaScript to handle search and filter functionalities
+    </script>
+
+

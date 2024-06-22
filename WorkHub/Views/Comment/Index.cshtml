@@ -1,0 +1,31 @@
+﻿<!-- Views/Movies/Index.cshtml -->
+@model IEnumerable<WorkHub.Models.Comments>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movies</title>
+</head>
+<body>
+    <h1>Movies</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Text</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var comment in Model)
+            {
+                <tr>
+                    <td>@comment.name</td>
+                    <td>@comment.text</td>
+                    <td>@comment.date</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,142 @@
+﻿
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Developer/DeveloperIndex.cshtml";
+
+}
+
+<div class="container">
+    <div class="profile-header">
+        <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-picture">
+        <h1 class="my-3">John Doe</h1>
+        <h4>Senior Software Engineer</h4>
+        <p>Email: <a href="mailto:jane.doe@example.com">jane.doe@example.com</a></p>
+        <p>
+            <a href="https://linkedin.com/in/janedoe" class="btn btn-outline-primary btn-sm" target="_blank">LinkedIn</a>
+            <a href="https://github.com/janedoe" class="btn btn-outline-dark btn-sm" target="_blank">GitHub</a>
+            <a href="https://twitter.com/janedoe_dev" class="btn btn-outline-info btn-sm" target="_blank">Twitter</a>
+        </p>
+    </div>
+
+    <div class="my-5">
+        <h2>About Me</h2>
+        <p>Hi, I'm Jane Doe, a Senior Software Engineer with over 8 years of experience in developing and managing web applications. I specialize in full-stack development and have a passion for creating user-friendly, efficient, and scalable software solutions.</p>
+    </div>
+
+    <div class="my-5">
+        <h2>Skills</h2>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Programming Languages:</strong> JavaScript, TypeScript, Python, Java</li>
+            <li class="list-group-item"><strong>Frameworks and Libraries:</strong> React, Node.js, Django, Spring Boot</li>
+            <li class="list-group-item"><strong>Databases:</strong> PostgreSQL, MongoDB, MySQL</li>
+            <li class="list-group-item"><strong>Tools and Technologies:</strong> Docker, Kubernetes, Git, Jenkins</li>
+            <li class="list-group-item"><strong>Cloud Services:</strong> AWS, Google Cloud Platform, Azure</li>
+        </ul>
+    </div>
+
+    <div class="my-5">
+        <h2>Projects</h2>
+        <div class="accordion" id="projectsAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="projectOneHeading">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#projectOne" aria-expanded="true" aria-controls="projectOne">
+                        Project Management Tool
+                    </button>
+                </h2>
+                <div id="projectOne" class="accordion-collapse collapse show" aria-labelledby="projectOneHeading" data-bs-parent="#projectsAccordion">
+                    <div class="accordion-body">
+                        <strong>Role:</strong> Lead Developer<br>
+                        <strong>Description:</strong> Designed and implemented a comprehensive project management tool to help teams track progress, collaborate, and manage tasks efficiently.<br>
+                        <strong>Technologies Used:</strong> React, Node.js, PostgreSQL, AWS
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="projectTwoHeading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#projectTwo" aria-expanded="false" aria-controls="projectTwo">
+                        E-Commerce Platform
+                    </button>
+                </h2>
+                <div id="projectTwo" class="accordion-collapse collapse" aria-labelledby="projectTwoHeading" data-bs-parent="#projectsAccordion">
+                    <div class="accordion-body">
+                        <strong>Role:</strong> Full-Stack Developer<br>
+                        <strong>Description:</strong> Developed a scalable e-commerce platform with features like product listings, shopping carts, and secure payment gateways.<br>
+                        <strong>Technologies Used:</strong> Django, React, MySQL, Docker
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="projectThreeHeading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#projectThree" aria-expanded="false" aria-controls="projectThree">
+                        Social Networking Site
+                    </button>
+                </h2>
+                <div id="projectThree" class="accordion-collapse collapse" aria-labelledby="projectThreeHeading" data-bs-parent="#projectsAccordion">
+                    <div class="accordion-body">
+                        <strong>Role:</strong> Backend Developer<br>
+                        <strong>Description:</strong> Built and maintained the backend infrastructure for a social networking site, ensuring high availability and performance.<br>
+                        <strong>Technologies Used:</strong> Spring Boot, MongoDB, Kubernetes
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-5">
+        <h2>Open Source Contributions</h2>
+        <ul class="list-group">
+            <li class="list-group-item">React: Contributed to the React library by fixing bugs and adding new features.</li>
+            <li class="list-group-item">Django REST framework: Improved documentation and added new serializers for better data handling.</li>
+            <li class="list-group-item">Node.js: Enhanced performance and security features through code contributions.</li>
+        </ul>
+    </div>
+
+    <div class="my-5">
+        <h2>Testimonials</h2>
+        <blockquote class="blockquote">
+            <p class="mb-0">"Jane is an outstanding developer with an incredible work ethic. She consistently delivers high-quality work and is a great team player."</p>
+            <footer class="blockquote-footer">John Smith, Project Manager</footer>
+        </blockquote>
+        <blockquote class="blockquote">
+            <p class="mb-0">"Jane's expertise in full-stack development has been invaluable to our projects. Her ability to quickly grasp complex requirements and translate them into functional code is impressive."</p>
+            <footer class="blockquote-footer">Emily Brown, Product Owner</footer>
+        </blockquote>
+    </div>
+
+    <div class="my-5">
+        <h2>Education</h2>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Master of Science in Computer Science</strong> - University of Technology, 2014</li>
+            <li class="list-group-item"><strong>Bachelor of Science in Computer Engineering</strong> - State University, 2012</li>
+        </ul>
+    </div>
+
+    <div class="my-5">
+        <h2>Certifications</h2>
+        <ul class="list-group">
+            <li class="list-group-item">Certified Kubernetes Administrator (CKA)</li>
+            <li class="list-group-item">AWS Certified Solutions Architect – Professional</li>
+            <li class="list-group-item">Google Cloud Professional Cloud Architect</li>
+        </ul>
+    </div>
+
+    <div class="my-5">
+        <h2>Blog</h2>
+        <p>I regularly share my insights and experiences in software development on my blog. Check it out for articles on best practices, tutorials, and industry trends.</p>
+        <p><a href="https://janedoe.dev/blog" target="_blank" class="btn btn-outline-primary">Jane's Tech Blog</a></p>
+    </div>
+
+    <div class="my-5">
+        <h2>Hobbies and Interests</h2>
+        <ul class="list-group">
+            <li class="list-group-item">Coding and contributing to open-source projects</li>
+            <li class="list-group-item">Attending tech meetups and conferences</li>
+            <li class="list-group-item">Reading science fiction novels</li>
+            <li class="list-group-item">Hiking and outdoor adventures</li>
+        </ul>
+    </div>
+
+    <footer class="text-center my-5">
+        <p>Feel free to reach out to me for collaboration, speaking engagements, or just to chat about technology!</p>
+    </footer>
+</div>

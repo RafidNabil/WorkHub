@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "BuildStatus";
+    Layout = "~/Views/Developer/DeveloperIndex.cshtml";
+}
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col">
+            <h1>Build Status Page</h1>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col">
+            <!-- Build status cards -->
+            <div class="card build">
+                <div class="card-body">
+                    <h5 class="card-title">Build #1</h5>
+                    <p class="card-text">Status: Success</span></p>
+                    <p class="card-text">Started: June 15, 2024 10:00 AM</p>
+                    <p class="card-text">Duration: 2 minutes</p>
+                    <a href="#" class="btn btn-sm btn-primary">View Details</a>
+                </div>
+            </div>
+
+            <div class="card build">
+                <div class="card-body">
+                    <h5 class="card-title">Build #2</h5>
+                    <p class="card-text">Status: Pending</span></p>
+                    <p class="card-text">Started: June 16, 2024 11:00 AM</p>
+                    <p class="card-text">Duration: In Progress</p>
+                    <a href="#" class="btn btn-sm btn-primary">View Details</a>
+                </div>
+            </div>
+
+            <div class="card build">
+                <div class="card-body">
+                    <h5 class="card-title">Build #3</h5>
+                    <p class="card-text">Status: Failed</span></p>
+                    <p class="card-text">Started: June 17, 2024 12:00 PM</p>
+                    <p class="card-text">Duration: 1 minute 30 seconds</p>
+                    <a href="#" class="btn btn-sm btn-primary">View Details</a>
+                </div>
+            </div>
+
+            <!-- Add more build status cards as needed -->
+        </div>
+    </div>
+</div>

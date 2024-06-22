@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "ActiveBran";
+    Layout = "~/Views/Developer/DeveloperIndex.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <h1 class="text-center mb-4">Active Branches</h1>
+
+            <!-- Branch cards -->
+            <div class="branch-card">
+                <h3>Branch Name 1</h3>
+                <p><strong>Last Commit:</strong> Commit message or details</p>
+                <p><strong>Updated:</strong> Date and Time</p>
+                <span class="badge badge-success">Active</span>
+                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i> View Branch</a>
+            </div>
+
+            <div class="branch-card">
+                <h3>Branch Name 2</h3>
+                <p><strong>Last Commit:</strong> Commit message or details</p>
+                <p><strong>Updated:</strong> Date and Time</p>
+                <span class="badge badge-warning">Pending</span>
+                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i> View Branch</a>
+            </div>
+
+            <div class="branch-card">
+                <h3>Branch Name 3</h3>
+                <p><strong>Last Commit:</strong> Commit message or details</p>
+                <p><strong>Updated:</strong> Date and Time</p>
+                <span class="badge badge-danger">Inactive</span>
+                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i> View Branch</a>
+            </div>
+
+            <!-- Add more branch cards as needed -->
+
+        </div>
+    </div>
+</div>

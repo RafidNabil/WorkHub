@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "AssignTasks";
+    Layout = "~/Views/Developer/DeveloperIndex.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <!-- Project Details -->
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Project: Project Name</h5>
+                    <p class="card-text">Project Description or Details...</p>
+                    <p class="card-text"><strong>Project Manager:</strong> John Doe</p>
+                    <p class="card-text"><strong>Start Date:</strong> 2024-01-01</p>
+                    <p class="card-text"><strong>End Date:</strong> 2024-12-31</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Task List -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Task List</h5>
+
+                    <!-- Task Categories -->
+                    <ul class="nav nav-tabs" id="taskTabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="pending-tab" data-toggle="tab" href="#pending" role="tab" aria-controls="pending" aria-selected="true">Pending</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="inprogress-tab" data-toggle="tab" href="#inprogress" role="tab" aria-controls="inprogress" aria-selected="false">In Progress</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="completed-tab" data-toggle="tab" href="#completed" role="tab" aria-controls="completed" aria-selected="false">Completed</a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab Content -->
+                    <div class="tab-content mt-3" id="taskTabsContent">
+                        <!-- Pending Tasks -->
+                        <div class="tab-pane fade show active" id="pending" role="tabpanel" aria-labelledby="pending-tab">
+                            <ul class="list-group">
+                                <li class="list-group-item">Task 1 <span class="badge badge-primary badge-pill">Due: 2024-06-21</span></li>
+                                <li class="list-group-item">Task 2 <span class="badge badge-primary badge-pill">Due: 2024-06-22</span></li>
+                            </ul>
+                        </div>
+                        <!-- In Progress Tasks -->
+                        <div class="tab-pane fade" id="inprogress" role="tabpanel" aria-labelledby="inprogress-tab">
+                            <ul class="list-group">
+                                <li class="list-group-item">Task 3 <span class="badge badge-primary badge-pill">Due: 2024-06-23</span></li>
+                            </ul>
+                        </div>
+                        <!-- Completed Tasks -->
+                        <div class="tab-pane fade" id="completed" role="tabpanel" aria-labelledby="completed-tab">
+                            <ul class="list-group">
+                                <li class="list-group-item">Task 4 <span class="badge badge-success badge-pill">Completed</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Task Form -->
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Add New Task</h5>
+            <form>
+                <div class="form-group">
+                    <label for="taskName">Task Name</label>
+                    <input type="text" class="form-control" id="taskName" placeholder="Enter task name">
+                </div>
+                <div class="form-group">
+                    <label for="dueDate">Due Date</label>
+                    <input type="date" class="form-control" id="dueDate">
+                </div>
+                <button type="submit" class="btn btn-primary">Add Task</button>
+            </form>
+        </div>
+    </div>
+</div>
+

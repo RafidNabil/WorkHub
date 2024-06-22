@@ -1,0 +1,374 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\VS pROJECTS\\WorkHub-main\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|E:\\VS pROJECTS\\WorkHub-main\\workhub\\controllers\\developercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\controllers\\developercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|e:\\vs projects\\workhub-main\\workhub\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|E:\\VS pROJECTS\\WorkHub-main\\workhub\\views\\developer\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\developer\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|E:\\VS pROJECTS\\WorkHub-main\\workhub\\views\\developer\\developerindex.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\developer\\developerindex.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|E:\\VS pROJECTS\\WorkHub-main\\workhub\\views\\developer\\activebran.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\developer\\activebran.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|E:\\VS pROJECTS\\WorkHub-main\\workhub\\views\\developer\\branchmanagement.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\developer\\branchmanagement.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|E:\\VS pROJECTS\\WorkHub-main\\workhub\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|E:\\VS pROJECTS\\WorkHub-main\\workhub\\views\\developer\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\developer\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|E:\\VS pROJECTS\\WorkHub-main\\workhub\\views\\developer\\viewtasks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\developer\\viewtasks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|E:\\VS pROJECTS\\WorkHub-main\\workhub\\views\\developer\\repositoryview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\developer\\repositoryview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|E:\\VS pROJECTS\\WorkHub-main\\workhub\\views\\developer\\recentcom.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\developer\\recentcom.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|E:\\VS pROJECTS\\WorkHub-main\\workhub\\views\\developer\\projectprogress.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\developer\\projectprogress.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|E:\\VS pROJECTS\\WorkHub-main\\workhub\\views\\developer\\projectdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\developer\\projectdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|E:\\VS pROJECTS\\WorkHub-main\\workhub\\views\\developer\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\developer\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|E:\\VS pROJECTS\\WorkHub-main\\workhub\\views\\developer\\notifications.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\developer\\notifications.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|E:\\VS pROJECTS\\WorkHub-main\\workhub\\views\\developer\\newdep.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\developer\\newdep.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|E:\\VS pROJECTS\\WorkHub-main\\workhub\\views\\developer\\newbuild.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\developer\\newbuild.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|E:\\VS pROJECTS\\WorkHub-main\\workhub\\views\\developer\\logout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\developer\\logout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|E:\\VS pROJECTS\\WorkHub-main\\workhub\\views\\developer\\deploymentstatus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\developer\\deploymentstatus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|E:\\VS pROJECTS\\WorkHub-main\\workhub\\views\\developer\\commithistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\developer\\commithistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|E:\\VS pROJECTS\\WorkHub-main\\workhub\\views\\developer\\buildstatus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\developer\\buildstatus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|E:\\VS pROJECTS\\WorkHub-main\\workhub\\views\\developer\\assigntasks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\developer\\assigntasks.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RouteConfig.cs",
+              "DocumentMoniker": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\App_Start\\RouteConfig.cs",
+              "RelativeDocumentMoniker": "WorkHub\\App_Start\\RouteConfig.cs",
+              "ToolTip": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\App_Start\\RouteConfig.cs",
+              "RelativeToolTip": "WorkHub\\App_Start\\RouteConfig.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAABNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-22T14:40:55.058Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "WorkHub\\Views\\Developer\\Dashboard.cshtml",
+              "ToolTip": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\Dashboard.cshtml",
+              "RelativeToolTip": "WorkHub\\Views\\Developer\\Dashboard.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-22T14:33:57.82Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ViewTasks.cshtml",
+              "DocumentMoniker": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\ViewTasks.cshtml",
+              "RelativeDocumentMoniker": "WorkHub\\Views\\Developer\\ViewTasks.cshtml",
+              "ToolTip": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\ViewTasks.cshtml",
+              "RelativeToolTip": "WorkHub\\Views\\Developer\\ViewTasks.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-21T06:36:09.653Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "WorkHub\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "WorkHub\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFoAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-20T14:45:31.052Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DeveloperController.cs",
+              "DocumentMoniker": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Controllers\\DeveloperController.cs",
+              "RelativeDocumentMoniker": "WorkHub\\Controllers\\DeveloperController.cs",
+              "ToolTip": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Controllers\\DeveloperController.cs",
+              "RelativeToolTip": "WorkHub\\Controllers\\DeveloperController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGsAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T15:02:13.079Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DeveloperIndex.cshtml",
+              "DocumentMoniker": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\DeveloperIndex.cshtml",
+              "RelativeDocumentMoniker": "WorkHub\\Views\\Developer\\DeveloperIndex.cshtml",
+              "ToolTip": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\DeveloperIndex.cshtml",
+              "RelativeToolTip": "WorkHub\\Views\\Developer\\DeveloperIndex.cshtml",
+              "ViewState": "AQIAAKoBAAAAAAAAAAAAAEMAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-19T04:06:34.443Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ActiveBran.cshtml",
+              "DocumentMoniker": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\ActiveBran.cshtml",
+              "RelativeDocumentMoniker": "WorkHub\\Views\\Developer\\ActiveBran.cshtml",
+              "ToolTip": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\ActiveBran.cshtml",
+              "RelativeToolTip": "WorkHub\\Views\\Developer\\ActiveBran.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-22T13:47:51.687Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LogIn.cshtml",
+              "DocumentMoniker": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\LogIn.cshtml",
+              "RelativeDocumentMoniker": "WorkHub\\Views\\Developer\\LogIn.cshtml",
+              "ToolTip": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\LogIn.cshtml",
+              "RelativeToolTip": "WorkHub\\Views\\Developer\\LogIn.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-22T05:16:41.39Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BranchManagement.cshtml",
+              "DocumentMoniker": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\BranchManagement.cshtml",
+              "RelativeDocumentMoniker": "WorkHub\\Views\\Developer\\BranchManagement.cshtml",
+              "ToolTip": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\BranchManagement.cshtml",
+              "RelativeToolTip": "WorkHub\\Views\\Developer\\BranchManagement.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-22T13:49:29.222Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RepositoryView.cshtml",
+              "DocumentMoniker": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\RepositoryView.cshtml",
+              "RelativeDocumentMoniker": "WorkHub\\Views\\Developer\\RepositoryView.cshtml",
+              "ToolTip": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\RepositoryView.cshtml",
+              "RelativeToolTip": "WorkHub\\Views\\Developer\\RepositoryView.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-22T14:03:18.973Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "RecentCom.cshtml",
+              "DocumentMoniker": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\RecentCom.cshtml",
+              "RelativeDocumentMoniker": "WorkHub\\Views\\Developer\\RecentCom.cshtml",
+              "ToolTip": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\RecentCom.cshtml",
+              "RelativeToolTip": "WorkHub\\Views\\Developer\\RecentCom.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-22T14:02:18.565Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ProjectDetails.cshtml",
+              "DocumentMoniker": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\ProjectDetails.cshtml",
+              "RelativeDocumentMoniker": "WorkHub\\Views\\Developer\\ProjectDetails.cshtml",
+              "ToolTip": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\ProjectDetails.cshtml",
+              "RelativeToolTip": "WorkHub\\Views\\Developer\\ProjectDetails.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-21T14:48:40.696Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\Profile.cshtml",
+              "RelativeDocumentMoniker": "WorkHub\\Views\\Developer\\Profile.cshtml",
+              "ToolTip": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\Profile.cshtml",
+              "RelativeToolTip": "WorkHub\\Views\\Developer\\Profile.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-21T16:09:19.278Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Notifications.cshtml",
+              "DocumentMoniker": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\Notifications.cshtml",
+              "RelativeDocumentMoniker": "WorkHub\\Views\\Developer\\Notifications.cshtml",
+              "ToolTip": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\Notifications.cshtml",
+              "RelativeToolTip": "WorkHub\\Views\\Developer\\Notifications.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-21T15:51:34.254Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "NewDep.cshtml",
+              "DocumentMoniker": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\NewDep.cshtml",
+              "RelativeDocumentMoniker": "WorkHub\\Views\\Developer\\NewDep.cshtml",
+              "ToolTip": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\NewDep.cshtml",
+              "RelativeToolTip": "WorkHub\\Views\\Developer\\NewDep.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-22T13:55:30.522Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "NewBuild.cshtml",
+              "DocumentMoniker": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\NewBuild.cshtml",
+              "RelativeDocumentMoniker": "WorkHub\\Views\\Developer\\NewBuild.cshtml",
+              "ToolTip": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\NewBuild.cshtml",
+              "RelativeToolTip": "WorkHub\\Views\\Developer\\NewBuild.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-22T13:54:46.219Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "LogOut.cshtml",
+              "DocumentMoniker": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\LogOut.cshtml",
+              "RelativeDocumentMoniker": "WorkHub\\Views\\Developer\\LogOut.cshtml",
+              "ToolTip": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\LogOut.cshtml",
+              "RelativeToolTip": "WorkHub\\Views\\Developer\\LogOut.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-22T05:03:59.544Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ProjectProgress.cshtml",
+              "DocumentMoniker": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\ProjectProgress.cshtml",
+              "RelativeDocumentMoniker": "WorkHub\\Views\\Developer\\ProjectProgress.cshtml",
+              "ToolTip": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\ProjectProgress.cshtml",
+              "RelativeToolTip": "WorkHub\\Views\\Developer\\ProjectProgress.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-21T15:28:58.105Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "DeploymentStatus.cshtml",
+              "DocumentMoniker": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\DeploymentStatus.cshtml",
+              "RelativeDocumentMoniker": "WorkHub\\Views\\Developer\\DeploymentStatus.cshtml",
+              "ToolTip": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\DeploymentStatus.cshtml",
+              "RelativeToolTip": "WorkHub\\Views\\Developer\\DeploymentStatus.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-22T13:52:20.222Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "CommitHistory.cshtml",
+              "DocumentMoniker": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\CommitHistory.cshtml",
+              "RelativeDocumentMoniker": "WorkHub\\Views\\Developer\\CommitHistory.cshtml",
+              "ToolTip": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\CommitHistory.cshtml",
+              "RelativeToolTip": "WorkHub\\Views\\Developer\\CommitHistory.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-22T13:51:27.423Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "BuildStatus.cshtml",
+              "DocumentMoniker": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\BuildStatus.cshtml",
+              "RelativeDocumentMoniker": "WorkHub\\Views\\Developer\\BuildStatus.cshtml",
+              "ToolTip": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\BuildStatus.cshtml",
+              "RelativeToolTip": "WorkHub\\Views\\Developer\\BuildStatus.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-22T13:50:15.802Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "AssignTasks.cshtml",
+              "DocumentMoniker": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\AssignTasks.cshtml",
+              "RelativeDocumentMoniker": "WorkHub\\Views\\Developer\\AssignTasks.cshtml",
+              "ToolTip": "E:\\VS pROJECTS\\WorkHub-main\\WorkHub\\Views\\Developer\\AssignTasks.cshtml",
+              "RelativeToolTip": "WorkHub\\Views\\Developer\\AssignTasks.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-22T13:39:52.699Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

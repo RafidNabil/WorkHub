@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "ProjectProgress";
+    Layout = "~/Views/Developer/DeveloperIndex.cshtml";
+
+}
+
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Project Progress</h1>
+
+    <!-- Overall Progress -->
+    <div class="row mb-4">
+        <div class="col">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Overall Progress</h5>
+                    <div class="progress mb-3">
+                        <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
+                    </div>
+                    <p class="card-text">The project is currently 70% complete.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Milestones -->
+    <div class="row mb-4">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Milestones</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <i class="fas fa-check-circle text-success"></i> Milestone 1: Project Initialization <span class="badge badge-success">Completed</span>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-spinner text-warning"></i> Milestone 2: First Prototype <span class="badge badge-warning">In Progress</span>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-times-circle text-danger"></i> Milestone 3: User Testing <span class="badge badge-danger">Pending</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tasks Completed -->
+    <div class="row mb-4">
+        <div class="col">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Tasks Completed</h5>
+                    <p class="card-text">20 out of 30 tasks have been completed.</p>
+                    <div class="progress mb-3">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 66%;" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100">66%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upcoming Deadlines -->
+    <div class="row mb-4">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Upcoming Deadlines</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <i class="fas fa-calendar-alt"></i> Prototype Completion: <strong>2024-07-01</strong>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-calendar-alt"></i> User Testing Start: <strong>2024-07-15</strong>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-calendar-alt"></i> Final Review: <strong>2024-08-01</strong>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Progress -->
+    <div class="row mb-4">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Team Progress</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <i class="fas fa-user-circle"></i> John Doe: <span class="badge badge-success">8 tasks completed</span>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-user-circle"></i> Jane Smith: <span class="badge badge-warning">5 tasks in progress</span>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-user-circle"></i> Bob Johnson: <span class="badge badge-danger">3 tasks pending</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
