@@ -1,0 +1,173 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Developer/DeveloperIndex.cshtml";
+
+}
+
+
+                        <h1 class="mb-4 text-center">Developer Dashboard Overview</h1>
+
+                        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                            <!-- Project Overview Card -->
+                            <div class="col">
+                                <div class="card h-100 text-center">
+                                    <div class="card-body">
+                                        <i class="fas fa-project-diagram fa-3x mb-3"></i>
+                                        <h5 class="card-title">Project Overview</h5>
+                                        <p class="card-text">View project details, recent commits, and active branches.</p>
+                                        @*@<a href="#" class="btn btn-primary">View Details</a>*@
+                                        <a href="@Url.Action("ProjectDetails", "Developer")" class="btn btn-primary">
+                                            View Details
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Code Repository Card -->
+                            <div class="col">
+                                <div class="card h-100 text-center">
+                                    <div class="card-body">
+                                        <i class="fas fa-code-branch fa-3x mb-3"></i>
+                                        <h5 class="card-title">Code Repository</h5>
+                                        <p class="card-text">Access the code repository, view commit history, and manage branches.</p>
+                                        @*<a href="#" class="btn btn-primary">View Repository</a>*@
+                                        <a href="@Url.Action("RepositoryView", "Developer")" class="btn btn-primary">
+                                            View Repository
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Build Management Card -->
+                            <div class="col">
+                                <div class="card h-100 text-center">
+                                    <div class="card-body">
+                                        <i class="fas fa-cogs fa-3x mb-3"></i>
+                                        <h5 class="card-title">Build Management</h5>
+                                        <p class="card-text">Check build status, view build history, and trigger new builds.</p>
+
+                                        <a href="@Url.Action("NewBuild", "Developer")" class="btn btn-primary">
+                                            Manage Builds
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Deployment Card -->
+                            <div class="col">
+                                <div class="card h-100 text-center">
+                                    <div class="card-body">
+                                        <i class="fas fa-cloud-upload-alt fa-3x mb-3"></i>
+                                        <h5 class="card-title">Deployment</h5>
+                                        <p class="card-text">View deployment status, deployment history, and trigger new deployments.</p>
+
+                                        <a href="@Url.Action("NewDep", "Developer")" class="btn btn-primary">
+                                            Manage Deployments
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Task Management Card -->
+                            <div class="col">
+                                <div class="card h-100 text-center">
+                                    <div class="card-body">
+                                        <i class="fas fa-tasks fa-3x mb-3"></i>
+                                        <h5 class="card-title">Task Management</h5>
+                                        <p class="card-text">View tasks, create new tasks, and assign tasks to team members.</p>
+
+                                        <a href="@Url.Action("ViewTasks", "Developer")" class="btn btn-primary">
+                                            Manage Tasks
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Logs and Monitoring Card -->
+                            <div class="col">
+                                <div class="card h-100 text-center">
+                                    <div class="card-body">
+                                        <i class="fas fa-file-alt fa-3x mb-3"></i>
+                                        <h5 class="card-title">Logs and Monitoring</h5>
+                                        <p class="card-text">View application and system logs, and monitor performance metrics.</p>
+                                        <a href="#" class="btn btn-primary">View Logs</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- API Management Card -->
+                            <div class="col">
+                                <div class="card h-100 text-center">
+                                    <div class="card-body">
+                                        <i class="fas fa-plug fa-3x mb-3"></i>
+                                        <h5 class="card-title">API Management</h5>
+                                        <p class="card-text">Manage APIs, view documentation, and test APIs.</p>
+                                        <a href="#" class="btn btn-primary">Manage APIs</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- User Management Card -->
+                            <div class="col">
+                                <div class="card h-100 text-center">
+                                    <div class="card-body">
+                                        <i class="fas fa-user-shield fa-3x mb-3"></i>
+                                        <h5 class="card-title">User Management</h5>
+                                        <p class="card-text">Manage user access, roles, and permissions.</p>
+                                        <a href="#" class="btn btn-primary">Manage Users</a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <!-- Reports Card -->
+                            <div class="col">
+                                <div class="card h-100 text-center">
+                                    <div class="card-body">
+                                        <i class="fas fa-chart-bar fa-3x mb-3"></i>
+                                        <h5 class="card-title">Reports</h5>
+                                        <p class="card-text">View build, deployment, and task reports.</p>
+
+                                        <a href="@Url.Action("ProjectProgress", "Developer")" class="btn btn-primary">
+                                            View Reports
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- /Content -->
+                        <!-- Footer -->
+                        @*<footer class="content-footer footer bg-footer-theme">
+                                <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                                    <div class="mb-2 mb-md-0">
+                                        ©
+                                        <script>document.write(new Date().getFullYear());</script>, made with ❤️ by <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">ThemeSelection</a>
+                                    </div>
+                                    <div>
+                                        <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation" target="_blank" class="footer-link me-4">Documentation</a>
+                                        <a href="https://themeselection.com/support" target="_blank" class="footer-link me-4">Support</a>
+                                    </div>
+                                </div>
+                            </footer>*@
+                        <!-- / Footer -->
+
+                        <div class="content-backdrop fade"></div>
+                    
+                    <!-- Content wrapper -->
+                
+                <!-- / Layout page -->
+            
+
+            <!-- Overlay -->
+            <div class="layout-overlay layout-menu-toggle"></div>
+        
+        
+
+
+
+

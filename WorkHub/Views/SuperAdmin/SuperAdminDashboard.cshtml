@@ -1,0 +1,168 @@
+﻿
+@{
+    ViewBag.Title = "SuperAdminDashboard";
+    Layout = "~/Views/SuperAdmin/SuperAdminIndex.cshtml";
+}
+
+<!-- Dashboard Overview -->
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Dashboard Overview</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-lg-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title">Active Users</h6>
+                                <p class="card-text">Summary of active users.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title">Recent Activities</h6>
+                                <p class="card-text">Recent user activities.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title">Status</h6>
+                                <p class="card-text">System health/status.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- User Managements -->
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">User Management</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <h6 class="card-title">New Users</h6>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>User Name</th>
+                                    <th>User Id</th>
+                                    <th>Role</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Bob Marley</td>
+                                    <td>101</td>
+                                    <td><span class="badge bg-label-primary">Developer</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-primary">Delete</button>
+                                        <button class="btn btn-sm btn-secondary">Edit</button>
+                                    </td>
+                                </tr>
+                                <!-- Repeat for more Users -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-12 mb-4">
+                        <h6 class="card-title">Delete/Edit Users</h6>
+                        <form>
+                            <!-- User form fields here -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- System settings -->
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">System Settings and Role Management</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-lg-6 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title">Sysyem Settings</h6>
+                                <p class="card-text">Application Settings</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title">Permission Management</h6>
+                                <p class="card-text">Permisssion for roles</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Audit Logs -->
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Audit Logs</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-lg-6 mb-4">
+                        <h6 class="card-title">Activity Type</h6>
+                        <!-- Insert type of a user activity here -->
+                    </div>
+                    <div class="col-12 col-lg-6 mb-4">
+                        <h6 class="card-title">User Activities</h6>
+                        <!-- Insert user activities here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Reports -->
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Reports</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-lg-6 mb-4">
+                        <h6 class="card-title">Project Progress</h6>
+                        <!-- Insert project progress chart here -->
+                    </div>
+                    <div class="col-12 col-lg-6 mb-4">
+                        <h6 class="card-title">Task Completion Rates</h6>
+                        <!-- Insert task completion chart here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Content -->

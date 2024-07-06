@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "ViewTasks";
+    Layout = "~/Views/Developer/DeveloperIndex.cshtml";
+}
+
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">View Tasks</h1>
+
+    <!-- Filters -->
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <input type="text" class="form-control" id="search" placeholder="Search tasks...">
+        </div>
+        <div class="col-md-4">
+            <select class="form-control" id="filterStatus">
+                <option value="">Filter by status</option>
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+            </select>
+        </div>
+        <div class="col-md-4 text-right">
+            <button class="btn btn-primary" onclick="addTask()">Choose Task</button>
+        </div>
+    </div>
+
+    <!-- Tasks Table -->
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Task Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Assignee</th>
+                    <th scope="col">Due Date</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Design Login Page</td>
+                    <td>Create a responsive login page</td>
+                    <td>In Progress</td>
+                    <td>John Doe</td>
+                    <td>2024-07-01</td>
+                    <td>
+                        <button class="btn btn-sm btn-info"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Set Up Database</td>
+                    <td>Initialize the project database</td>
+                    <td>Completed</td>
+                    <td>Jane Smith</td>
+                    <td>2024-06-21</td>
+                    <td>
+                        <button class="btn btn-sm btn-info"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                <!-- Additional tasks can be added here -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+    <script>
+        function addTask() {
+            // Logic to add a new task
+            alert('Add Task button clicked!');
+        }
+
+        // Additional JavaScript to handle search, filter, edit, and delete functionalities
+    </script>
+

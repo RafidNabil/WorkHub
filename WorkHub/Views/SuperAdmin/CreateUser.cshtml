@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Create User";
+    Layout = "~/Views/SuperAdmin/SuperAdminIndex.cshtml";
+}
+
+
+
+<div class="card" style="padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
+    <h2 style="text-align: center; font-family: 'Times New Roman', Times, serif;">Create User</h2>
+    <form action="/Home/CreateUser" method="post" style="max-width: 600px; margin: auto;">
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label for="firstname" style="display: block; margin-bottom: 5px; font-family: 'Times New Roman', Times, serif;">First Name:</label>
+            <input type="text" id="firstname" name="firstname" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label for="lastname" style="display: block; margin-bottom: 5px; font-family: 'Times New Roman', Times, serif;">Last Name:</label>
+            <input type="text" id="lastname" name="lastname" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label for="email" style="display: block; margin-bottom: 5px; font-family: 'Times New Roman', Times, serif;">Email:</label>
+            <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label for="password" style="display: block; margin-bottom: 5px; font-family: 'Times New Roman', Times, serif;">Password:</label>
+            <input type="password" id="password" name="password" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label style="display: block; margin-bottom: 5px; font-family: 'Times New Roman', Times, serif;">Is Project Manager:</label>
+            <div class="radio-group" style="display: flex; gap: 10px;">
+                <label style="font-family: 'Times New Roman', Times, serif;">
+                    <input type="radio" name="isProjectManager" value="true" required> Yes
+                </label>
+                <label style="font-family: 'Times New Roman', Times, serif;">
+                    <input type="radio" name="isProjectManager" value="false" required> No
+                </label>
+            </div>
+        </div>
+        <div class="form-group" style="text-align: center;">
+            <button type="submit" style="padding: 10px 20px; border: none; background-color: #007bff; color: #fff; border-radius: 4px; font-family: 'Times New Roman', Times, serif;">Create User</button>
+        </div>
+    </form>
+</div>
+
+
+

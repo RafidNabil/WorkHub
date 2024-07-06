@@ -2,7 +2,9 @@
 
 @{
     ViewBag.Title = "Create Project";
-    Layout = "~/Views/Manager/ManagerIndex.cshtml";
+    Layout = "~/Views/Manager/Managerindex.cshtml";
+
+    var users = ViewBag.Users as List<WorkHub.Models.UserSignUp> ?? new List<WorkHub.Models.UserSignUp>();
 }
 
 <!-- Include Font Awesome -->
@@ -11,49 +13,46 @@
 <h2>Create Project</h2>
 <p>Fill in the details below to create a new project.</p>
 
-<form action="@Url.Action("CreateProject", "Manager")" method="post" class="needs-validation" novalidate>
+@using (Html.BeginForm("CreateProject", "Manager", FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate" }))
+{
     <div class="card">
         <div class="card-header">
             <h5 class="card-title">Project Details</h5>
         </div>
         <div class="card-body">
             <div class="mb-3">
-                <label for="ProjectName" class="form-label">Project Name</label>
-                <input type="text" class="form-control" id="ProjectName" name="ProjectName" placeholder="Enter project name" required>
+                @Html.LabelFor(m => m.ProjectName, new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.ProjectName, new { @class = "form-control", placeholder = "Enter project name", required = "required" })
                 <div class="invalid-feedback">
                     Please enter a project name.
                 </div>
             </div>
             <div class="mb-3">
-                <label for="Description" class="form-label">Description</label>
-                <textarea class="form-control" id="Description" name="Description" placeholder="Enter project description" rows="4" required></textarea>
+                @Html.LabelFor(m => m.Description, new { @class = "form-label" })
+                @Html.TextAreaFor(m => m.Description, new { @class = "form-control", placeholder = "Enter project description", rows = "4", required = "required" })
                 <div class="invalid-feedback">
                     Please enter a project description.
                 </div>
             </div>
             <div class="mb-3 row">
                 <div class="col-md-6">
-                    <label for="StartDate" class="form-label">Start Date</label>
-                    <input type="date" class="form-control" id="StartDate" name="StartDate" required>
+                    @Html.LabelFor(m => m.StartDate, new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.StartDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", required = "required" })
                     <div class="invalid-feedback">
-                        Please enter a start date.
+                        Please enter a valid start date.
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <label for="EndDate" class="form-label">End Date</label>
-                    <input type="date" class="form-control" id="EndDate" name="EndDate" required>
+                    @Html.LabelFor(m => m.EndDate, new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.EndDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", required = "required" })
                     <div class="invalid-feedback">
-                        Please enter an end date.
+                        Please enter a valid end date.
                     </div>
                 </div>
             </div>
             <div class="mb-3">
-                <label for="TeamMembers" class="form-label">Team Members</label>
-                <select multiple class="form-control" id="TeamMembers" name="TeamMembers">
-                    <option value="1">John Doe</option>
-                    <option value="2">Jane Smith</option>
-                    <option value="3">Bob Johnson</option>
-                </select>
+                @Html.LabelFor(m => m.TeamMembers, new { @class = "form-label" })
+                @Html.ListBoxFor(m => m.TeamMembers, new MultiSelectList(users, "Id", "Username"), new { @class = "form-control", multiple = "multiple" })
             </div>
         </div>
         <div class="card-footer">
@@ -65,7 +64,7 @@
             </a>
         </div>
     </div>
-</form>
+}
 
 <!-- Include Bootstrap and jQuery scripts if not already included in the layout -->
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
@@ -87,4 +86,5 @@
                 }, false);
             });
         }, false);
-    })();</script>
+    })();
+</script>

@@ -1,0 +1,290 @@
+﻿@model WorkHub.Models.CreateaProject
+
+@{
+    ViewBag.Title = "Create Project";
+    Layout = "~/Views/Manager/ManagerIndex.cshtml";
+}
+
+<div class="app-kanban" bis_skin_checked="1">
+
+    <!-- Add new board -->
+    <div class="row" bis_skin_checked="1">
+        <div class="col-12" bis_skin_checked="1">
+
+        </div>
+    </div>
+
+    <!-- Kanban Wrapper -->
+    <div class="kanban-wrapper ps ps--active-y" bis_skin_checked="1">
+        <div class="kanban-container" style="width: 840px;" bis_skin_checked="1">
+            <div data-id="board-in-progress" data-order="1" class="kanban-board" style="width: 250px; margin-left: 15px; margin-right: 15px;" bis_skin_checked="1"><header class="kanban-board-header"><div class="kanban-title-board" bis_skin_checked="1" contenteditable="true">In Progress</div><div class="dropdown" bis_skin_checked="1"><i class="dropdown-toggle bx bx-dots-vertical-rounded cursor-pointer fs-4" id="board-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i><div class="dropdown-menu dropdown-menu-end" aria-labelledby="board-dropdown" bis_skin_checked="1"><a class="dropdown-item delete-board" href="javascript:void(0)"> <i class="bx bx-trash bx-xs"></i> <span class="align-middle">Delete</span></a><a class="dropdown-item" href="javascript:void(0)"><i class="bx bx-rename bx-xs"></i> <span class="align-middle">Rename</span></a><a class="dropdown-item" href="javascript:void(0)"><i class="bx bx-archive bx-xs"></i> <span class="align-middle">Archive</span></a></div></div><button class="kanban-title-button btn btn-default btn-xs">+ Add New Item</button></header><main class="kanban-drag"><div class="kanban-item" data-eid="in-progress-1" data-comments="12" data-badge-text="UX" data-badge="success" data-due-date="5 April" data-attachments="4" data-assigned="12.png,5.png" data-members="Bruce,Clark" bis_skin_checked="1"><div class="d-flex justify-content-between flex-wrap align-items-center mb-2 pb-1" bis_skin_checked="1"><div class="item-badges" bis_skin_checked="1"> <div class="badge rounded-pill bg-label-success" bis_skin_checked="1"> UX</div></div><div class="dropdown kanban-tasks-item-dropdown" bis_skin_checked="1"><i class="dropdown-toggle bx bx-dots-vertical-rounded" id="kanban-tasks-item-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i><div class="dropdown-menu dropdown-menu-end" aria-labelledby="kanban-tasks-item-dropdown" bis_skin_checked="1"><a class="dropdown-item" href="javascript:void(0)">Copy task link</a><a class="dropdown-item" href="javascript:void(0)">Duplicate task</a><a class="dropdown-item delete-task" href="javascript:void(0)">Delete</a></div></div></div><span class="kanban-text">Research FAQ page UX</span><div class="d-flex justify-content-between align-items-center flex-wrap mt-2 pt-1" bis_skin_checked="1"><div class="d-flex" bis_skin_checked="1"> <span class="d-flex align-items-center me-2"><i class="bx bx-paperclip me-1"></i><span class="attachments">4</span></span> <span class="d-flex align-items-center"><i class="bx bx-chat me-1"></i><span> 12 </span></span></div><div class="avatar-group d-flex align-items-center assigned-avatar" bis_skin_checked="1"><div class="avatar avatar-xs" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Bruce" data-bs-original-title="Bruce" bis_skin_checked="1"><img src="../../assets/img/avatars/12.png" alt="Avatar" class="rounded-circle  pull-up"></div> <div class="avatar avatar-xs" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Clark" data-bs-original-title="Clark" bis_skin_checked="1"><img src="../../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle  pull-up"></div></div></div></div><div class="kanban-item" data-eid="in-progress-2" data-comments="8" data-badge-text="Code Review" data-badge="danger" data-attachments="2" data-due-date="10 April" data-assigned="3.png,8.png" data-members="Helena,Iris" bis_skin_checked="1"><div class="d-flex justify-content-between flex-wrap align-items-center mb-2 pb-1" bis_skin_checked="1"><div class="item-badges" bis_skin_checked="1"> <div class="badge rounded-pill bg-label-danger" bis_skin_checked="1"> Code Review</div></div><div class="dropdown kanban-tasks-item-dropdown" bis_skin_checked="1"><i class="dropdown-toggle bx bx-dots-vertical-rounded" id="kanban-tasks-item-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i><div class="dropdown-menu dropdown-menu-end" aria-labelledby="kanban-tasks-item-dropdown" bis_skin_checked="1"><a class="dropdown-item" href="javascript:void(0)">Copy task link</a><a class="dropdown-item" href="javascript:void(0)">Duplicate task</a><a class="dropdown-item delete-task" href="javascript:void(0)">Delete</a></div></div></div><span class="kanban-text">Review Javascript code</span><div class="d-flex justify-content-between align-items-center flex-wrap mt-2 pt-1" bis_skin_checked="1"><div class="d-flex" bis_skin_checked="1"> <span class="d-flex align-items-center me-2"><i class="bx bx-paperclip me-1"></i><span class="attachments">2</span></span> <span class="d-flex align-items-center"><i class="bx bx-chat me-1"></i><span> 8 </span></span></div><div class="avatar-group d-flex align-items-center assigned-avatar" bis_skin_checked="1"><div class="avatar avatar-xs" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Helena" data-bs-original-title="Helena" bis_skin_checked="1"><img src="../../assets/img/avatars/3.png" alt="Avatar" class="rounded-circle  pull-up"></div> <div class="avatar avatar-xs" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Iris" data-bs-original-title="Iris" bis_skin_checked="1"><img src="../../assets/img/avatars/8.png" alt="Avatar" class="rounded-circle  pull-up"></div></div></div></div></main><footer></footer></div><div data-id="board-in-review" data-order="2" class="kanban-board" style="width: 250px; margin-left: 15px; margin-right: 15px;" bis_skin_checked="1"><header class="kanban-board-header"><div class="kanban-title-board" bis_skin_checked="1" contenteditable="true">In Review</div><div class="dropdown" bis_skin_checked="1"><i class="dropdown-toggle bx bx-dots-vertical-rounded cursor-pointer fs-4" id="board-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i><div class="dropdown-menu dropdown-menu-end" aria-labelledby="board-dropdown" bis_skin_checked="1"><a class="dropdown-item delete-board" href="javascript:void(0)"> <i class="bx bx-trash bx-xs"></i> <span class="align-middle">Delete</span></a><a class="dropdown-item" href="javascript:void(0)"><i class="bx bx-rename bx-xs"></i> <span class="align-middle">Rename</span></a><a class="dropdown-item" href="javascript:void(0)"><i class="bx bx-archive bx-xs"></i> <span class="align-middle">Archive</span></a></div></div><button class="kanban-title-button btn btn-default btn-xs">+ Add New Item</button></header><main class="kanban-drag"><div class="kanban-item" data-eid="in-review-1" data-comments="17" data-badge-text="Dashboard" data-badge="info" data-due-date="8 April" data-attachments="8" data-assigned="11.png,6.png" data-members="Laurel,Harley" bis_skin_checked="1"><div class="d-flex justify-content-between flex-wrap align-items-center mb-2 pb-1" bis_skin_checked="1"><div class="item-badges" bis_skin_checked="1"> <div class="badge rounded-pill bg-label-info" bis_skin_checked="1"> Dashboard</div></div><div class="dropdown kanban-tasks-item-dropdown" bis_skin_checked="1"><i class="dropdown-toggle bx bx-dots-vertical-rounded" id="kanban-tasks-item-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i><div class="dropdown-menu dropdown-menu-end" aria-labelledby="kanban-tasks-item-dropdown" bis_skin_checked="1"><a class="dropdown-item" href="javascript:void(0)">Copy task link</a><a class="dropdown-item" href="javascript:void(0)">Duplicate task</a><a class="dropdown-item delete-task" href="javascript:void(0)">Delete</a></div></div></div><span class="kanban-text">Review completed Apps</span><div class="d-flex justify-content-between align-items-center flex-wrap mt-2 pt-1" bis_skin_checked="1"><div class="d-flex" bis_skin_checked="1"> <span class="d-flex align-items-center me-2"><i class="bx bx-paperclip me-1"></i><span class="attachments">8</span></span> <span class="d-flex align-items-center"><i class="bx bx-chat me-1"></i><span> 17 </span></span></div><div class="avatar-group d-flex align-items-center assigned-avatar" bis_skin_checked="1"><div class="avatar avatar-xs" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Laurel" data-bs-original-title="Laurel" bis_skin_checked="1"><img src="../../assets/img/avatars/11.png" alt="Avatar" class="rounded-circle  pull-up"></div> <div class="avatar avatar-xs" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Harley" data-bs-original-title="Harley" bis_skin_checked="1"><img src="../../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle  pull-up"></div></div></div></div><div class="kanban-item" data-eid="in-review-2" data-comments="18" data-badge-text="Images" data-image="21.jpg" data-badge="warning" data-due-date="2 April" data-attachments="10" data-assigned="9.png,2.png,3.png,12.png" data-members="Jordan,Dianna,Vinnie,Lasa" bis_skin_checked="1"><div class="d-flex justify-content-between flex-wrap align-items-center mb-2 pb-1" bis_skin_checked="1"><div class="item-badges" bis_skin_checked="1"> <div class="badge rounded-pill bg-label-warning" bis_skin_checked="1"> Images</div></div><div class="dropdown kanban-tasks-item-dropdown" bis_skin_checked="1"><i class="dropdown-toggle bx bx-dots-vertical-rounded" id="kanban-tasks-item-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i><div class="dropdown-menu dropdown-menu-end" aria-labelledby="kanban-tasks-item-dropdown" bis_skin_checked="1"><a class="dropdown-item" href="javascript:void(0)">Copy task link</a><a class="dropdown-item" href="javascript:void(0)">Duplicate task</a><a class="dropdown-item delete-task" href="javascript:void(0)">Delete</a></div></div></div><img class="img-fluid rounded-3 mb-2" src="../../assets/img/elements/21.jpg"><span class="kanban-text">Find new images for pages</span><div class="d-flex justify-content-between align-items-center flex-wrap mt-2 pt-1" bis_skin_checked="1"><div class="d-flex" bis_skin_checked="1"> <span class="d-flex align-items-center me-2"><i class="bx bx-paperclip me-1"></i><span class="attachments">10</span></span> <span class="d-flex align-items-center"><i class="bx bx-chat me-1"></i><span> 18 </span></span></div><div class="avatar-group d-flex align-items-center assigned-avatar" bis_skin_checked="1"><div class="avatar avatar-xs" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Jordan" data-bs-original-title="Jordan" bis_skin_checked="1"><img src="../../assets/img/avatars/9.png" alt="Avatar" class="rounded-circle  pull-up"></div> <div class="avatar avatar-xs" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Dianna" data-bs-original-title="Dianna" bis_skin_checked="1"><img src="../../assets/img/avatars/2.png" alt="Avatar" class="rounded-circle  pull-up"></div> <div class="avatar avatar-xs" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Vinnie" data-bs-original-title="Vinnie" bis_skin_checked="1"><img src="../../assets/img/avatars/3.png" alt="Avatar" class="rounded-circle  pull-up"></div> <div class="avatar avatar-xs" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Lasa" data-bs-original-title="Lasa" bis_skin_checked="1"><img src="../../assets/img/avatars/12.png" alt="Avatar" class="rounded-circle  pull-up"></div></div></div></div></main><footer></footer></div><div data-id="board-done" data-order="3" class="kanban-board" style="width: 250px; margin-left: 15px; margin-right: 15px;" bis_skin_checked="1"><header class="kanban-board-header"><div class="kanban-title-board" bis_skin_checked="1" contenteditable="true">Done</div><div class="dropdown" bis_skin_checked="1"><i class="dropdown-toggle bx bx-dots-vertical-rounded cursor-pointer fs-4" id="board-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i><div class="dropdown-menu dropdown-menu-end" aria-labelledby="board-dropdown" bis_skin_checked="1"><a class="dropdown-item delete-board" href="javascript:void(0)"> <i class="bx bx-trash bx-xs"></i> <span class="align-middle">Delete</span></a><a class="dropdown-item" href="javascript:void(0)"><i class="bx bx-rename bx-xs"></i> <span class="align-middle">Rename</span></a><a class="dropdown-item" href="javascript:void(0)"><i class="bx bx-archive bx-xs"></i> <span class="align-middle">Archive</span></a></div></div><button class="kanban-title-button btn btn-default btn-xs">+ Add New Item</button></header><main class="kanban-drag"><div class="kanban-item" data-eid="done-1" data-comments="4" data-badge-text="App" data-badge="secondary" data-due-date="7 April" data-attachments="1" data-assigned="2.png,9.png,10.png" data-members="Kara,Nyssa,Darcey" bis_skin_checked="1"><div class="d-flex justify-content-between flex-wrap align-items-center mb-2 pb-1" bis_skin_checked="1"><div class="item-badges" bis_skin_checked="1"> <div class="badge rounded-pill bg-label-secondary" bis_skin_checked="1"> App</div></div><div class="dropdown kanban-tasks-item-dropdown" bis_skin_checked="1"><i class="dropdown-toggle bx bx-dots-vertical-rounded" id="kanban-tasks-item-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i><div class="dropdown-menu dropdown-menu-end" aria-labelledby="kanban-tasks-item-dropdown" bis_skin_checked="1"><a class="dropdown-item" href="javascript:void(0)">Copy task link</a><a class="dropdown-item" href="javascript:void(0)">Duplicate task</a><a class="dropdown-item delete-task" href="javascript:void(0)">Delete</a></div></div></div><span class="kanban-text">Forms &amp; Tables section</span><div class="d-flex justify-content-between align-items-center flex-wrap mt-2 pt-1" bis_skin_checked="1"><div class="d-flex" bis_skin_checked="1"> <span class="d-flex align-items-center me-2"><i class="bx bx-paperclip me-1"></i><span class="attachments">1</span></span> <span class="d-flex align-items-center"><i class="bx bx-chat me-1"></i><span> 4 </span></span></div><div class="avatar-group d-flex align-items-center assigned-avatar" bis_skin_checked="1"><div class="avatar avatar-xs" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Kara" data-bs-original-title="Kara" bis_skin_checked="1"><img src="../../assets/img/avatars/2.png" alt="Avatar" class="rounded-circle  pull-up"></div> <div class="avatar avatar-xs" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Nyssa" data-bs-original-title="Nyssa" bis_skin_checked="1"><img src="../../assets/img/avatars/9.png" alt="Avatar" class="rounded-circle  pull-up"></div> <div class="avatar avatar-xs" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Darcey" data-bs-original-title="Darcey" bis_skin_checked="1"><img src="../../assets/img/avatars/10.png" alt="Avatar" class="rounded-circle  pull-up"></div></div></div></div><div class="kanban-item" data-eid="done-2" data-comments="21" data-badge-text="Charts &amp; Maps" data-badge="primary" data-due-date="7 April" data-attachments="6" data-assigned="1.png" data-members="Sarah" bis_skin_checked="1"><div class="d-flex justify-content-between flex-wrap align-items-center mb-2 pb-1" bis_skin_checked="1"><div class="item-badges" bis_skin_checked="1"> <div class="badge rounded-pill bg-label-primary" bis_skin_checked="1"> Charts &amp; Maps</div></div><div class="dropdown kanban-tasks-item-dropdown" bis_skin_checked="1"><i class="dropdown-toggle bx bx-dots-vertical-rounded" id="kanban-tasks-item-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i><div class="dropdown-menu dropdown-menu-end" aria-labelledby="kanban-tasks-item-dropdown" bis_skin_checked="1"><a class="dropdown-item" href="javascript:void(0)">Copy task link</a><a class="dropdown-item" href="javascript:void(0)">Duplicate task</a><a class="dropdown-item delete-task" href="javascript:void(0)">Delete</a></div></div></div><span class="kanban-text">Completed Charts &amp; Maps</span><div class="d-flex justify-content-between align-items-center flex-wrap mt-2 pt-1" bis_skin_checked="1"><div class="d-flex" bis_skin_checked="1"> <span class="d-flex align-items-center me-2"><i class="bx bx-paperclip me-1"></i><span class="attachments">6</span></span> <span class="d-flex align-items-center"><i class="bx bx-chat me-1"></i><span> 21 </span></span></div><div class="avatar-group d-flex align-items-center assigned-avatar" bis_skin_checked="1"><div class="avatar avatar-xs" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Sarah" data-bs-original-title="Sarah" bis_skin_checked="1"><img src="../../assets/img/avatars/1.png" alt="Avatar" class="rounded-circle  pull-up"></div></div></div></div></main><footer></footer></div><form class="kanban-add-new-board">
+                <label class="kanban-add-board-btn" for="kanban-add-board-input">
+                    <i class="bx bx-plus me-1"></i>
+                    <span class="align-middle">Add new</span>
+                </label>
+                <input type="text" class="form-control w-px-250 kanban-add-board-input mb-2" placeholder="Add Board Title" id="kanban-add-board-input" required="">
+                <div class="mb-3 kanban-add-board-input" bis_skin_checked="1">
+                    <button class="btn btn-primary btn-sm me-2">Add</button>
+                    <button type="button" class="btn btn-label-secondary btn-sm kanban-add-board-cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </div><div class="ps__rail-x" style="left: 0px; bottom: -102px;" bis_skin_checked="1"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;" bis_skin_checked="1"></div></div><div class="ps__rail-y" style="top: 102px; right: 0px; height: 158px;" bis_skin_checked="1"><div class="ps__thumb-y" tabindex="0" style="top: 26px; height: 41px;" bis_skin_checked="1"></div></div>
+    </div>
+
+    <!-- Edit Task /Task & Activities -->
+    <div class="offcanvas offcanvas-end kanban-update-item-sidebar" bis_skin_checked="1">
+        <div class="offcanvas-header border-bottom py-3 my-1" bis_skin_checked="1">
+            <h5 class="offcanvas-title">Edit Task </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body pt-4" bis_skin_checked="1">
+            <ul class="nav nav-pills tabs-line" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active shadow-none" data-bs-toggle="tab" data-bs-target="#tab-update" aria-selected="true" role="tab">
+                        <i class="bx bx-edit me-2"></i>
+                        <span class="align-middle text-uppercase">Edit</span>
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link shadow-none" data-bs-toggle="tab" data-bs-target="#tab-activity" aria-selected="false" tabindex="-1" role="tab">
+                        <i class="bx bx-bar-chart me-2"></i>
+                        <span class="align-middle text-uppercase">Activity</span>
+                    </button>
+                </li>
+            </ul>
+            <div class="tab-content px-0 pb-0 border-0" bis_skin_checked="1">
+                <!-- Update item/tasks -->
+                <div class="tab-pane fade show active" id="tab-update" role="tabpanel" bis_skin_checked="1">
+                    <form>
+                        <div class="mb-3" bis_skin_checked="1">
+                            <label class="form-label" for="title">Title</label>
+                            <input type="text" id="title" class="form-control" placeholder="Enter Title">
+                        </div>
+                        <div class="mb-3" bis_skin_checked="1">
+                            <label class="form-label" for="due-date">Due Date</label>
+                            <input type="hidden" id="due-date" class="form-control flatpickr-input" placeholder="Enter Due Date"><input class="form-control form-control input" placeholder="Enter Due Date" tabindex="0" type="text" readonly="readonly">
+                        </div>
+                        <div class="mb-3" bis_skin_checked="1">
+                            <label class="form-label" for="label"> label</label>
+                            <div class="position-relative" bis_skin_checked="1">
+                                <select class="select2 select2-label form-select select2-hidden-accessible" id="label" data-select2-id="label" tabindex="-1" aria-hidden="true">
+                                    <option data-color="bg-label-success" value="UX" data-select2-id="2">UX</option>
+                                    <option data-color="bg-label-warning" value="Images" data-select2-id="4">
+                                        Images
+                                    </option>
+                                    <option data-color="bg-label-info" value="Dashboard">Dashboard</option>
+                                    <option data-color="bg-label-danger" value="Code Review">
+                                        Code Review
+                                    </option>
+                                    <option data-color="bg-label-secondary" value="App">
+                                        App
+                                    </option>
+                                    <option data-color="bg-label-primary" value="Charts &amp; Maps" data-select2-id="3">
+                                        Charts &amp; Maps
+                                    </option>
+                                </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="1" style="width: 352px;">
+                                    <span class="selection">
+                                        <span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-label-container">
+                                            <span class="select2-selection__rendered" id="select2-label-container" role="textbox" aria-readonly="true" title="
+                  Images
+                ">
+                                                <div class="badge bg-label-warning rounded-pill" bis_skin_checked="1">
+                                                    Images
+                                                </div>
+                                            </span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span>
+                                        </span>
+                                    </span><span class="dropdown-wrapper" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="mb-3" bis_skin_checked="1">
+                            <label class="form-label">Assigned</label>
+                            <div class="assigned d-flex flex-wrap avatar-group" bis_skin_checked="1"><div class="avatar avatar-sm me-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Jordan" data-bs-original-title="Jordan" bis_skin_checked="1"><img src="../../assets/img/avatars/9.png" alt="Avatar" class="rounded-circle "></div> <div class="avatar avatar-sm me-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Dianna" data-bs-original-title="Dianna" bis_skin_checked="1"><img src="../../assets/img/avatars/2.png" alt="Avatar" class="rounded-circle "></div> <div class="avatar avatar-sm me-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Vinnie" data-bs-original-title="Vinnie" bis_skin_checked="1"><img src="../../assets/img/avatars/3.png" alt="Avatar" class="rounded-circle "></div> <div class="avatar avatar-sm" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Lasa" data-bs-original-title="Lasa" bis_skin_checked="1"><img src="../../assets/img/avatars/12.png" alt="Avatar" class="rounded-circle "></div><div class="avatar avatar-sm" bis_skin_checked="1"><span class="avatar-initial rounded-circle bg-label-secondary"><i class="bx bx-plus"></i></span></div></div>
+                        </div>
+                        <div class="mb-3" bis_skin_checked="1">
+                            <label class="form-label" for="attachments">Attachments</label>
+                            <div bis_skin_checked="1">
+                                <input type="file" class="form-control" id="attachments">
+                            </div>
+                        </div>
+                        <div class="mb-3" bis_skin_checked="1">
+                            <label class="form-label">Comment</label>
+                            <div class="comment-editor border-bottom-0 ql-container ql-snow" bis_skin_checked="1"><div class="ql-editor ql-blank" data-gramm="false" contenteditable="true" data-placeholder="Write a Comment... " bis_skin_checked="1"><p><br></p></div><div class="ql-clipboard" contenteditable="true" tabindex="-1" bis_skin_checked="1"></div><div class="ql-tooltip ql-hidden" bis_skin_checked="1"><a class="ql-preview" rel="noopener noreferrer" target="_blank" href="about:blank"></a><input type="text" data-formula="e=mc^2" data-link="https://quilljs.com" data-video="Embed URL"><a class="ql-action"></a><a class="ql-remove"></a></div></div>
+                            <div class="d-flex justify-content-end" bis_skin_checked="1">
+                                <div class="comment-toolbar ql-toolbar ql-snow" bis_skin_checked="1">
+                                    <span class="ql-formats me-0">
+                                        <button class="ql-bold" type="button"><svg viewBox="0 0 18 18"> <path class="ql-stroke" d="M5,4H9.5A2.5,2.5,0,0,1,12,6.5v0A2.5,2.5,0,0,1,9.5,9H5A0,0,0,0,1,5,9V4A0,0,0,0,1,5,4Z"></path> <path class="ql-stroke" d="M5,9h5.5A2.5,2.5,0,0,1,13,11.5v0A2.5,2.5,0,0,1,10.5,14H5a0,0,0,0,1,0,0V9A0,0,0,0,1,5,9Z"></path> </svg></button>
+                                        <button class="ql-italic" type="button"><svg viewBox="0 0 18 18"> <line class="ql-stroke" x1="7" x2="13" y1="4" y2="4"></line> <line class="ql-stroke" x1="5" x2="11" y1="14" y2="14"></line> <line class="ql-stroke" x1="8" x2="10" y1="14" y2="4"></line> </svg></button>
+                                        <button class="ql-underline" type="button"><svg viewBox="0 0 18 18"> <path class="ql-stroke" d="M5,3V9a4.012,4.012,0,0,0,4,4H9a4.012,4.012,0,0,0,4-4V3"></path> <rect class="ql-fill" height="1" rx="0.5" ry="0.5" width="12" x="3" y="15"></rect> </svg></button>
+                                        <button class="ql-link" type="button"><svg viewBox="0 0 18 18"> <line class="ql-stroke" x1="7" x2="11" y1="7" y2="11"></line> <path class="ql-even ql-stroke" d="M8.9,4.577a3.476,3.476,0,0,1,.36,4.679A3.476,3.476,0,0,1,4.577,8.9C3.185,7.5,2.035,6.4,4.217,4.217S7.5,3.185,8.9,4.577Z"></path> <path class="ql-even ql-stroke" d="M13.423,9.1a3.476,3.476,0,0,0-4.679-.36,3.476,3.476,0,0,0,.36,4.679c1.392,1.392,2.5,2.542,4.679.36S14.815,10.5,13.423,9.1Z"></path> </svg></button>
+                                        <button class="ql-image" type="button"><svg viewBox="0 0 18 18"> <rect class="ql-stroke" height="10" width="12" x="3" y="4"></rect> <circle class="ql-fill" cx="6" cy="7" r="1"></circle> <polyline class="ql-even ql-fill" points="5 12 5 11 7 9 8 10 11 7 13 9 13 12 5 12"></polyline> </svg></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3" bis_skin_checked="1">
+                            <div class="d-flex flex-wrap" bis_skin_checked="1">
+                                <button type="button" class="btn btn-primary me-3" data-bs-dismiss="offcanvas">
+                                    Save
+                                </button>
+                                <button type="button" class="btn btn-label-secondary" data-bs-dismiss="offcanvas">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Activities -->
+                <div class="tab-pane fade" id="tab-activity" role="tabpanel" bis_skin_checked="1">
+                    <div class="media mb-4 d-flex align-items-start" bis_skin_checked="1">
+                        <div class="avatar avatar-sm me-2 flex-shrink-0 mt-1" bis_skin_checked="1">
+                            <span class="avatar-initial bg-label-success rounded-circle">HJ</span>
+                        </div>
+                        <div class="media-body" bis_skin_checked="1">
+                            <p class="mb-0">
+                                <span class="fw-medium">Jordan</span> Left the board.
+                            </p>
+                            <small class="text-muted">Today 11:00 AM</small>
+                        </div>
+                    </div>
+                    <div class="media mb-4 d-flex align-items-start" bis_skin_checked="1">
+                        <div class="avatar avatar-sm me-2 flex-shrink-0 mt-1" bis_skin_checked="1">
+                            <img src="../../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle">
+                        </div>
+                        <div class="media-body" bis_skin_checked="1">
+                            <p class="mb-0">
+                                <span class="fw-medium">Dianna</span> mentioned
+                                <span class="fw-medium text-primary">bruce</span> in
+                                a comment.
+                            </p>
+                            <small class="text-muted">Today 10:20 AM</small>
+                        </div>
+                    </div>
+                    <div class="media mb-4 d-flex align-items-start" bis_skin_checked="1">
+                        <div class="avatar avatar-sm me-2 flex-shrink-0 mt-1" bis_skin_checked="1">
+                            <img src="../../assets/img/avatars/2.png" alt="Avatar" class="rounded-circle">
+                        </div>
+                        <div class="media-body" bis_skin_checked="1">
+                            <p class="mb-0">
+                                <span class="fw-medium">Martian</span> added moved
+                                Charts &amp; Maps task to the done board.
+                            </p>
+                            <small class="text-muted">Today 10:00 AM</small>
+                        </div>
+                    </div>
+                    <div class="media mb-4 d-flex align-items-start" bis_skin_checked="1">
+                        <div class="avatar avatar-sm me-2 flex-shrink-0 mt-1" bis_skin_checked="1">
+                            <img src="../../assets/img/avatars/1.png" alt="Avatar" class="rounded-circle">
+                        </div>
+                        <div class="media-body" bis_skin_checked="1">
+                            <p class="mb-0">
+                                <span class="fw-medium">Barry</span> Commented on App
+                                review task.
+                            </p>
+                            <small class="text-muted">Today 8:32 AM</small>
+                        </div>
+                    </div>
+                    <div class="media mb-4 d-flex align-items-start" bis_skin_checked="1">
+                        <div class="avatar avatar-sm me-2 flex-shrink-0 mt-1" bis_skin_checked="1">
+                            <span class="avatar-initial bg-label-dark rounded-circle">BW</span>
+                        </div>
+                        <div class="media-body" bis_skin_checked="1">
+                            <p class="mb-0">
+                                <span class="fw-medium">Bruce</span> was assigned
+                                task of code review.
+                            </p>
+                            <small class="text-muted">Today 8:30 PM</small>
+                        </div>
+                    </div>
+                    <div class="media mb-4 d-flex align-items-start" bis_skin_checked="1">
+                        <div class="avatar avatar-sm me-2 flex-shrink-0 mt-1" bis_skin_checked="1">
+                            <span class="avatar-initial bg-label-danger rounded-circle">CK</span>
+                        </div>
+                        <div class="media-body" bis_skin_checked="1">
+                            <p class="mb-0">
+                                <span class="fw-medium">Clark</span> assigned task UX
+                                Research to
+                                <span class="fw-medium text-primary">martian</span>
+                            </p>
+                            <small class="text-muted">Today 8:00 AM</small>
+                        </div>
+                    </div>
+                    <div class="media mb-4 d-flex align-items-start" bis_skin_checked="1">
+                        <div class="avatar avatar-sm me-2 flex-shrink-0 mt-1" bis_skin_checked="1">
+                            <img src="../../assets/img/avatars/4.png" alt="Avatar" class="rounded-circle">
+                        </div>
+                        <div class="media-body" bis_skin_checked="1">
+                            <p class="mb-0">
+                                <span class="fw-medium">Ray</span> Added moved
+                                <span class="fw-medium">Forms &amp; Tables</span> task
+                                from in progress to done.
+                            </p>
+                            <small class="text-muted">Today 7:45 AM</small>
+                        </div>
+                    </div>
+                    <div class="media mb-4 d-flex align-items-start" bis_skin_checked="1">
+                        <div class="avatar avatar-sm me-2 flex-shrink-0 mt-1" bis_skin_checked="1">
+                            <img src="../../assets/img/avatars/1.png" alt="Avatar" class="rounded-circle">
+                        </div>
+                        <div class="media-body" bis_skin_checked="1">
+                            <p class="mb-0">
+                                <span class="fw-medium">Barry</span> Complete all the
+                                tasks assigned to him.
+                            </p>
+                            <small class="text-muted">Today 7:17 AM</small>
+                        </div>
+                    </div>
+                    <div class="media mb-4 d-flex align-items-start" bis_skin_checked="1">
+                        <div class="avatar avatar-sm me-2 flex-shrink-0 mt-1" bis_skin_checked="1">
+                            <span class="avatar-initial bg-label-success rounded-circle">HJ</span>
+                        </div>
+                        <div class="media-body" bis_skin_checked="1">
+                            <p class="mb-0">
+                                <span class="fw-medium">Jordan</span> added task to
+                                update new images.
+                            </p>
+                            <small class="text-muted">Today 7:00 AM</small>
+                        </div>
+                    </div>
+                    <div class="media mb-4 d-flex align-items-start" bis_skin_checked="1">
+                        <div class="avatar avatar-sm me-2 flex-shrink-0 mt-1" bis_skin_checked="1">
+                            <img src="../../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle">
+                        </div>
+                        <div class="media-body" bis_skin_checked="1">
+                            <p class="mb-0">
+                                <span class="fw-medium">Dianna</span> moved task
+                                <span class="fw-medium">FAQ UX</span> from in
+                                progress to done board.
+                            </p>
+                            <small class="text-muted">Today 7:00 AM</small>
+                        </div>
+                    </div>
+                    <div class="media mb-4 d-flex align-items-start" bis_skin_checked="1">
+                        <div class="avatar avatar-sm me-2 flex-shrink-0 mt-1" bis_skin_checked="1">
+                            <span class="avatar-initial bg-label-danger rounded-circle">CK</span>
+                        </div>
+                        <div class="media-body" bis_skin_checked="1">
+                            <p class="mb-0">
+                                <span class="fw-medium">Clark</span> added new board
+                                with name <span class="fw-medium">Done</span>.
+                            </p>
+                            <small class="text-muted">Yesterday 3:00 PM</small>
+                        </div>
+                    </div>
+                    <div class="media d-flex align-items-center" bis_skin_checked="1">
+                        <div class="avatar avatar-sm me-2 flex-shrink-0 mt-1" bis_skin_checked="1">
+                            <span class="avatar-initial bg-label-dark rounded-circle">BW</span>
+                        </div>
+                        <div class="media-body" bis_skin_checked="1">
+                            <p class="mb-0">
+                                <span class="fw-medium">Bruce</span> added new task
+                                in progress board.
+                            </p>
+                            <small class="text-muted">Yesterday 12:00 PM</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

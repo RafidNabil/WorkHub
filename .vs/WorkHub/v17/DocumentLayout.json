@@ -1,37 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\WorkHub\\WorkHub\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|C:\\Users\\User\\Desktop\\WorkHub\\WorkHub\\workhub\\views\\admin\\admindashboar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9F6CD5F3-55D1-4F26-884A-47139038EA97}|WorkHub\\WorkHub.csproj|solutionrelative:workhub\\views\\admin\\admindashboar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    }
-  ],
+  "WorkspaceRootPath": "D:\\WorkHub\\WorkHub-Nabil2\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 212,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AdminDashboar.cshtml",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\WorkHub\\WorkHub\\WorkHub\\Views\\Admin\\AdminDashboar.cshtml",
-              "RelativeDocumentMoniker": "WorkHub\\Views\\Admin\\AdminDashboar.cshtml",
-              "ToolTip": "C:\\Users\\User\\Desktop\\WorkHub\\WorkHub\\WorkHub\\Views\\Admin\\AdminDashboar.cshtml",
-              "RelativeToolTip": "WorkHub\\Views\\Admin\\AdminDashboar.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-22T17:50:06.631Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }
