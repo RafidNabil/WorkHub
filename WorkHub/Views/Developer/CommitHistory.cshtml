@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "CommitHistory";
+    Layout = "~/Views/Developer/DeveloperIndex.cshtml";
+}
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col">
+            <h1>Commit History</h1>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col">
+            <div class="list-group">
+                <!-- Commit entry example -->
+                <div class="list-group-item commit">
+                    <div class="commit-message">Fixed bug in authentication module</div>
+                    <div class="commit-details">
+                        <span>Commit ID: <code>abcdefg</code></span>
+                        <span class="ml-3">Author: John Doe</span>
+                        <span class="ml-3">Date: June 15, 2024</span>
+                    </div>
+                </div>
+
+                <!-- Repeat this structure for each commit -->
+                <div class="list-group-item commit">
+                    <div class="commit-message">Added new feature: user profile management</div>
+                    <div class="commit-details">
+                        <span>Commit ID: <code>hijklmn</code></span>
+                        <span class="ml-3">Author: Jane Smith</span>
+                        <span class="ml-3">Date: June 14, 2024</span>
+                    </div>
+                </div>
+
+                <!-- Another commit entry -->
+                <div class="list-group-item commit">
+                    <div class="commit-message">Refactored database connection handling</div>
+                    <div class="commit-details">
+                        <span>Commit ID: <code>opqrstu</code></span>
+                        <span class="ml-3">Author: Alan Johnson</span>
+                        <span class="ml-3">Date: June 12, 2024</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

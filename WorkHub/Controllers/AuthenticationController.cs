@@ -25,7 +25,14 @@ namespace WorkHub.Controllers
         {
             if (Request.Cookies["signedIn"] != null && Request.Cookies["signedIn"].Value == "true")
             {
-                return RedirectToAction("ManagerDashboard", "Manager");
+                var userRole = Request.Cookies["UserRole"].Value;
+
+                if (userRole == "manager")
+                    return RedirectToAction("ManagerDashboard", "Manager");
+                else if (userRole == "admin")
+                    return RedirectToAction("SuperAdminDashboard", "SuperAdmin");
+                else if (userRole == "developer")
+                    return RedirectToAction("Dashboard", "Developer");
             }
 
             return View();
@@ -45,9 +52,17 @@ namespace WorkHub.Controllers
                     Response.Cookies["signedIn"].Value = "true";
                     Response.Cookies["signedIn"].Expires = DateTime.Now.AddDays(1);
 
+                    Response.Cookies["UserRole"].Value = user.Role;
+                    Response.Cookies["UserRole"].Expires = DateTime.Now.AddDays(1);
+
                     Session["UserRole"] = user.Role;
 
+                    if(user.Role == "manager")
                     return RedirectToAction("ManagerDashboard", "Manager");
+                    else if(user.Role == "admin")
+                        return RedirectToAction("AdminDashboard", "Admin");
+                    else if(user.Role == "developer")
+                        return RedirectToAction("Dashboard", "Developer");
                     }
                 }
 
@@ -87,6 +102,34 @@ namespace WorkHub.Controllers
             }
 
             return View(user);
+        }
+
+        public ActionResult Logout()
+        {
+            // Clear the session
+            Session.Clear();
+
+            // Remove the authentication cookie
+            if (Request.Cookies["signedIn"] != null)
+            {
+                var cookie = new HttpCookie("signedIn")
+                {
+                    Expires = DateTime.Now.AddDays(-1)
+                };
+                Response.Cookies.Add(cookie);
+            }
+
+            if (Request.Cookies["UserRole"] != null)
+            {
+                var cookie = new HttpCookie("UserRole")
+                {
+                    Expires = DateTime.Now.AddDays(-1)
+                };
+                Response.Cookies.Add(cookie);
+            }
+
+
+            return RedirectToAction("SignIn", "Authentication");
         }
     }
 }

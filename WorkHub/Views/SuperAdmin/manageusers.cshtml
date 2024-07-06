@@ -1,0 +1,39 @@
+﻿@model IEnumerable<WorkHub.Models.UserSignUp>
+@{
+    ViewBag.Title = "manageusers";
+    Layout = "~/Views/SuperAdmin/SuperAdminIndex.cshtml";
+}
+
+
+<h2>User List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Username</td>
+                <td>@user.Email</td>
+                <td>
+                    @using (Html.BeginForm("UpdateUserRole", "Admin", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.Hidden("id", user.Id)
+                        @Html.DropDownList("role", new SelectList(new[] { "developer", "admin", "manager" }, user.Role), new { @class = "form-control" })
+                        <button type="submit" class="btn btn-primary btn-sm">Update Role</button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

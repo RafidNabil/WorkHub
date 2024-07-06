@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "NewDep";
+    Layout = "~/Views/Developer/DeveloperIndex.cshtml";
+}
+
+
+
+<div class="container mt-5">
+    <h1 class="mb-4">Trigger Deployment</h1>
+
+    <form id="deploymentForm">
+        <div class="form-group">
+            <label for="environment">Environment</label>
+            <select class="form-control" id="environment" required>
+                <option>Development</option>
+                <option>Staging</option>
+                <option>Production</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="version">Version</label>
+            <input type="text" class="form-control" id="version" placeholder="Enter version to deploy" required>
+        </div>
+
+        <div class="form-group">
+            <label for="releaseNotes">Release Notes</label>
+            <textarea class="form-control" id="releaseNotes" rows="3" placeholder="Enter release notes"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Trigger Deployment</button>
+    </form>
+
+    <div id="deploymentStatus" class="mt-4">
+        <!-- Deployment status will be displayed here -->
+    </div>
+</div>
+
+    <script>
+        document.getElementById('deploymentForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            triggerDeployment();
+        });
+
+        function triggerDeployment() {
+            const environment = document.getElementById('environment').value;
+            const version = document.getElementById('version').value;
+            const releaseNotes = document.getElementById('releaseNotes').value;
+
+            document.getElementById('deploymentStatus').innerHTML = `
+          <div class="alert alert-info" role="alert">
+            Triggering deployment to <strong>${environment}</strong> environment with version <strong>${version}</strong>.
+          </div>
+        `;
+
+            // Simulate a deployment trigger
+            setTimeout(() => {
+                document.getElementById('deploymentStatus').innerHTML = `
+            <div class="alert alert-success" role="alert">
+              Deployment triggered successfully!
+            </div>
+          `;
+            }, 2000);
+        }
+    </script>
+
+
