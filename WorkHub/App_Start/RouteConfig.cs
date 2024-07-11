@@ -16,7 +16,7 @@ namespace WorkHub
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Manager", action = "ManagerIndex", id = UrlParameter.Optional }
+                defaults: new { controller = "Authentication", action = "SignIn", id = UrlParameter.Optional }
             );
         }
     }

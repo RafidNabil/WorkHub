@@ -1,0 +1,38 @@
+﻿@model IEnumerable<WorkHub.Models.CreateaProject>
+
+@{
+    ViewBag.Title = "tView Projec";
+    Layout = "~/Views/SuperAdmin/SuperAdminIndex.cshtml";
+}
+
+
+<h2>Project Informations</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Projectname</th>
+            <th>Description</th>
+            <th>StartDate</th>
+            <th>EndDate</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var projects in Model)
+        {
+            <tr>
+                <td>@projects.ProjectName</td>
+                <td>@projects.Description</td>
+                <td>@projects.StartDate</td>
+                <td>@projects.EndDate</td>
+                <td>@projects.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+

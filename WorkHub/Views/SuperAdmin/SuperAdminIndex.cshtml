@@ -71,39 +71,21 @@
             <li class="menu-header small text-uppercase">
                 <span class="menu-header-text">User Management</span>
             </li>
-            <li class="menu-item">
-                <a href="@Url.Action("CreateUser", "SuperAdmin")" class="menu-link">
-                    <i class="menu-icon tf-icons bx bx-plus-circle"></i>
-                    <div data-i18n="Create User">Create User</div>
-                </a>
-            </li>
+
             <li class="menu-item">
                 <a href="@Url.Action("ManageUsers", "SuperAdmin")" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-edit"></i>
                     <div data-i18n="Manage Users">Manage Users</div>
                 </a>
             </li>
-            <!-- System settings -->
+            <!-- Projects -->
             <li class="menu-header small text-uppercase">
-                <span class="menu-header-text">System Settings</span>
+                <span class="menu-header-text">Project Management</span>
             </li>
             <li class="menu-item">
-                <a href="@Url.Action("ApplicationSettings", "SuperAdmin")" class="menu-link">
-                    <i class="menu-icon tf-icons bx bx-cog"></i>
-                    <div data-i18n="Application Settings">Application Settings</div>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="@Url.Action("PermissionManagement", "SuperAdmin")" class="menu-link">
-                    <i class="menu-icon tf-icons bx bx-building"></i>
-                    <div data-i18n="Permission Management">Permission Management</div>
-                </a>
-            </li>
-            <!-- Audit Logs -->
-            <li class="menu-item">
-                <a href="audit-logs.html" class="menu-link">
+                <a href="@Url.Action("ViewProject", "SuperAdmin")" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-notepad"></i>
-                    <div data-i18n="Audit Logs">Audit Logs</div>
+                    <div data-i18n="View Projects">View Projects</div>
                 </a>
             </li>
 
@@ -112,21 +94,21 @@
                 <span class="menu-header-text">Reports</span>
             </li>
             <li class="menu-item">
-                <a href="user-activity.html" class="menu-link">
+                <a href="@Url.Action("UserActivity", "SuperAdmin")" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-user-check"></i>
                     <div data-i18n="User Activity">User Activity</div>
                 </a>
             </li>
+
             <li class="menu-item">
-                <a href="system-useage.html" class="menu-link">
-                    <i class="menu-icon tf-icons bx bx-chip"></i>
-                    <div data-i18n="System Useage">System Useage</div>
+                <a href="@Url.Action("SystemUsage", "SuperAdmin")" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-chart"></i>
+                    <div data-i18n="System Useage">System Usage</div>
                 </a>
             </li>
-
             <!-- Logout -->
             <li class="menu-item">
-                <a href="logout.html" class="menu-link">
+                <a href="@Url.Action("SignIn", "Authentication")" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-log-out"></i>
                     <div data-i18n="Logout">Logout</div>
                 </a>
@@ -391,6 +373,7 @@
 }
 
 @RenderBody()
+
 
 
 

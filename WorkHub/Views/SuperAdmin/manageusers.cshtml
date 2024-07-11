@@ -1,107 +1,45 @@
-﻿
+﻿@model IEnumerable<WorkHub.Models.UserSignUp>
+
 @{
-    ViewBag.Title = "manageusers";
+    ViewBag.Title = "User List";
     Layout = "~/Views/SuperAdmin/SuperAdminIndex.cshtml";
 }
 
+<h2>User List</h2>
 
-<div class="row">
-    <div class="col-12 mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title">User Management</h5>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-12 mb-4">
-                        <h6 class="card-title">List of All Users</h6>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>User Name</th>
-                                    <th>User Id</th>
-                                    <th>Role</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Bob Marley</td>
-                                    <td>101</td>
-                                    <td><span class="badge bg-label-primary">Developer</span></td>
-                                    <td>
-                                        <button class="btn btn-sm btn-primary">Delete</button>
-                                        <form action="@Url.Action("UpdateUser", "SuperAdmin")" method="get" style="display: inline;">
-                                            <button type="submit" class="btn btn-sm btn-secondary">Update</button>
-                                        </form>
-
-                                    </td>
-                                </tr>
-                                <!-- Repeat for more Users -->
-                            </tbody>
-                            <tbody>
-                                <tr>
-                                    <td>Harry Potter</td>
-                                    <td>102</td>
-                                    <td><span class="badge bg-label-primary">Manager</span></td>
-                                    <td>
-                                        <button class="btn btn-sm btn-primary">Delete</button>
-                                        <button class="btn btn-sm btn-secondary">Update</button>
-                                    </td>
-                                </tr>
-                                <!-- Repeat for more Users -->
-                            </tbody>
-                            <tbody>
-                                <tr>
-                                    <td>Jack</td>
-                                    <td>103</td>
-                                    <td><span class="badge bg-label-primary">Developer</span></td>
-                                    <td>
-                                        <button class="btn btn-sm btn-primary">Delete</button>
-                                        <button class="btn btn-sm btn-secondary">Update</button>
-                                    </td>
-                                </tr>
-                                <!-- Repeat for more Users -->
-                            </tbody>
-                            <tbody>
-                                <tr>
-                                    <td>Jon Doe</td>
-                                    <td>106</td>
-                                    <td><span class="badge bg-label-primary">Developer</span></td>
-                                    <td>
-                                        <button class="btn btn-sm btn-primary">Delete</button>
-                                        <button class="btn btn-sm btn-secondary">Update</button>
-                                    </td>
-                                </tr>
-                                <!-- Repeat for more Users -->
-                            </tbody>
-
-                            <tbody>
-                                <tr>
-                                    <td>Oggy</td>
-                                    <td>110</td>
-                                    <td><span class="badge bg-label-primary">Manager</span></td>
-                                    <td>
-                                        <button class="btn btn-sm btn-primary">Delete</button>
-                                        <button class="btn btn-sm btn-secondary">Update</button>
-                                    </td>
-                                </tr>
-                                <!-- Repeat for more Users -->
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-12 mb-4">
-                        <h6 class="card-title">Delete/Update Users</h6>
-                        <form>
-                            <!-- User form fields here -->
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
+<table class="table">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Username</td>
+                <td>@user.Email</td>
+                <td>
+                    @using (Html.BeginForm("UpdateUserRole", "SuperAdmin", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.Hidden("id", user.Id)
+                        @Html.DropDownList("role", new SelectList(new[] { "developer", "admin", "manager" }, user.Role), new { @class = "form-control" })
+                        <button type="submit" class="btn btn-primary btn-sm">Update Role</button>
+                    }
+                </td>
+                <td>
+                    @using (Html.BeginForm("DeleteUser", "SuperAdmin", FormMethod.Post, new { @onsubmit = "return confirm('Are you sure you want to delete this user?');" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.Hidden("id", user.Id)
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

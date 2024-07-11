@@ -1,0 +1,97 @@
+﻿@model WorkHub.Models.CreateaProject
+
+@{
+    ViewBag.Title = "Create Project";
+    Layout = "~/Views/Manager/ManagerIndex.cshtml";
+}
+
+<!-- Include Font Awesome -->
+<link href="~/Content/fontawesome-all.min.css" rel="stylesheet" type="text/css" />
+
+<h2>Create Project</h2>
+<p>Fill in the details below to create a new project.</p>
+
+@using (Html.BeginForm("CreateProject", "Manager", FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Project Details</h5>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                @Html.LabelFor(model => model.ProjectName, new { @class = "form-label" })
+                @Html.TextBoxFor(model => model.ProjectName, new { @class = "form-control", placeholder = "Enter project name", required = "required" })
+                <div class="invalid-feedback">
+                    Please enter a project name.
+                </div>
+            </div>
+            <div class="mb-3">
+                @Html.LabelFor(model => model.Description, new { @class = "form-label" })
+                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", placeholder = "Enter project description", rows = "4", required = "required" })
+                <div class="invalid-feedback">
+                    Please enter a project description.
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="col-md-6">
+                    @Html.LabelFor(model => model.StartDate, new { @class = "form-label" })
+                    @Html.TextBoxFor(model => model.StartDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", required = "required" })
+                    <div class="invalid-feedback">
+                        Please enter a start date.
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    @Html.LabelFor(model => model.EndDate, new { @class = "form-label" })
+                    @Html.TextBoxFor(model => model.EndDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", required = "required" })
+                    <div class="invalid-feedback">
+                        Please enter an end date.
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="TeamMembers" class="form-label">Team Members</label>
+                <select multiple class="form-control" id="TeamMembers" name="TeamMembers">
+                    @foreach (var user in ViewBag.Users)
+                    {
+                        <option value="@user.Username">@user.Username</option>
+                    }
+                </select>
+                <div class="invalid-feedback">
+                    Please select at least one team member.
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-save"></i> Save Project
+            </button>
+            <a href="@Url.Action("ManagerIndex", "Manager")" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+        </div>
+    </div>
+}
+
+<!-- Include Bootstrap and jQuery scripts if not already included in the layout -->
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+<!-- Custom validation script -->
+<script>
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
