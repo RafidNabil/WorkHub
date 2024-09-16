@@ -5,6 +5,13 @@
     Layout = "~/Views/Manager/Managerindex.cshtml";
 
     var users = ViewBag.Users as List<WorkHub.Models.UserSignUp> ?? new List<WorkHub.Models.UserSignUp>();
+    var statuses = new List<SelectListItem>
+{
+    new SelectListItem { Text = "Select Status", Value = "" , Selected = Model.Status == null},
+    new SelectListItem { Text = "Ongoing", Value = "Ongoing", Selected = Model.Status == "Ongoing" },
+    new SelectListItem { Text = "Finished", Value = "Finished", Selected = Model.Status == "Finished" }
+};
+
 }
 
 <!-- Include Font Awesome -->
@@ -13,15 +20,20 @@
 <h2>Create Project</h2>
 <p>Fill in the details below to create a new project.</p>
 
-@using (Html.BeginForm("CreateProject", "Manager", FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate" }))
+@using (Html.BeginForm("CreateProject", "Manager", new { func = ViewBag.act }, FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate" }))
 {
+    if (ViewBag.act == 2)
+    {
+        @Html.HiddenFor(m => m.Id)
+    }
+
     <div class="card">
         <div class="card-header">
             <h5 class="card-title">Project Details</h5>
         </div>
         <div class="card-body">
             <div class="mb-3">
-                @Html.LabelFor(m => m.ProjectName, new { @class = "form-label" })
+                @Html.Label("ProjectName", "Project Name", new { @class = "form-label" })
                 @Html.TextBoxFor(m => m.ProjectName, new { @class = "form-control", placeholder = "Enter project name", required = "required" })
                 <div class="invalid-feedback">
                     Please enter a project name.
@@ -29,31 +41,57 @@
             </div>
             <div class="mb-3">
                 @Html.LabelFor(m => m.Description, new { @class = "form-label" })
-                @Html.TextAreaFor(m => m.Description, new { @class = "form-control", placeholder = "Enter project description", rows = "4", required = "required" })
-                <div class="invalid-feedback">
-                    Please enter a project description.
-                </div>
+                @if (ViewBag.act == 1)
+                {
+                    @Html.TextAreaFor(m => m.Description, new { @class = "form-control", placeholder = "Enter project description", rows = "4", required = "required" });
+                }
+                else if (ViewBag.act == 2)
+                {
+                    @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = "4", required = "required" })
+                }
             </div>
             <div class="mb-3 row">
                 <div class="col-md-6">
-                    @Html.LabelFor(m => m.StartDate, new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.StartDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", required = "required" })
+                    @Html.Label("StartDate", "Start Date", new { @class = "form-label" })
+                    @if (ViewBag.act == 1)
+                    {
+                        @Html.TextBoxFor(m => m.StartDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", required = "required", Value = DateTime.Now.ToString("yyyy-MM-dd") })
+                    }
+                    else if (ViewBag.act == 2)
+                    {
+                        @Html.TextBoxFor(m => m.StartDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", required = "required", Value = Model.StartDate.ToString("yyyy-MM-dd") })
+                    }
                     <div class="invalid-feedback">
                         Please enter a valid start date.
                     </div>
                 </div>
                 <div class="col-md-6">
-                    @Html.LabelFor(m => m.EndDate, new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.EndDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", required = "required" })
+                    @Html.Label("EndDate", "End Date", new { @class = "form-label" })
+                    @if (ViewBag.act == 1)
+                    {
+                        @Html.TextBoxFor(m => m.EndDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", required = "required", Value = DateTime.Now.ToString("yyyy-MM-dd") })
+                    }
+                    else if (ViewBag.act == 2)
+                    {
+                        @Html.TextBoxFor(m => m.EndDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", required = "required", Value = Model.EndDate.ToString("yyyy-MM-dd") })
+                    }
                     <div class="invalid-feedback">
                         Please enter a valid end date.
                     </div>
                 </div>
             </div>
             <div class="mb-3">
-                @Html.LabelFor(m => m.TeamMembers, new { @class = "form-label" })
+                @Html.Label("TeamMembers", "Team Members", new { @class = "form-label" })
                 @Html.ListBoxFor(m => m.TeamMembers, new MultiSelectList(users, "Id", "Username"), new { @class = "form-control", multiple = "multiple" })
             </div>
+            <div class="mb-3">
+                @Html.LabelFor(m => m.Status, new { @class = "form-label" })
+                @Html.DropDownListFor(m => m.Status, statuses, new { @class = "form-control", required = "required" })
+                <div class="invalid-feedback">
+                    Please select a project status.
+                </div>
+            </div>
+
         </div>
         <div class="card-footer">
             <button type="submit" class="btn btn-primary">
@@ -71,7 +109,7 @@
 <script src="~/Scripts/bootstrap.min.js"></script>
 
 <!-- Custom validation script -->
-<script>
+<!--<script>
     (function () {
         'use strict';
         window.addEventListener('load', function () {
@@ -87,4 +125,15 @@
             });
         }, false);
     })();
-</script>
+</script> -->
+
+<style>
+    .user-checkbox:checked + label::before {
+        content: "✓"; /* Checkmark */
+        color: green;
+    }
+
+    .selected {
+        background-color: #e9ecef;
+    }
+</style>

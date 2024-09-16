@@ -1,13 +1,13 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Admin Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@section Menu {
-    <!-- Menu -->
+@section menu{
     <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
         <div class="app-brand demo">
-            <a href="@Url.Action("ManagerDashboard", "Manager")" class="app-brand-link">
+            <a href="@Url.Action("AdminDashboard", "Admin")" class="app-brand-link">
                 <span class="app-brand-logo demo">
                     <svg width="25"
                          viewBox="0 0 25 42"
@@ -61,85 +61,53 @@
         <ul class="menu-inner py-1">
             <!-- Dashboard Overview -->
             <li class="menu-item">
-                <a href="@Url.Action("ManagerDashboard", "Manager")" class="menu-link">
+                <a href="@Url.Action("AdminDashboard", "Admin")" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                    <div data-i18n="Analytics">Assign Role</div>
+                    <div data-i18n="Analytics">Dashboard Overview</div>
+                </a>
+            </li>
+            <!-- Users -->
+            <li class="menu-header small text-uppercase">
+                <span class="menu-header-text">User Management</span>
+            </li>
+
+            <li class="menu-item">
+                <a href="@Url.Action("ManageUsers", "Admin")" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-edit"></i>
+                    <div data-i18n="Manage Users">Manage Users</div>
                 </a>
             </li>
             <!-- Projects -->
             <li class="menu-header small text-uppercase">
-                <span class="menu-header-text">Projects</span>
+                <span class="menu-header-text">Project Management</span>
             </li>
             <li class="menu-item">
-                <a href="@Url.Action("CreateProject", "Manager")" class="menu-link">
-                    <i class="menu-icon tf-icons bx bx-plus-circle"></i>
-                    <div data-i18n="Create Project">Create Project</div>
+                <a href="@Url.Action("ViewProject", "Admin")" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-notepad"></i>
+                    <div data-i18n="View Projects">View Projects</div>
                 </a>
             </li>
-            <li class="menu-item">
-                <a href="@Url.Action("ManageProjects", "Manager")" class="menu-link">
-                    <i class="menu-icon tf-icons bx bx-edit"></i>
-                    <div data-i18n="Manage Projects">Manage Projects</div>
-                </a>
-            </li>
-            <!-- Tasks -->
-            <li class="menu-header small text-uppercase">
-                <span class="menu-header-text">Tasks</span>
-            </li>
-            <li class="menu-item">
-                <a href="@Url.Action("CreateTask", "Manager")" class="menu-link">
-                    <i class="menu-icon tf-icons bx bx-plus-circle"></i>
-                    <div data-i18n="Create Task">Create Task</div>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="@Url.Action("ManageTasks", "Manager")" class="menu-link">
-                    <i class="menu-icon tf-icons bx bx-edit"></i>
-                    <div data-i18n="Manage Tasks">Manage Tasks</div>
-                </a>
-            </li>
-            <!-- Team -->
-            <li class="menu-header small text-uppercase">
-                <span class="menu-header-text">Team</span>
-            </li>
-            <li class="menu-item">
-                <a href="@Url.Action("ViewTeam", "Manager")" class="menu-link">
-                    <i class="menu-icon tf-icons bx bx-group"></i>
-                    <div data-i18n="View Team">View Team</div>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="@Url.Action("AssignTasks", "Manager")" class="menu-link">
-                    <i class="menu-icon tf-icons bx bx-task"></i>
-                    <div data-i18n="Assign Tasks">Assign Tasks</div>
-                </a>
-            </li>
+
             <!-- Reports -->
             <li class="menu-header small text-uppercase">
                 <span class="menu-header-text">Reports</span>
             </li>
             <li class="menu-item">
-                <a href="@Url.Action("ProjectProgress", "Manager")" class="menu-link">
-                    <i class="menu-icon tf-icons bx bx-line-chart"></i>
-                    <div data-i18n="Project Progress">Project Progress</div>
+                <a href="@Url.Action("UserActivity", "Admin")" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-user-check"></i>
+                    <div data-i18n="User Activity">User List</div>
                 </a>
             </li>
+
             <li class="menu-item">
-                <a href="@Url.Action("TaskCompletion", "Manager")" class="menu-link">
-                    <i class="menu-icon tf-icons bx bx-task"></i>
-                    <div data-i18n="Task Completion">Task Completion</div>
-                </a>
-            </li>
-            <!-- Notifications -->
-            <li class="menu-item">
-                <a href="@Url.Action("Notifications", "Manager")" class="menu-link">
-                    <i class="menu-icon tf-icons bx bx-bell"></i>
-                    <div data-i18n="Notifications">Notifications</div>
+                <a href="@Url.Action("Statistics", "Admin")" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-chart"></i>
+                    <div data-i18n="System Useage">Statistics</div>
                 </a>
             </li>
             <!-- Logout -->
             <li class="menu-item">
-                <a href="@Url.Action("Logout", "Manager")" class="menu-link">
+                <a href="@Url.Action("Logout", "Authentication")" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-log-out"></i>
                     <div data-i18n="Logout">Logout</div>
                 </a>
@@ -147,6 +115,8 @@
         </ul>
     </aside>
 }
+
+
 
 @section Navbar{
     <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
@@ -330,7 +300,7 @@
                                     </div>
                                     <div class="flex-grow-1">
                                         <span class="fw-medium d-block">John Doe</span>
-                                        <small class="text-muted">Admin</small>
+                                        <small class="text-muted">Super Admin</small>
                                     </div>
                                 </div>
                             </a>
@@ -402,3 +372,9 @@
 }
 
 @RenderBody()
+
+
+
+
+
+

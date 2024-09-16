@@ -36,5 +36,10 @@ namespace WorkHub.Services
         {
             return _database.GetCollection<T>(collectionName);
         }
+
+        public static IMongoDatabase GetDatabase()
+        {
+            return _database;
+        }
     }
 }

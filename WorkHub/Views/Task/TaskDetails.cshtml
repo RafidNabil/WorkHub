@@ -1,0 +1,481 @@
+﻿@model (WorkHub.Models.Tasks, List<WorkHub.Models.File>, List<WorkHub.Models.Comment>)
+@{
+    ViewBag.Title = "Project Details";
+    Layout = "~/Views/Manager/ManagerIndex.cshtml";
+    var length = Model.Item1.Id.Length;
+    var commentUserPictures = ViewBag.CommentUserPictures as Dictionary<string, string>;
+}
+
+<div class="content" bis_skin_checked="1">
+
+    <!-- Start Content-->
+    <div class="container-fluid" bis_skin_checked="1">
+
+        <!-- start page title -->
+        <div class="row" bis_skin_checked="1">
+            <div class="col-12" bis_skin_checked="1">
+                <div class="page-title-box" bis_skin_checked="1">
+                    <h4 class="page-title">Task Details</h4>
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+
+        <div class="row" bis_skin_checked="1">
+            <div class="col-xxl-8 col-xl-7" bis_skin_checked="1">
+                <!-- project card -->
+                <div class="card d-block" bis_skin_checked="1">
+                    <div class="card-body" bis_skin_checked="1">
+                        <div style="display:flex; flex-direction:row; justify-content:space-between; align-items:center">
+                            <div>
+                                <p>ID: @Model.Item1.Id.Substring(length - 8).ToUpper()</p>
+                                <h3 class="mt-3">@Model.Item1.TaskTitle</h3>
+                                <h5 class="mt-3">Project: @ViewBag.ProjectName</h5>
+                            </div>
+                            <div class="dropdown card-widgets" bis_skin_checked="1">
+                                <a href="#" class="dropdown-toggle arrow-none" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="uil uil-ellipsis-h"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end" bis_skin_checked="1" style="">
+                                    <!-- item-->
+                                    <a href="@Url.Action("AddTask", "Task", new { act = 2, id = Model.Item1.Id, projectID = Model.Item1.ProjectID, title = Model.Item1.TaskTitle, desc = Model.Item1.Description, repID = Model.Item1.ReporterID, repName = Model.Item1.Reporter, dueDate = Model.Item1.DueDate, AssignDate = Model.Item1.AssignDate, estTime = Model.Item1.EstimationTime, status = Model.Item1.Status })" class="dropdown-item"><i class="bx bx-edit me-2"></i>Edit</a>
+                                    <!-- item-->
+                                    @if (Model.Item1.Status == "To Do")
+                                    {
+                                        <form action="@Url.Action("UpdateCard", "Kanban")" method="post" class="d-inline">
+                                            <input type="hidden" name="id" value="@Model.Item1.Id" />
+                                            <input type="hidden" name="newStatus" value="In Progress" />
+                                            <input type="hidden" name="newStatus" value="@Model.Item1.ProjectID" />
+                                            <button type="submit" class="dropdown-item"><i class="bx bxl-markdown me-2"></i>Mark In Progress</button>
+                                        </form>
+                                    }
+                                    @if (Model.Item1.Status == "In Progress")
+                                    {
+                                        <!-- Button trigger first modal -->
+                                        <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal1">
+                                            <i class="bx bx-check me-2"></i>Mark as Done
+                                        </button>
+                                    }
+                                    <div class="dropdown-divider" bis_skin_checked="1"></div>
+                                    <!-- item-->
+                                    <form action="@Url.Action("DeleteTask", "Kanban")" method="post" class="d-inline">
+                                        <input type="hidden" name="taskId" value="@Model.Item1.Id" />
+                                        <input type="hidden" name="ProjectId" value="@Model.Item1.ProjectID" />
+                                        <button type="submit" class="dropdown-item text-danger"><i class="bx bx-trash text-danger me-2"></i>Delete</button>
+                                    </form>
+                                </div> <!-- end dropdown menu-->
+                            </div> <!-- end dropdown-->
+                        </div>
+
+                        <!-- Request Modal -->
+                        <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel1">First Modal</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="@Url.Action("MakeRequest", "Task")" method="post" class="d-inline">
+                                            <input type="hidden" name="taskId" value="@Model.Item1.Id" />
+                                            <input type="hidden" name="developerId" value="@Request.Cookies["UserID"].Value.ToString()" />
+                                            <input type="hidden" name="managerId" value="@ViewBag.ManagerId" />
+                                            <div class="mb-3">
+                                                <label for="message-text" class="col-form-label">Message:</label>
+                                                <textarea class="form-control" name="comment" id="message-text"></textarea>
+                                            </div>
+                                            @* <button type="submit" class="dropdown-item"><i class="bx bx-check me-2"></i>Mark as Done</button>*@
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Send</button>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        @if (Model.Item1.Status == "To Do")
+                        {
+                            <span class="badge bg-label-danger me-1">To Do</span>
+                        }
+                        else if (Model.Item1.Status == "In Progress")
+                        {
+                            <span class="badge bg-label-warning me-1">In Progress</span>
+                        }
+                        else if (Model.Item1.Status == "Done")
+                        {
+                            <span class="badge bg-label-success me-1">Done</span>
+                        }
+                        else if (Model.Item1.Status == "Pending Approval")
+                        {
+                            <span class="badge bg-label-info me-1">Pending Approval</span>
+                        }
+
+
+                        <div class="row" bis_skin_checked="1">
+                            <div class="col-3" bis_skin_checked="1">
+                                <!-- assignee -->
+                                <p class="mt-2 mb-1 text-muted fw-bold font-12 text-uppercase">Reporter</p>
+                                <div class="d-flex" bis_skin_checked="1">
+                                    @*<img src="assets/images/users/avatar-9.jpg" alt="img" class="rounded-circle me-2" height="24">*@
+                                    <div bis_skin_checked="1">
+                                        <h5 class="mt-1 font-14">
+                                            @Model.Item1.Reporter
+                                        </h5>
+                                    </div>
+                                </div>
+
+                                <!-- end assignee -->
+                            </div> <!-- end col -->
+
+                            <div class="col-3" bis_skin_checked="1">
+                                <!-- start due date -->
+                                <p class="mt-2 mb-1 text-muted fw-bold font-12 text-uppercase">Due Date</p>
+                                <div class="d-flex" bis_skin_checked="1">
+                                    <i class="uil uil-schedule font-18 text-success me-1"></i>
+                                    <div bis_skin_checked="1">
+                                        <h5 class="mt-1 font-14">
+                                            @Model.Item1.DueDate.ToString("yyyy-MM-dd")
+                                        </h5>
+                                    </div>
+                                </div>
+                                <!-- end due date -->
+                            </div> <!-- end col -->
+
+                            <div class="col-3" bis_skin_checked="1">
+                                <!-- start due date -->
+                                <p class="mt-2 mb-1 text-muted fw-bold font-12 text-uppercase">Assign Date</p>
+                                <div class="d-flex" bis_skin_checked="1">
+                                    <i class="uil uil-schedule font-18 text-success me-1"></i>
+                                    <div bis_skin_checked="1">
+                                        <h5 class="mt-1 font-14">
+                                            @Model.Item1.AssignDate.ToString("yyyy-MM-dd")
+                                        </h5>
+                                    </div>
+                                </div>
+                                <!-- end due date -->
+                            </div> <!-- end col -->
+
+                            <div class="col-3" bis_skin_checked="1">
+                                <!-- start due date -->
+                                <p class="mt-2 mb-1 text-muted fw-bold font-12 text-uppercase">Est Time</p>
+                                <div class="d-flex" bis_skin_checked="1">
+                                    <i class="uil uil-schedule font-18 text-success me-1"></i>
+                                    <div bis_skin_checked="1">
+                                        <h5 class="mt-1 font-14">
+                                            @Model.Item1.EstimationTime hr
+                                        </h5>
+                                    </div>
+                                </div>
+                                <!-- end due date -->
+                            </div> <!-- end col -->
+                        </div> <!-- end row -->
+
+
+                        <h5 class="mt-3">Overview:</h5>
+
+                        <p class="text-muted mb-4">
+                            @Model.Item1.Description
+                        </p>
+
+
+                        <!-- end sub tasks/checklists -->
+
+                    </div> <!-- end card-body-->
+
+                </div> <!-- end card-->
+                <!-- comments -->
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h4 class="mt-0 mb-3">Comments (@Model.Item3.Count)</h4>
+
+                        @using (Html.BeginForm("AddComment", "Manager", FormMethod.Post, new { id = Model.Item1.Id }))
+                        {
+                            @Html.Hidden("id", Model.Item1.Id)
+
+
+                            @Html.Hidden("RelatedId", Model.Item1.Id)
+
+
+                            @Html.Hidden("func", (int)2)
+
+
+                            @Html.Hidden("UserId", (string)ViewBag.MyID)
+
+
+                            @Html.Hidden("UserName", (string)ViewBag.MyName)
+
+
+                            <textarea name="content" class="form-control form-control-light mb-2" placeholder="Write message" id="example-textarea" rows="3"></textarea>
+
+
+                            <div class="text-end">
+                                <div class="btn-group mb-2">
+                                    <button type="button" class="btn btn-link btn-sm text-muted font-18"><i class="ri-attachment-2"></i></button>
+                                </div>
+                                <div class="btn-group mb-2 ms-2">
+                                    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                                </div>
+                            </div>
+                        }
+
+                        <!-- Display Comments -->
+                        @foreach (var comment in Model.Item3)
+                        {
+                            <div class="comment-container d-flex align-items-start mt-3 border p-3 rounded">
+                                <img class="me-3 avatar-sm rounded-circle"
+                                     src="@((commentUserPictures != null && commentUserPictures.ContainsKey(comment.Id)) ? commentUserPictures[comment.Id] : "default-profile-pic.png")"
+                                     alt="@comment.UserName">
+                                <div class="w-100">
+                                    <div style="display: flex; flex-direction:row; align-items: center; justify-content: space-between;">
+                                        <h6 class="mb-1">@comment.UserName</h6>
+                                        @if (comment.UserId == ViewBag.MyID)
+                                        {<a href="@Url.Action("DeleteComment", "Manager", new {id = comment.Id, relatedId = comment.RelatedId, func = (int)1})"><i class="bx bx-trash text-danger me-2"></i></a>}
+                                    </div>
+                                    <p class="mb-1">@comment.Content</p>
+                                    <small class="text-muted">@comment.CreatedAt.ToString("f")</small>
+                                </div>
+                            </div>
+                        }
+
+
+                        <!-- Load more button if applicable -->
+                        <!--<div class="text-center mt-2">
+        <a href="javascript:void(0);" class="text-danger">Load more</a>
+    </div>-->
+                    </div>
+                </div>
+                <!-- end card-->
+            </div> <!-- end col -->
+
+            <div class="col-xxl-4 col-xl-5" bis_skin_checked="1">
+
+                <!--2-->
+                <div class="card" bis_skin_checked="1">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Team Members</th>
+                                <th>Role</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Item1.Assignee == null)
+                            {
+
+
+                                <tr>
+                                    <td>
+                                        No Assignee
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            }
+                            else
+                            {
+                                foreach (var item in ViewBag.Users)
+                                {
+                                    <tr>
+                                        <td>
+                                            @item.Key
+                                        </td>
+                                        <td>@item.Value</td>
+                                    </tr>
+                                }
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+                <div class="card mt-2" bis_skin_checked="1">
+                    <div class="card-body" bis_skin_checked="1">
+                        <h5 class="card-title mb-3">Attachments</h5>
+
+                        <!-- Add more files -->
+                        @using (Html.BeginForm("Create", "Task", new { func = 3, id = Model.Item1.Id }, FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate", enctype = "multipart/form-data" }))
+                        {
+                            <div class="drag-drop-area" id="drop-area">
+                                <div class="dz-message needsclick">
+                                    <i class="h3 text-muted ri-upload-cloud-2-line"></i>
+                                    <h4>Drop files here or click to upload.</h4>
+                                </div>
+                                <input type="file" id="fileElem" name="attachments" multiple class="form-control file-input"
+                                       accept=".jpg, .jpeg, .png, .gif, .pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .zip, .rar" />
+                                <i class="bx bx-cloud-upload" style="font-size:2rem;"></i>
+                                <ul id="fileList" class="list-group"></ul>
+                            </div>
+                            <button id="submitBtn" type="submit" class="btn btn-primary mb-2" style="display:none;">
+                                <i class="fas fa-save"></i> Add Files
+                            </button>
+                        }
+
+                        <h5 class="card-title mb-3">Files</h5>
+                        <form action="@Url.Action("DeleteFiles", "Task", new {taskid = Model.Item1.Id})" method="post">
+                            @if (Model.Item2 != null && Model.Item2.Count > 0)
+                            {
+                                foreach (var file in Model.Item2)
+                                {
+                                    string fileExtension = Path.GetExtension(file.FileName)?.TrimStart('.').ToLower();
+
+                                    <div class="card my-1 shadow-none border">
+                                        <div class="p-2">
+                                            <div class="row align-items-center">
+                                                <div class="col-auto">
+                                                    <i class="bi bi-filetype-@fileExtension" style="font-size: 2rem;"></i>
+                                                </div>
+                                                <div class="col ps-0">
+                                                    <a href="@Url.Action("DownloadFile", "Task", new { fileId = file.Id.ToString() })">
+                                                        @file.FileName
+                                                    </a>
+                                                    <p class="mb-0">@file.Size bytes</p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-danger mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Delete Files
+                                </button>
+                            }
+                            else
+                            {
+                                <div>No files attached to this task.</div>
+                            }
+                        </form>
+                    </div>
+                </div>
+
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Select Files</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <form action="@Url.Action("DeleteFiles", "Task", new {taskid = Model.Item1.Id})" method="post">
+                                <div class="modal-body">
+
+                                    @if (Model.Item2 != null && Model.Item2.Count > 0)
+                                    {
+                                        foreach (var file in Model.Item2)
+                                        {
+                                            string fileExtension = Path.GetExtension(file.FileName)?.TrimStart('.').ToLower();
+
+                                            <div class="card my-1 shadow-none border">
+                                                <div class="p-2">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-auto">
+                                                            <i class="bi bi-filetype-@fileExtension" style="font-size: 2rem;"></i>
+                                                        </div>
+                                                        <div class="col ps-0">
+                                                            <a href="@Url.Action("DownloadFile", "Task", new { fileId = file.Id.ToString() })">
+                                                                @file.FileName
+                                                            </a>
+                                                            <p class="mb-0">@file.Size bytes</p>
+                                                        </div>
+                                                        <div class="col-auto">
+                                                            <input type="checkbox" name="fileIds" value="@file.Id.ToString()" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+
+                                        @*<button type="submit" class="btn btn-danger mt-2">Delete Selected Files</button>*@
+                                    }
+                                    else
+                                    {
+                                        <div>No files attached to this task.</div>
+                                    }
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-danger">Delete Selected Files</button>
+                                    @*<button type="button" class="btn btn-primary">Cancel</button>*@
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- end row -->
+
+</div> <!-- container -->
+
+<script>
+    document.getElementById('fileElem').addEventListener('change', function (event) {
+        const fileList = document.getElementById('fileList');
+        fileList.innerHTML = ''; // Clear existing list
+        const files = event.target.files;
+
+        // If files are selected
+        if (files.length > 0) {
+            // Show the submit button
+            document.getElementById('submitBtn').style.display = 'block';
+
+            // Display the list of selected files
+            for (let i = 0; i < files.length; i++) {
+                const li = document.createElement('li');
+                li.textContent = files[i].name;
+                fileList.appendChild(li);
+            }
+            fileList.style.display = 'block'; // Show file list
+        } else {
+            // Hide the submit button if no files are selected
+            document.getElementById('submitBtn').style.display = 'none';
+            fileList.style.display = 'none'; // Hide file list
+        }
+    });
+</script>
+
+<style>
+    .drag-drop-area {
+        border: 2px dashed #007bff; 
+        border-radius: 10px; 
+        padding: 20px; 
+        text-align: center; 
+        position: relative; 
+        margin-bottom: 20px; 
+    }
+
+    .file-input {
+        opacity: 0; 
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%; 
+        cursor: pointer; 
+    }
+
+    .list-group {
+        max-height: 200px; 
+        display: none; 
+    }
+
+    /* Additional styles for file list items */
+    #fileList li {
+        background-color: #f8f9fa; 
+        border: 1px solid #dee2e6; 
+        border-radius: 5px; 
+        margin-bottom: 5px; 
+        padding: 5px 10px; 
+        list-style: none; 
+    }
+</style>

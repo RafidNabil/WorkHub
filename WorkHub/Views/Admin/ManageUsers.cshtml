@@ -1,0 +1,104 @@
+﻿@model IEnumerable<WorkHub.Models.UserSignUp>
+
+@{
+    ViewBag.Title = "User List";
+    Layout = "~/Views/Admin/AdminIndex.cshtml";
+}
+
+
+<div class="card-header">
+    <h2><strong>User List</strong></h2>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th colspan="4"><strong>Admins</strong></th>
+        </tr>
+        @foreach (var user in Model.Where(u => u.Role == "admin"))
+        {
+            <tr>
+                <td>@user.Username</td>
+                <td>@user.Email</td>
+                <td>@user.Role</td>
+                <td>no action</td>
+            </tr>
+        }
+
+        <tr>
+            <th colspan="4"><strong>Developers</strong></th>
+        </tr>
+        @foreach (var user in Model.Where(u => u.Role == "developer"))
+        {
+            <tr>
+                <td>@user.Username</td>
+                <td>@user.Email</td>
+                <td>
+                    @using (Html.BeginForm("UpdateUserRole", "SuperAdmin", FormMethod.Post, new { onsubmit = "return confirm('Are you sure you want to update the role of this user?');" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.Hidden("id", user.Id)
+                        @Html.DropDownList("role", new SelectList(new[] { "developer", "admin", "manager" }, user.Role), new { @class = "form-control", style = "display: inline-block; width: auto;" })
+                        <button type="submit" class="btn btn-primary btn-sm">Update Role</button>
+                    }
+                </td>
+                <td>
+                    @using (Html.BeginForm("DeleteUser", "SuperAdmin", FormMethod.Post, new { onsubmit = "return confirm('Are you sure you want to delete this user?');" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.Hidden("id", user.Id)
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    }
+                </td>
+            </tr>
+        }
+
+        <tr>
+            <th colspan="4"><strong>Managers</strong></th>
+        </tr>
+        @foreach (var user in Model.Where(u => u.Role == "manager"))
+        {
+            <tr>
+                <td>@user.Username</td>
+                <td>@user.Email</td>
+                <td>
+                    @using (Html.BeginForm("UpdateUserRole", "SuperAdmin", FormMethod.Post, new { onsubmit = "return confirm('Are you sure you want to update the role of this user?');" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.Hidden("id", user.Id)
+                        @Html.DropDownList("role", new SelectList(new[] { "developer", "admin", "manager" }, user.Role), new { @class = "form-control", style = "display: inline-block; width: auto;" })
+                        <button type="submit" class="btn btn-primary btn-sm">Update Role</button>
+                    }
+                </td>
+                <td>
+                    @using (Html.BeginForm("DeleteUser", "SuperAdmin", FormMethod.Post, new { onsubmit = "return confirm('Are you sure you want to delete this user?');" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.Hidden("id", user.Id)
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script type="text/javascript">
+    // Confirmation before updating role
+    function confirmUpdateRole() {
+        return confirm('Are you sure you want to update the role of this user?');
+    }
+
+    // Confirmation before deleting user
+    function confirmDeleteUser() {
+        return confirm('Are you sure you want to delete this user?');
+    }
+</script>

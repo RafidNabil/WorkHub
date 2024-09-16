@@ -71,7 +71,7 @@
                 <span class="menu-header-text">Projects</span>
             </li>
             <li class="menu-item">
-                <a href="@Url.Action("CreateProject", "Manager")" class="menu-link">
+                <a href="@Url.Action("CreateProject", "Manager", new {act = 1})" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-plus-circle"></i>
                     <div data-i18n="Create Project">Create Project</div>
                 </a>
@@ -82,24 +82,30 @@
                     <div data-i18n="View Projects">Manage Projects</div>
                 </a>
             </li>
+            <li class="menu-item">
+                <a href="@Url.Action("Index", "Kanban")" class="menu-link">
+                    <i class="menu-icon tf-icons bi bi-kanban"></i>
+                    <div data-i18n="View Projects">Kanban View</div>
+                </a>
+            </li>
             <!-- Tasks -->
             <li class="menu-header small text-uppercase">
                 <span class="menu-header-text">Tasks</span>
             </li>
             <li class="menu-item">
-                <a href="@Url.Action("CreateTask", "Manager")" class="menu-link">
+                <a href="@Url.Action("AddTask", "Task", new {act = 1})" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-plus-circle"></i>
-                    <div data-i18n="Create Task">Create Task</div>
+                    <div data-i18n="Create Task">Add Task</div>
                 </a>
             </li>
             <li class="menu-item">
-                <a href="@Url.Action("ManageTasks", "Manager")" class="menu-link">
+                <a href="@Url.Action("tasksList", "Task")" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-edit"></i>
-                    <div data-i18n="Manage Tasks">Manage Tasks</div>
+                    <div data-i18n="Manage Tasks">Tasks List</div>
                 </a>
             </li>
             <!-- Team -->
-            <li class="menu-header small text-uppercase">
+            @*<li class="menu-header small text-uppercase">
                 <span class="menu-header-text">Team</span>
             </li>
             <li class="menu-item">
@@ -113,21 +119,21 @@
                     <i class="menu-icon tf-icons bx bx-task"></i>
                     <div data-i18n="Assign Tasks">Assign Tasks</div>
                 </a>
-            </li>
+            </li>*@
             <!-- Reports -->
             <li class="menu-header small text-uppercase">
                 <span class="menu-header-text">Reports</span>
             </li>
             <li class="menu-item">
-                <a href="@Url.Action("ProjectProgress", "Manager")" class="menu-link">
+                <a href="@Url.Action("PendingApproval", "Manager")" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-line-chart"></i>
-                    <div data-i18n="Project Progress">Project Progress</div>
+                    <div data-i18n="Project Progress">Pending Approvals</div>
                 </a>
             </li>
             <li class="menu-item">
-                <a href="@Url.Action("TaskCompletion", "Manager")" class="menu-link">
+                <a href="@Url.Action("MyRequests", "Manager")" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-task"></i>
-                    <div data-i18n="Task Completion">Task Completion</div>
+                    <div data-i18n="Task Completion">My Requests</div>
                 </a>
             </li>
             <!-- Notifications -->
@@ -339,7 +345,7 @@
                             <div class="dropdown-divider"></div>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="pages-profile-user.html">
+                            <a class="dropdown-item" href="@Url.Action("UserProfile", "Manager")">
                                 <i class="bx bx-user me-2"></i>
                                 <span class="align-middle">My Profile</span>
                             </a>
@@ -401,4 +407,5 @@
     </nav>
 }
 
+@RenderSection("scripts", required: false)
 @RenderBody()

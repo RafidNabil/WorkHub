@@ -1,0 +1,42 @@
+﻿@model IEnumerable<WorkHub.Models.CreateaProject>
+
+@{
+    ViewBag.Title = "User Activity";
+    Layout = "~/Views/Admin/AdminIndex.cshtml";
+}
+
+<div class="card-header">
+    <h2><strong>Project User List</strong></h2>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Project Name</th>
+            <th>Team Members</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ProjectName</td>
+                <td>
+                    @if (item.TeamMembers != null && item.TeamMembers.Any())
+                    {
+                        <ul>
+                            @foreach (var member in item.TeamMembers)
+                            {
+                                <li>@member</li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <p>No team members assigned</p>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

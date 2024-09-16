@@ -57,18 +57,24 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     @*<script src="../assets/js/config.js"></script>*@
     <script src="@Url.Content("~/Content/assets/js/config.js")"></script>
+
+    <style>
+        .field-validation-error {
+            font-size: 0.7rem; /* Adjust the font size as needed */
+        }
+    </style>
+
 </head>
 
 <body>
     <!-- Content -->
-
     <div class="container-xxl">
-        <div class="authentication-wrapper authentication-basic container-p-y">
+        <div class="authentication-wrapper authentication-basic container-p-y" style="padding-right: 15.5rem">
             <div class="authentication-inner">
                 <div class="card">
                     <div class="card-body">
                         <div class="app-brand justify-content-center">
-                            <a href="index.html" class="app-brand-link gap-2">
+                            <a href="@Url.Action("SignIn", "Authentication")" class="app-brand-link gap-2">
                                 <span class="app-brand-logo demo">
                                     <!-- SVG Logo here -->
                                 </span>
@@ -90,18 +96,32 @@
 
                             <div class="mb-3">
                                 @Html.LabelFor(m => m.Email, new { @class = "form-label" })
-                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Enter your email" })
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Enter your email", @id = "Email" })
+                                <span id="email-validation-error" class="text-danger field-validation-error"></span>
                                 @Html.ValidationMessageFor(m => m.Email)
                             </div>
 
                             <div class="mb-3 form-password-toggle">
                                 @Html.LabelFor(m => m.Password, new { @class = "form-label" })
                                 <div class="input-group input-group-merge">
-                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "••••••••••••", @aria_describedby = "password" })
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", @id = "password", @placeholder = "••••••••••••", @aria_describedby = "password" })
                                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                 </div>
+                                <span id="password-validation-error" class="text-danger field-validation-error"></span>
                                 @Html.ValidationMessageFor(m => m.Password)
                             </div>
+
+
+                            <div class="mb-3 form-password-toggle">
+                                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "form-label" })
+                                <div class="input-group input-group-merge">
+                                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @id = "confirmPassword", @placeholder = "Re-enter your password", @aria_describedby = "confirmpassword" })
+                                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                                </div>
+                                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                            </div>
+
+                            <div id="passwordMatchMessage" class="mb-3 text-danger"></div>
 
                             <div class="mb-3">
                                 <div class="form-check">
@@ -126,7 +146,6 @@
             </div>
         </div>
     </div>
-
     <!-- / Content -->
     <!-- / Content -->
     <!-- Core JS -->
@@ -151,6 +170,78 @@
     <!-- Page JS -->
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+    <script>
+    $(document).ready(function () {
+        // Real-time password validation
+        $("#password").on("input", function () {
+            var password = $(this).val();
+            var passwordValidationMessage = [];
+
+            // Check for minimum length
+            if (password.length < 8 || password.length > 20) {
+                passwordValidationMessage.push("Password must be between 8 and 20 characters.");
+            }
+
+            // Check for at least one letter
+            if (!/[A-Za-z]/.test(password)) {
+                passwordValidationMessage.push("At least one letter.");
+            }
+
+            // Check for at least one digit
+            if (!/\d/.test(password)) {
+                passwordValidationMessage.push("At least one digit.");
+            }
+
+            // Check for at least one special character
+            if (!/[~!@@$#%&*]/.test(password)) {
+                passwordValidationMessage.push("At least one special character.");
+            }
+
+            // Display validation message in a single line
+            if (passwordValidationMessage.length === 0) {
+                $("#password-validation-error").hide(); // Hide validation error message if everything is correct
+            } else {
+                $("#password-validation-error").text(passwordValidationMessage.join(" ")).show();
+            }
+        });
+    });
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#confirmPassword, #password').on('input', function () {
+                var password = $('#password').val();
+                var confirmPassword = $('#confirmPassword').val();
+
+                if (password === confirmPassword) {
+                    $('#passwordMatchMessage').text('Passwords match').removeClass('text-danger').addClass('text-success');
+                } else {
+                    $('#passwordMatchMessage').text('Passwords do not match').removeClass('text-success').addClass('text-danger');
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            // Real-time validation for email field
+            $("#Email").on("input", function () {
+                var email = $(this).val();
+                if (email.endsWith("gmail.com") || email.endsWith("yahoo.com")) {
+                    // Valid email format
+                    $("#email-validation-error").hide(); // Hide validation error message if shown
+                } else {
+                    // Invalid email format
+                    $("#email-validation-error").text("Email must end with 'gmail.com' or 'yahoo.com'").show();
+                }
+            });
+        });
+    </script>
+
+
 </body>
 </html>
 

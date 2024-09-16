@@ -1,0 +1,275 @@
+﻿
+@{
+    ViewBag.Title = "Admin Dashboard";
+    Layout = "~/Views/Admin/AdminIndex.cshtml";
+}
+
+<head>
+    <!-- Other head content -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/6.5.95/css/materialdesignicons.min.css">
+</head>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Project Overview -->
+
+<div class="card-header">
+    <h5 class="card-title">
+        Dashboard Overview
+        @if (Session["UserRole"] != null)
+        {
+            <strong> Role:</strong> @Session["UserRole"].ToString()
+        }
+    </h5>
+</div>
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Projects Overview</h5>
+            </div>
+            <div class="card-body p-0">
+                <div class="row g-0">
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card rounded-0 shadow-none m-0 border-start border-light">
+                            <div class="card-body text-center">
+                                <i class="ri-briefcase-line text-muted font-24"></i>
+                                <h3><span>@ViewBag.ProjectCount</span></h3>
+                                <p class="text-muted font-15 mb-0">Total Projects</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card rounded-0 shadow-none m-0 border-start border-light">
+                            <div class="card-body text-center">
+                                <i class="ri-group-line text-muted font-24"></i>
+                                <h3><span>@ViewBag.TotalUsers</span></h3>
+                                <p class="text-muted font-15 mb-0">Total Users</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card rounded-0 shadow-none m-0 border-start border-light">
+                            <div class="card-body text-center">
+                                <i class="ri-task-line text-muted font-24"></i>
+                                <h3><span>@ViewBag.TotalTasks</span></h3>
+                                <p class="text-muted font-15 mb-0">Total Tasks</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- end row -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <!-- Projects Status -->
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Projects Status</h5>
+            </div>
+            <div class="card-body">
+                <!-- Pie chart container for Projects -->
+                <div class="text-center mb-4">
+                    <canvas id="projectStatusPieChart" width="300" height="300"></canvas>
+                </div>
+
+                <div class="row text-center mt-2 py-2">
+                    <div class="col-sm-6">
+                        <div class="my-2 my-sm-0">
+                            <i class="mdi mdi-check-circle text-success mt-3 h3"></i>
+                            <h3 class="fw-normal">
+                                <span>@ViewBag.FinishedPercentage%</span>
+                            </h3>
+                            <p class="text-muted mb-0">Finished</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="my-2 my-sm-0">
+                            <i class="mdi mdi-progress-clock text-primary mt-3 h3"></i>
+                            <h3 class="fw-normal">
+                                <span>@ViewBag.OngoingPercentage%</span>
+                            </h3>
+                            <p class="text-muted mb-0">Ongoing</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Tasks Status -->
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Tasks Status</h5>
+            </div>
+            <div class="card-body">
+                <!-- Pie chart container for Tasks -->
+                <div class="text-center mb-4">
+                    <canvas id="taskStatusPieChart" width="300" height="300"></canvas>
+                </div>
+
+                <div class="row text-center mt-2 py-2">
+                    <div class="col-sm-4">
+                        <div class="my-2 my-sm-0">
+                            <i class="mdi mdi-clipboard-text-outline text-info mt-3 h3"></i>
+                            <h3 class="fw-normal">
+                                <span>@ViewBag.ToDoPercentage%</span>
+                            </h3>
+                            <p class="text-muted mb-0">To-Do Tasks</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="my-2 my-sm-0">
+                            <i class="mdi mdi-progress-clock text-warning mt-3 h3"></i>
+                            <h3 class="fw-normal">
+                                <span>@ViewBag.InProgressPercentage%</span>
+                            </h3>
+                            <p class="text-muted mb-0">In Progress Tasks</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="my-2 my-sm-0">
+                            <i class="mdi mdi-check-circle-outline text-success mt-3 h3"></i>
+                            <h3 class="fw-normal">
+                                <span>@ViewBag.DonePercentage%</span>
+                            </h3>
+                            <p class="text-muted mb-0">Done Tasks</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Data for the pie chart - Projects
+    var projectData = {
+        labels: ['Finished', 'Ongoing'],
+        datasets: [{
+            data: [@ViewBag.FinishedProjects, @ViewBag.OngoingProjects],
+            backgroundColor: ['#0acf97', '#727cf5'],
+            hoverBackgroundColor: ['#0acf97', '#727cf5'],
+            borderWidth: 1
+        }]
+    };
+
+    // Options for the pie chart - Projects
+    var projectOptions = {
+        responsive: true,
+        maintainAspectRatio: false
+    };
+
+    // Get the context of the canvas element - Projects
+    var projectCtx = document.getElementById('projectStatusPieChart').getContext('2d');
+
+    // Create the pie chart - Projects
+    var projectStatusPieChart = new Chart(projectCtx, {
+        type: 'pie',
+        data: projectData,
+        options: projectOptions
+    });
+
+    // Data for the pie chart - Tasks
+    var taskData = {
+        labels: ['To-Do', 'In Progress', 'Done'],
+        datasets: [{
+            data: [@ViewBag.ToDoTasks, @ViewBag.InProgressTasks, @ViewBag.DoneTasks],
+            backgroundColor: ['#45aaf2', '#f77e53', '#1abc9c'],
+            hoverBackgroundColor: ['#45aaf2', '#f77e53', '#1abc9c'],
+            borderWidth: 1
+        }]
+    };
+
+    // Options for the pie chart - Tasks
+    var taskOptions = {
+        responsive: true,
+        maintainAspectRatio: false
+    };
+
+    // Get the context of the canvas element - Tasks
+    var taskCtx = document.getElementById('taskStatusPieChart').getContext('2d');
+
+    // Create the pie chart - Tasks
+    var taskStatusPieChart = new Chart(taskCtx, {
+        type: 'pie',
+        data: taskData,
+        options: taskOptions
+    });
+</script>
+
+
+<!-- Recent Activities -->
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Recent Activities</h5>
+            </div>
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Recent Projects</h5>
+                            <ul class="list-unstyled">
+                                @foreach (var project in ViewBag.LatestProjects)
+                                {
+                                    <li>
+                                        <strong>@project.ProjectName</strong>
+                                        <ul>
+                                            <li>Status: @project.Status</li>
+                                        </ul>
+                                    </li>
+                                }
+                            </ul>
+                            @if (ViewBag.LatestProjects.Count == 0)
+                            {
+                                <p>No recent projects.</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Recent Tasks</h5>
+                            @if (ViewBag.LatestTasks != null)
+                            {
+                                <ul class="list-unstyled">
+                                    @foreach (var task in ViewBag.LatestTasks)
+                                    {
+                                        <li>
+                                            <strong>@task.TaskTitle</strong>
+                                            <ul>
+                                                <li>Status: @task.Status</li>
+                                            </ul>
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                <p>No recent tasks.</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /Content -->

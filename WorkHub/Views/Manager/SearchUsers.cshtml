@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "User Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>User Search</h2>
+
+<div class="form-group">
+    @Html.Label("Search Users", new { @class = "control-label" })
+    @Html.TextBox("searchTerm", "", new { @class = "form-control", id = "searchTerm", placeholder = "Type a name..." })
+</div>
+
+<ul id="userList" class="list-group"></ul>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#searchTerm').keyup(function () {
+                var searchTerm = $(this).val();
+                $.ajax({
+                    url: '@Url.Action("SearchUsers", "User")',
+                    type: 'GET',
+                    data: { searchTerm: searchTerm },
+                    success: function (data) {
+                        $('#userList').empty();
+                        $.each(data, function (i, user) {
+                            $('#userList').append('<li class="list-group-item">' + user.Username + '</li>');
+                        });
+                    },
+                    error: function () {
+                        console.error("An error occurred while fetching users.");
+                    }
+                });
+            });
+        });
+    </script>
+}

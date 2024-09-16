@@ -1,0 +1,130 @@
+﻿@model WorkHub.Models.UserProfile
+@{
+    ViewBag.Title = "Update Profile";
+    Layout = "~/Views/Manager/ManagerIndex.cshtml";
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-4">
+                <h5 class="card-header">Profile Details</h5>
+                <div class="card-body">
+                    <div class="d-flex align-items-start align-items-sm-center gap-6 pb-4 border-bottom">
+                        <img src="https://robohash.org/1.png" alt="user-avatar" class="d-block w-px-100 h-px-100 rounded" id="uploadedAvatar">
+                        <div class="button-wrapper">
+                            <label for="upload" class="btn btn-primary me-3 mb-4" tabindex="0">
+                                <span class="d-none d-sm-block">Upload new photo</span>
+                                <i class="bx bx-upload d-block d-sm-none"></i>
+                                <input type="file" id="upload" class="account-file-input" hidden="" accept="image/png, image/jpeg">
+                            </label>
+                            <button type="button" class="btn btn-label-secondary account-image-reset mb-4">
+                                <i class="bx bx-reset d-block d-sm-none"></i>
+                                <span class="d-none d-sm-block">Reset</span>
+                            </button>
+
+                            <div>Allowed JPG, GIF or PNG. Max size of 800K</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form id="formAccountSettings" method="POST" action="/Manager/UpdateProfile">
+                        <input type="hidden" name="Id" value="@Model.Id" />
+
+                        <div class="row">
+                            <!-- Username -->
+                            <div class="mb-3 col-md-6">
+                                <label for="username" class="form-label">Username</label>
+                                <input class="form-control" type="text" id="username" name="Username" value="@Model.Username" required />
+                            </div>
+
+                            <!-- Email -->
+                            <div class="mb-3 col-md-6">
+                                <label for="email" class="form-label">E-mail</label>
+                                <input class="form-control" type="email" id="email" name="Email" value="@Model.Email" required />
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="mb-3 col-md-6">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input class="form-control" type="text" id="phone" name="Phone" value="@Model.Phone" required />
+                            </div>
+
+                            <!-- Status -->
+                            <div class="mb-3 col-md-6">
+                                <label for="status" class="form-label">Status</label>
+                                <select class="form-control" id="status" name="Status">
+                                    <option value="Active" @(Model.Status == "Active" ? "selected" : "")>Active</option>
+                                    <option value="Inactive" @(Model.Status == "Inactive" ? "selected" : "")>Inactive</option>
+                                </select>
+                            </div>
+
+
+                            <!-- Country -->
+                            <div class="mb-3 col-md-6">
+                                <label for="country" class="form-label">Country</label>
+                                <input class="form-control" type="text" id="country" name="Country" value="@Model.Country" />
+                            </div>
+
+                            <!-- City -->
+                            <div class="mb-3 col-md-6">
+                                <label for="city" class="form-label">City</label>
+                                <input class="form-control" type="text" id="city" name="City" value="@Model.City" />
+                            </div>
+
+                            <!-- Designation -->
+                            <div class="mb-3 col-md-6">
+                                <label for="designation" class="form-label">Designation</label>
+                                <input class="form-control" type="text" id="designation" name="Designation" value="@Model.Designation" />
+                            </div>
+
+                            <!-- Languages -->
+                            <div class="mb-3 col-md-6">
+                                <label for="languages" class="form-label">Languages</label>
+                                <input class="form-control" type="text" id="languages" name="Languages" value="@string.Join(", ", Model.Languages)" placeholder="e.g. English, French" />
+                            </div>
+
+                            <!-- Role -->
+                            <div class="mb-3 col-md-6">
+                                <label for="role" class="form-label">Role</label>
+                                <input class="form-control" type="text" id="role" name="Role" value="@Model.Role" readonly />
+                            </div>
+
+                            <!-- Social Media -->
+                            <div class="mb-3 col-md-6">
+                                <label for="facebook" class="form-label">Facebook</label>
+                                <input class="form-control" type="text" id="facebook" name="Facebook" value="@Model.Facebook" />
+                            </div>
+
+                            <div class="mb-3 col-md-6">
+                                <label for="twitter" class="form-label">Twitter</label>
+                                <input class="form-control" type="text" id="twitter" name="Twitter" value="@Model.Twitter" />
+                            </div>
+
+                            <div class="mb-3 col-md-6">
+                                <label for="linkedIn" class="form-label">LinkedIn</label>
+                                <input class="form-control" type="text" id="linkedIn" name="LinkedIn" value="@Model.LinkedIn" />
+                            </div>
+
+                            <div class="mb-3 col-md-6">
+                                <label for="gitHub" class="form-label">GitHub</label>
+                                <input class="form-control" type="text" id="gitHub" name="GitHub" value="@Model.GitHub" />
+                            </div>
+
+                            <!-- Profile Picture -->
+                            <div class="mb-3 col-md-6">
+                                <label for="profilePicture" class="form-label">Profile Picture URL</label>
+                                <input class="form-control" type="text" id="profilePicture" name="ProfilePicture" value="@Model.ProfilePicture" />
+                            </div>
+                        </div>
+
+                        <div class="mt-2">
+                            <button type="submit" class="btn btn-primary me-2">Save changes</button>
+                            <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
