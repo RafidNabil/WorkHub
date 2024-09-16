@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "Statistics";
+    Layout = "~/Views/Admin/AdminIndex.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Useage Status Chart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .chart-container {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="chart-container">
+        <h2 style="text-align: center;">Statistics</h2>
+        <hr />
+
+        <div style="text-align: center;">
+            <canvas id="projectChart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var ctx = document.getElementById('projectChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Total Users', 'Total Projects', 'Ongoing Projects', 'Finished Projects'],
+                datasets: [{
+                    label: 'Total Usage',
+                    data: [@ViewBag.TotalUsers, @ViewBag.TotalProjects, @ViewBag.OngoingProjects, @ViewBag.FinishedProjects],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.7)', // Color for Total Users
+                        'rgba(255, 99, 132, 0.7)', // Color for Total Projects
+                        'rgba(75, 192, 192, 0.7)', // Color for Ongoing Projects
+                        'rgba(153, 102, 255, 0.7)' // Color for Finished Projects
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                scales: {
+                    y: {
+                        grid: {
+                            display: false
+                        }
+                    },
+                    x: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1
+                        },
+                        grid: {
+                            display: false
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                categoryPercentage: 0.6,
+            }
+        });
+    });
+    </script>
+
+</body>
+</html>

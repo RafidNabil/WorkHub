@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Gantt Chart";
+    Layout = "~/Views/Admin/AdminIndex.cshtml";
+
+}
+
+<style>
+    /* Style to make gantt chart container scrollable */
+    #gantt_chart_div {
+        width: 100%;
+        height: 600px;
+        overflow-x: auto; /* Horizontal scroll for properties */
+    }
+
+    .gantt_task_row {
+        overflow-x: auto; /* Horizontal scroll for bars/tasks */
+    }
+</style>
+
+<div class="card-header">
+    <h2><strong>Gantt Chart</strong></h2>
+</div>
+
+<div id="gantt_chart_div"></div>
+
+<!-- Include dhtmlxGantt library -->
+<link rel="stylesheet" type="text/css" href="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.css">
+<script src="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.js"></script>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+        // Initialize Gantt chart
+        gantt.config.date_format = "%Y-%m-%d";
+        gantt.config.columns = [
+            { name: "text", label: "Project Name", width: 200, tree: true }, // Set width to 300 pixels
+            { name: "start_date", label: "Start Date", align: "center", width: 100 },
+            { name: "end_date", label: "End Date", align: "center", width: 100 },
+            { name: "status", label: "Status", align: "center", width: 100 }
+        ];
+
+        // Customize task text template
+        gantt.templates.task_text = function(start, end, task) {
+            return "<div style='font-size: 12px; line-height: 1.5;'>" +
+                   "<b>Project Name:</b> " + task.text + "<br/>" +
+                   "</div>";
+        };
+
+        // Initialize Gantt chart with data
+        gantt.init("gantt_chart_div");
+
+        var jsonProjects = @Html.Raw(Json.Encode(ViewBag.JsonProjects));
+        var projects = JSON.parse(jsonProjects);
+
+        var tasks = {
+            data: projects.map(project => ({
+                id: project.Id,
+                text: project.ProjectName,
+                start_date: project.StartDate.split('T')[0],
+                end_date: project.EndDate.split('T')[0],
+                duration: Math.ceil((new Date(project.EndDate) - new Date(project.StartDate)) / (1000 * 60 * 60 * 24)),
+                status: project.Status,
+                progress: 0,
+                open: true
+            }))
+        };
+
+        gantt.parse(tasks);
+    });
+</script>
+

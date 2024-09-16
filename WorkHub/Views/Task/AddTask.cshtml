@@ -1,0 +1,261 @@
+﻿@model WorkHub.Models.Tasks
+
+@{
+    ViewBag.Title = "Add Task";
+    Layout = "~/Views/Manager/ManagerIndex.cshtml";
+}
+
+@if (ViewBag.act == 1)
+{
+    <h2>Add Task</h2>
+    <p>Fill in the details below to add a new task.</p>
+}
+else if (ViewBag.act == 2)
+{
+    <h2>Edit Task</h2>
+    <p>Fill in the details below to edit the task.</p>
+}
+
+
+@using (Html.BeginForm("Create", "Task", new { func = ViewBag.act }, FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate", enctype = "multipart/form-data" }))
+{
+
+    if (ViewBag.act == 2)
+    {
+        @Html.HiddenFor(m => m.Id)
+    }
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Task Details</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <!-- Task Title -->
+                    <div class="mb-3">
+                        @Html.LabelFor(m => m.TaskTitle, new { @class = "form-label" })
+                        @Html.TextBoxFor(m => m.TaskTitle, new { @class = "form-control", placeholder = "Enter task title", required = "required" })
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-3">
+                        @Html.LabelFor(m => m.Description, new { @class = "form-label" })
+                        @Html.TextAreaFor(m => m.Description, new { @class = "form-control", placeholder = "Enter task description", rows = "4", required = "required" })
+                    </div>
+
+                    <!-- Reporter -->
+                    <div class="mb-3">
+                        @Html.Label("Reporter", new { @class = "form-label" })
+                        @if (ViewBag.act == 1)
+                        {
+                            @Html.TextBox("Reporter", ViewBag.Name as string, new { @class = "form-control", @readonly = "readonly" })
+                            @Html.Hidden("ReporterID", ViewBag.ID as string)
+                        }
+                        else if (ViewBag.act == 2)
+                        {
+                            @Html.TextBox("Reporter", Model.Reporter as string, new { @class = "form-control", @readonly = "readonly" })
+                            @Html.Hidden("ReporterID", Model.ReporterID as string)
+                        }
+                    </div>
+
+                    <!-- Due Date -->
+                    <div class="mb-3">
+                        @Html.Label("DueDate", "Due Date", new { @class = "form-label" })
+                        @*@Html.TextBoxFor(m => m.DueDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", required = "required" })*@
+                        @if (ViewBag.act == 1)
+                        {
+                            @Html.TextBoxFor(m => m.DueDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", required = "required", Value = DateTime.Now.ToString("yyyy-MM-dd") })
+                        }
+                        else if (ViewBag.act == 2)
+                        {
+                            @Html.TextBoxFor(m => m.DueDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", required = "required", Value = Model.DueDate.ToString("yyyy-MM-dd") })
+                        }
+                    </div>
+
+                    <!-- Status -->
+                    <div class="mb-3">
+                        @Html.LabelFor(m => m.Status, new { @class = "form-label" })
+                        @Html.DropDownListFor(m => m.Status, new SelectList(new List<string> { "To Do", "In Progress", "Done" }), new { @class = "form-control", required = "required" })
+                    </div>
+
+                    <!-- Estimation Time -->
+                    <div class="mb-3">
+                        @Html.Label("EstimationTime", "Estimation Time", new { @class = "form-label" })
+                        @if (ViewBag.act == 1)
+                        {
+                            @Html.TextBoxFor(m => m.EstimationTime, new { @class = "form-control", type = "number", step = "1", placeHolder = "Estemation Time", required = "required" })
+                        }
+                        else if (ViewBag.act == 2)
+                        {
+                            @Html.TextBoxFor(m => m.EstimationTime, new { @class = "form-control", type = "number", step = "1", value = Model.EstimationTime, required = "required" })
+                        }
+                    </div>
+
+                    <!-- Project -->
+                    <div class="mb-3">
+                        @Html.Label("ProjectID", "Project Name", new { @class = "form-label" })
+                        @Html.DropDownListFor(m => m.ProjectID, new SelectList(ViewBag.Projects, "Id", "ProjectName"), new { @class = "form-control", required = "required" })
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-label">Attachments:</div>
+                    <div class="drag-drop-area" id="drop-area">
+                        <div class="dz-message needsclick">
+                            <i class="h3 text-muted ri-upload-cloud-2-line"></i>
+                            <h4>Drop files here or click to upload.</h4>
+                        </div>
+                        <input type="file" id="fileElem" name="attachments" multiple class="form-control file-input"
+                               accept=".jpg, .jpeg, .png, .gif, .pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .zip, .rar" />
+                        <i class="bx bx-cloud-upload" style="font-size:2rem;"></i>
+                        <ul id="fileList" class="list-group"></ul>
+                    </div>
+
+
+                    @*<div class="form-label mt-4">Add users:</div>*@
+
+                    <div class="mb-3">
+                        @Html.LabelFor(m => m.Assignee, new { @class = "form-label" })
+
+                        <div class="card p-3">
+                            @foreach (var user in (IEnumerable<WorkHub.Models.UserSignUp>)ViewBag.Users)
+                            {
+                                <div class="form-check mb-2">
+                                    <input type="checkbox"
+                                           class="form-check-input"
+                                           id="user_@user.Id"
+                                           name="Assignee"
+                                           value="@user.Id"
+                                           @if (ViewBag.act == 2 && Model.Assignee != null) { @(Model.Assignee.Contains(user.Id) ? "checked" : "") } />
+
+                                    <label class="form-check-label" for="user_@user.Id">
+                                        @user.Username
+                                    </label>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-save"></i> Save Task
+            </button>
+            <a href="@Url.Action("ManagerIndex", "Manager")" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+        </div>
+    </div>
+}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const fileInput = document.getElementById('fileElem');
+        const fileList = document.getElementById('fileList');
+
+        fileInput.addEventListener('change', function () {
+            fileList.innerHTML = ""; // Clear previous list
+            const files = fileInput.files;
+
+            if (files.length > 0) {
+                fileList.style.display = 'block'; // Show file list if there are files
+                for (let i = 0; i < files.length; i++) {
+                    const li = document.createElement('li');
+                    li.textContent = files[i].name;
+                    li.classList.add('list-group-item');
+                    fileList.appendChild(li);
+                }
+            } else {
+                fileList.style.display = 'none'; // Hide list if no files
+            }
+        });
+    });
+</script>
+
+<style>
+    .drag-drop-area {
+        border: 2px dashed #007bff;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .file-input {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+
+    .list-group {
+        max-height: 200px;
+        overflow-y: auto;
+        display: none;
+    }
+
+    .selected {
+        background-color: #e9ecef;
+    }
+
+    .form-check-label {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .card {
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-check-input {
+        width: 1.5em;
+        height: 1.5em;
+    }
+
+    .drag-drop-area {
+        border: 2px dashed #007bff;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .file-input {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+
+    #fileList {
+        margin-top: 10px;
+        padding-left: 0;
+    }
+
+        #fileList li {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            padding: 5px 10px;
+            list-style: none;
+        }
+
+    #fileList {
+        display: none;
+        max-height: 200px;
+        overflow-y: auto;
+    }
+</style>

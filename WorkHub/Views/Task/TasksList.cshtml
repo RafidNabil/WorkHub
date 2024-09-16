@@ -1,0 +1,238 @@
+﻿@model IEnumerable<WorkHub.Models.Tasks>
+
+@{
+    ViewBag.Title = "Task List";
+    Layout = "~/Views/Manager/ManagerIndex.cshtml";
+}
+
+<div class="card">
+    <div style="display:flex; flex-direction:row; justify-content:space-between; align-items:center">
+        <h3 class="card-header text-primary">Task List</h3>
+
+
+
+        <div style="display: flex; flex-direction: row; align-items: center">
+
+            <!------- Search ------->
+            <div>
+                <form class="m-4" action="@Url.Action("TaskFilter", "Task")" method="get">
+                    <!-- Hidden input for func -->
+                    <input type="hidden" name="func" value="2" />
+
+                    <!-- Input for Reporter or Task Name -->
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="tf-icons bx bx-search"></i></span>
+                        <input type="text" class="form-control" name="searchQuery" placeholder="Reporter or Task Name">
+                    </div>
+                </form>
+            </div>
+
+            <!------- Assigned to me button ------->
+            <div>
+                <form action="@Url.Action("TaskFilter", "Task")" method="get">
+                    <!-- Hidden input for func -->
+                    <input type="hidden" name="func" value="3" />
+
+                    <button type="submit" class="btn btn-primary">
+                        Assigned to me
+                    </button>
+                </form>
+            </div>
+
+
+            <!------- Filter Section ------->
+            <div class="m-4">
+                <button class="btn btn-icon btn-outline-primary"
+                        type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasTaskFilter"
+                        aria-controls="offcanvasTaskFilter">
+                    <span class="tf-icons bx bx-filter-alt"></span>
+                </button>
+                <div class="offcanvas offcanvas-end"
+                     data-bs-scroll="true"
+                     tabindex="-1"
+                     id="offcanvasTaskFilter"
+                     aria-labelledby="offcanvasTaskFilterLabel">
+                    <div class="offcanvas-header">
+                        <h5 id="offcanvasTaskFilterLabel" class="offcanvas-title">Filter Tasks</h5>
+                        <button type="button"
+                                class="btn-close text-reset"
+                                data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <form action="@Url.Action("TaskFilter", "Task")" method="get">
+
+                            <input type="hidden" name="func" value="1" />
+
+                            <!-- Status Filter -->
+                            <div class="mb-3">
+                                <label class="form-label">Status</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="status" value="To Do" id="statusTodo">
+                                    <label class="form-check-label" for="statusTodo">To Do</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="status" value="In Progress" id="statusInProgress">
+                                    <label class="form-check-label" for="statusInProgress">In Progress</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="status" value="Pending Approval" id="statusInProgress">
+                                    <label class="form-check-label" for="statusInProgress">Pending Approval</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="status" value="Done" id="statusDone">
+                                    <label class="form-check-label" for="statusDone">Done</label>
+                                </div>
+
+                            </div>
+
+
+                            <!-- Project Filter -->
+                            <div class="mb-3">
+                                <label for="projectFilter" class="form-label">Project</label>
+                                <select id="projectFilter" class="form-select" name="project">
+                                    <option selected>Choose...</option>
+                                    @foreach (var projects in ViewBag.projects)
+                                    {
+                                        <option value="@projects.Id">@projects.ProjectName</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <!-- Assign Date Filter -->
+                            <div class="mb-3">
+                                <label for="assignDateFilter" class="form-label">Assign Date</label>
+                                <div class="input-group">
+                                    <select class="form-select" name="assignDateComparison">
+                                        <option value="=">=</option>
+                                        <option value="<="><=</option>
+                                        <option value=">=">>=</option>
+                                    </select>
+                                    <input type="date" id="assignDateFilter" name="assignDate" class="form-control">
+                                </div>
+                            </div>
+
+                            <!-- Due Date Filter -->
+                            <div class="mb-3">
+                                <label for="dueDateFilter" class="form-label">Due Date</label>
+                                <div class="input-group">
+                                    <select class="form-select" name="dueDateComparison">
+                                        <option value="=">=</option>
+                                        <option value="<="><=</option>
+                                        <option value=">=">>=</option>
+                                    </select>
+                                    <input type="date" id="dueDateFilter" name="dueDate" class="form-control">
+                                </div>
+                            </div>
+
+                            <!-- Filter Buttons -->
+                            <button type="submit" class="btn btn-primary mb-2 d-grid w-100">Apply Filters</button>
+                            <button type="button"
+                                    class="btn btn-outline-secondary d-grid w-100"
+                                    data-bs-dismiss="offcanvas">
+                                Cancel
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <!------- Filter Section End ------->
+        </div>
+
+
+    </div>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Reporter</th>
+                    <th>Assign Date</th>
+                    <th>Deu Date</th>
+                    <th>Status</th>
+                    <th>Project</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @for (var i = 0; i < Model.Count(); i++)
+                {
+                    var task = Model.ElementAt(i);
+                    <tr>
+                        <td><i class="fab fa-angular fa-lg me-3"></i> <strong><a class="h5" href="@Url.Action("TaskDetails", "Task", new {id = @task.Id})">@task.TaskTitle</a></strong></td>
+                        <td>@task.Reporter</td>
+                        <td>
+                            @task.AssignDate.ToString("yyyy-MM-dd")
+                            @*<ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="" data-bs-original-title="Lilian Fuller">
+                    <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle">
+                </li>
+                <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="" data-bs-original-title="Sophia Wilkerson">
+                    <img src="../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle">
+                </li>
+                <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="" data-bs-original-title="Christina Parker">
+                    <img src="../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle">
+                </li>
+            </ul>*@
+                        </td>
+                        <td> @task.DueDate.ToString("yyyy-MM-dd")</td>
+                        @if (task.Status == "Done")
+                        {
+                            <td><span class="badge bg-label-success me-1">@task.Status</span></td>
+                        }
+                        else if (task.Status == "In Progress")
+                        {
+                            <td><span class="badge bg-label-warning me-1">@task.Status</span></td>
+                        }
+                        else if (task.Status == "To Do")
+                        {
+                            <td><span class="badge bg-label-danger me-1">@task.Status</span></td>
+                        }
+                        else if (task.Status == "Pending Approval")
+                        {
+                            <td><span class="badge bg-label-info me-1">@task.Status</span></td>
+                        }
+                        <td>@ViewBag.ProjectNames[i]</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@*<h2>Task List</h2>
+    <p>Below is the list of all tasks.</p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Task Title</th>
+                <th>Description</th>
+                <th>Assignee</th>
+                <th>Due Date</th>
+                <th>Status</th>
+                <th>Estimation Time</th>
+                <th>Project</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var task in Model)
+            {
+                <tr>
+                    <td><a class="h5" href="@Url.Action("TaskDetails", "Task", new {id = @task.Id})">@task.TaskTitle</a></td>
+                    <td>@task.Description</td>
+                    <td>@task.Reporter</td>
+                    <td>@task.DueDate.ToString("yyyy-MM-dd")</td>
+                    <td>@task.Status</td>
+                    <td>@task.EstimationTime</td>
+                    <td>@task.ProjectID</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a href="@Url.Action("AddTask", "Task")" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Add New Task
+    </a>*@

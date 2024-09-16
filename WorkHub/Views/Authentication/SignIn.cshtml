@@ -63,7 +63,7 @@
     <!-- Content -->
 
     <div class="container-xxl">
-        <div class="authentication-wrapper authentication-basic container-p-y">
+        <div class="authentication-wrapper authentication-basic container-p-y" style="padding-right: 15.5rem">
             <div class="authentication-inner">
                 <div class="card">
                     <div class="card-body">
@@ -83,7 +83,7 @@
                             <div class="mb-3 form-password-toggle">
                                 <div class="d-flex justify-content-between">
                                     @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "form-label" })
-                                    <a href="auth-forgot-password-basic.html"><small>Forgot Password?</small></a>
+                                    <a href="@Url.Action("ForgotPassword", "Authentication")"><small>Forgot Password?</small></a>
                                 </div>
                                 <div class="input-group input-group-merge">
                                     @Html.PasswordFor(model => model.Password, new { @class = "form-control" })

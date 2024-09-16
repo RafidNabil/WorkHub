@@ -1,0 +1,34 @@
+﻿@model IEnumerable<WorkHub.Models.CreateaProject>
+
+@{
+    ViewBag.Title = "View Projec";
+    Layout = "~/Views/Admin/AdminIndex.cshtml";
+}
+
+<div class="card-header">
+    <h2><strong>Project Informations</strong></h2>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Project Name</th>
+            <th>Description</th>
+            <th style="white-space: nowrap;">Start Date</th>
+            <th style="white-space: nowrap;">End Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var project in Model)
+        {
+            <tr>
+                <td>@project.ProjectName</td>
+                <td>@project.Description</td>
+                <td style="white-space: nowrap;">@project.StartDate.ToString("yyyy-MM-dd")</td>
+                <td style="white-space: nowrap;">@project.EndDate.ToString("yyyy-MM-dd")</td>
+                <td>@project.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>

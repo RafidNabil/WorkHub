@@ -30,7 +30,7 @@ namespace WorkHub.Controllers
                 if (userRole == "manager")
                     return RedirectToAction("ManagerDashboard", "Manager");
                 else if (userRole == "admin")
-                    return RedirectToAction("SuperAdminDashboard", "SuperAdmin");
+                    return RedirectToAction("AdminDashboard", "Admin");
                 else if (userRole == "developer")
                     return RedirectToAction("Dashboard", "Developer");
             }
@@ -55,9 +55,15 @@ namespace WorkHub.Controllers
                     Response.Cookies["UserRole"].Value = user.Role;
                     Response.Cookies["UserRole"].Expires = DateTime.Now.AddDays(1);
 
+                    Response.Cookies["UserName"].Value = user.Username;
+                    Response.Cookies["UserName"].Expires = DateTime.Now.AddDays(1);
+
+                    Response.Cookies["UserID"].Value = user.Id;
+                    Response.Cookies["UserID"].Expires = DateTime.Now.AddDays(1);
+
                     Session["UserRole"] = user.Role;
 
-                    if(user.Role == "manager")
+                    if (user.Role == "manager")
                     return RedirectToAction("ManagerDashboard", "Manager");
                     else if(user.Role == "admin")
                         return RedirectToAction("AdminDashboard", "Admin");
@@ -87,21 +93,25 @@ namespace WorkHub.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SignUp(UserSignUp user)
+        public ActionResult SignUp(UserSignUp model)
         {
-
             if (ModelState.IsValid)
             {
-                var userCollection = MongoDBHelper.GetCollection<UserSignUp>("Users");
-                userCollection.InsertOne(user);
+                var existingUser = _userCollection.AsQueryable().FirstOrDefault(u => u.Email == model.Email);
+                if (existingUser != null)
+                {
+                    ModelState.AddModelError("Email", "Email already exists. Please use a different email.");
+                    return View(model);
+                }
 
+                _userCollection.InsertOne(model);
                 Response.Cookies["signedUp"].Value = "true";
                 Response.Cookies["signedUp"].Expires = DateTime.Now.AddDays(1);
 
                 return RedirectToAction("SignIn", "Authentication");
             }
 
-            return View(user);
+            return View(model);
         }
 
         public ActionResult Logout()
