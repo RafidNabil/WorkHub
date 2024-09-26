@@ -26,10 +26,10 @@ namespace WorkHub.Controllers
         public readonly IMongoCollection<TaskCompletionRequest> _taskCompletionRequestCollection;
         public readonly IMongoCollection<Comment> _commentCollection;
         public readonly IMongoCollection<UserProfile> _userProfilesCollection;
+        public readonly IMongoCollection<Notification> _userNotificationsCollection;
 
         public TaskController()
         {
-            // Initialize MongoDB collections
             _tasksCollection = MongoDBHelper.GetCollection<Tasks>("Tasks");
             _projectsCollection = MongoDBHelper.GetCollection<CreateaProject>("Project");
             _userCollection = MongoDBHelper.GetCollection<UserSignUp>("Users");
@@ -37,6 +37,7 @@ namespace WorkHub.Controllers
             _taskCompletionRequestCollection = MongoDBHelper.GetCollection<TaskCompletionRequest>("TaskCompletionRequest");
             _commentCollection = MongoDBHelper.GetCollection<Comment>("Comment");
             _userProfilesCollection = MongoDBHelper.GetCollection<UserProfile>("UserProfiles");
+            _userNotificationsCollection = MongoDBHelper.GetCollection<Notification>("Notifications");
         }
 
         public ActionResult TasksList()
@@ -47,7 +48,6 @@ namespace WorkHub.Controllers
 
                 ViewBag.Projects = projects;
 
-                // Fetch all tasks from MongoDB
                 var tasks = _tasksCollection.Find(_ => true).ToList();
                 var projectNames = new List<string>();
 
@@ -69,7 +69,6 @@ namespace WorkHub.Controllers
             }
             catch (Exception ex)
             {
-                // Handle exceptions, log errors
                 ModelState.AddModelError("", "An error occurred while fetching tasks.");
                 return View(new List<Tasks>());
             }
@@ -142,7 +141,6 @@ namespace WorkHub.Controllers
 
                 var comments = _commentCollection.Find(c => c.RelatedId == id).ToList();
 
-                //Retreave the profile picture of all the users who commented
                 Dictionary<string, string> commentUserPictures = new Dictionary<string, string>();
                 foreach (var comment in comments)
                 {
@@ -175,10 +173,8 @@ namespace WorkHub.Controllers
         {
             try
             {
-                // Parse the fileId to an ObjectId
                 var objectId = new ObjectId(fileId);
 
-                // Fetch the file metadata from TaskFiles collection
                 var taskFilesCollection = MongoDBHelper.GetCollection<Models.File>("TaskFiles");
                 var taskFile = taskFilesCollection.Find(f => f.Id == objectId).FirstOrDefault();
 
@@ -187,11 +183,9 @@ namespace WorkHub.Controllers
                     return HttpNotFound("File not found.");
                 }
 
-                // Initialize the GridFS bucket
                 var database = MongoDBHelper.GetDatabase();
                 var bucket = new GridFSBucket(database);
 
-                // Download the file from GridFS using the filename stored in TaskFiles
                 byte[] fileBytes;
                 using (var stream = new MemoryStream())
                 {
@@ -199,12 +193,10 @@ namespace WorkHub.Controllers
                     fileBytes = stream.ToArray();
                 }
 
-                // Return the file as a download
                 return File(fileBytes, taskFile.ContentType, taskFile.FileName);
             }
             catch (Exception ex)
             {
-                // Handle exceptions
                 ViewBag.Error = "Error downloading file: " + ex.Message;
                 return View("Error");
             }
@@ -215,19 +207,15 @@ namespace WorkHub.Controllers
         {
             if (fileIds != null && fileIds.Length > 0)
             {
-                // Get the database instance from MongoDBHelper
                 var database = MongoDBHelper.GetDatabase();
 
-                // Get the TaskFiles to be deleted
                 var taskFilesCollection = MongoDBHelper.GetCollection<Models.File>("TaskFiles");
                 var taskFilesToDelete = taskFilesCollection.Find(f => fileIds.Contains(f.Id.ToString())).ToList();
 
                 foreach (var taskFile in taskFilesToDelete)
                 {
-                    // Get the file path which is used as the filename in fs.files
                     var filePath = taskFile.FilePath;
 
-                    // Delete the file from fs.files using the FilePath
                     var filesCollection = database.GetCollection<BsonDocument>("fs.files");
                     var fileDocument = filesCollection.Find(Builders<BsonDocument>.Filter.Eq("filename", filePath)).FirstOrDefault();
 
@@ -235,16 +223,13 @@ namespace WorkHub.Controllers
                     {
                         var fileId = fileDocument["_id"].AsObjectId;
 
-                        // Delete the associated chunks from fs.chunks
                         var chunksCollection = database.GetCollection<BsonDocument>("fs.chunks");
                         chunksCollection.DeleteMany(Builders<BsonDocument>.Filter.Eq("files_id", fileId));
 
-                        // Now delete the file from fs.files
                         filesCollection.DeleteMany(Builders<BsonDocument>.Filter.Eq("_id", fileId));
                     }
                 }
 
-                // Now delete the TaskFile records
                 var filter = Builders<Models.File>.Filter.In(f => f.Id, taskFilesToDelete.Select(tf => tf.Id));
                 taskFilesCollection.DeleteMany(filter);
             }
@@ -258,10 +243,10 @@ namespace WorkHub.Controllers
             {
                 if (act == 1)
                 {
-                    // Fetch users from MongoDB
+
                     var projects = _projectsCollection.Find(_ => true).ToList();
 
-                    // Pass the users list to the view
+
                     ViewBag.Projects = projects;
                     ViewBag.Name = Request.Cookies["UserName"].Value.ToString();
                     ViewBag.ID = Request.Cookies["UserID"].Value.ToString();
@@ -270,19 +255,19 @@ namespace WorkHub.Controllers
 
                     var users = _userCollection.Find(_ => true).ToList();
 
-                    // Pass the users list to the view
+
                     ViewBag.Users = users;
 
-                    // Return the view with the model (CreateaProject)
+
                     return View();
                 }
                 else if (act == 2)
                 {
-                    // Fetch users from MongoDB
+
                     var projects = _projectsCollection.Find(_ => true).ToList();
                     Tasks model = _tasksCollection.Find(t => t.Id == id).FirstOrDefault();
 
-                    // Pass the users list to the view
+
                     ViewBag.Projects = projects;
                     ViewBag.Name = Request.Cookies["UserName"].Value.ToString();
                     ViewBag.ID = Request.Cookies["UserID"].Value.ToString();
@@ -291,7 +276,7 @@ namespace WorkHub.Controllers
 
                     var users = _userCollection.Find(_ => true).ToList();
 
-                    // Pass the users list to the view
+
                     ViewBag.Users = users;
 
                     //Tasks model = new Tasks { Id = id, TaskTitle = title, Description = desc, Reporter = repName, ReporterID = repID, DueDate = DateTime.Parse(dueDate), AssignDate = DateTime.Parse(AssignDate), Status = status, ProjectID = projectID, EstimationTime = Convert.ToDouble(estTime) };
@@ -302,12 +287,11 @@ namespace WorkHub.Controllers
             }
             catch (Exception ex)
             {
-                // Handle exceptions, log errors, or show appropriate messages to the user
-                ModelState.AddModelError("", "An error occurred while fetching users.");
-                // You might want to log the exception details
-                // Logger.LogException(ex);
 
-                // Return an empty view or handle the error gracefully
+                ModelState.AddModelError("", "An error occurred while fetching users.");
+
+
+
                 return View(new Tasks());
             }
 
@@ -480,21 +464,31 @@ namespace WorkHub.Controllers
                         model.DueDate = DateTime.Now;
                     }
 
-                    // Insert the model into MongoDB
                     _tasksCollection.InsertOne(model);
 
-                    // Handle file attachments
                     if (attachments != null && attachments.Length > 0)
                     {
                         UploadFiles(model, attachments);
                     }
 
-                    // Optionally, you can redirect to another action upon successful submission
+                    foreach (var assigneeId in model.Assignee)
+                    {
+                        var notification = new Notification
+                        {
+                            UserId = assigneeId,
+                            Message = $"New task assigned to you: {model.TaskTitle}. ID: {model.Id}",
+                            CreatedAt = DateTime.UtcNow,
+                            IsRead = false
+                        };
+
+                        _userNotificationsCollection.InsertOne(notification);
+                    }
+
                     return RedirectToAction("TasksList");
                 }
+
                 else if (func == 2)
                 {
-                    // Fetch the existing project from MongoDB
                     var existingTask = _tasksCollection.Find(t => t.Id == model.Id).FirstOrDefault();
                     if (existingTask == null)
                     {
@@ -502,21 +496,55 @@ namespace WorkHub.Controllers
                     }
                     else
                     {
-                        // Update the existing task's fields
+                        model.DueDate = model.DueDate.AddDays(1);
+                        
+                        if (existingTask.Assignee == null)
+                        {
+                            existingTask.Assignee = new List<string>();
+                        }
+
+                        
+                        if (model.Assignee != null && model.Assignee.Any())
+                        {
+                            
+                            var newAssignees = model.Assignee.Except(existingTask.Assignee).ToList();
+
+                            
+                            if (newAssignees.Any())
+                            {
+                                foreach (var assigneeId in newAssignees)
+                                {
+                                    var notification = new Notification
+                                    {
+                                        UserId = assigneeId,
+                                        Message = $"New task assigned to you: {model.TaskTitle}",
+                                        CreatedAt = DateTime.UtcNow,
+                                        IsRead = false
+                                    };
+
+                                    _userNotificationsCollection.InsertOne(notification);
+                                }
+                            }
+                        }
+
+                        
                         UpdateExistingTask(existingTask, model);
 
-                        // Save the updated project back to MongoDB
+                        
                         _tasksCollection.ReplaceOne(p => p.Id == existingTask.Id, existingTask);
 
-                        // Handle file attachments
+                        
                         if (attachments != null && attachments.Length > 0)
                         {
                             UploadFiles(model, attachments);
                         }
 
+                        
                         return RedirectToAction("TasksList");
+
                     }
                 }
+
                 else if (func == 3)
                 {
                     var existingTask = _tasksCollection.Find(t => t.Id == id).FirstOrDefault();
@@ -530,13 +558,12 @@ namespace WorkHub.Controllers
             }
             catch (Exception ex)
             {
-                // Handle exceptions, log errors, or show appropriate messages to the user
+
                 ModelState.AddModelError("", "An error occurred while saving the project.");
-                // You might want to log the exception details
-                // Logger.LogException(ex);
+
             }
 
-            // If model state is not valid or an error occurred, return the view with validation errors
+
             return View(model);
         }
 
@@ -545,40 +572,35 @@ namespace WorkHub.Controllers
             var database = MongoDBHelper.GetDatabase();
             var bucket = new GridFSBucket(database);
 
-            model.Attachments = new List<string>(); // Initialize the Attachments list
+            model.Attachments = new List<string>();
 
             foreach (var file in attachments)
             {
                 if (file != null && file.ContentLength > 0)
                 {
-                    // Generate a unique filename using GridFS ObjectId
                     var fileId = ObjectId.GenerateNewId();
                     var fileName = $"{fileId}{Path.GetExtension(file.FileName)}";
 
                     using (var stream = file.InputStream)
                     {
-                        // Upload the file to GridFS bucket
                         bucket.UploadFromStream(fileName, stream);
                     }
 
-                    // Create a TaskFile instance to store metadata
                     var taskFile = new Models.File
                     {
-                        Id = fileId, // Use the ObjectId generated for the file
-                        TaskID = model.Id.ToString(), // Assuming model has a Task ID
+                        Id = fileId, 
+                        TaskID = model.Id.ToString(), 
                         FileName = file.FileName,
-                        FilePath = fileName, // You can store the filename or leave it empty as it is in GridFS
+                        FilePath = fileName, 
                         ContentType = file.ContentType,
                         Size = file.ContentLength,
                         UploadedDate = DateTime.Now
                     };
 
-                    // Save the TaskFile metadata to the database
                     var taskFilesCollection = MongoDBHelper.GetCollection<Models.File>("TaskFiles");
                     taskFilesCollection.InsertOne(taskFile);
 
-                    // Store the file ID in the model's Attachments list
-                    model.Attachments.Add(fileId.ToString()); // Add fileId to the list
+                    model.Attachments.Add(fileId.ToString());
                 }
             }
         }

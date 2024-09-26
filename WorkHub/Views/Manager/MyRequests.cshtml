@@ -146,6 +146,10 @@
                                 {
                                     <span class="badge bg-label-danger me-1">@item.Status</span>
                                 }
+                                else if (item.Status == "Deleted")
+                                {
+                                    <span class="badge bg-label-danger me-1">@item.Status</span>
+                                }
                                 else if (item.Status == "Pending")
                                 {
                                     <span class="badge bg-label-info me-1">@item.Status</span>
@@ -160,7 +164,7 @@
                                         <div class="dropdown-menu dropdown-menu-end">
                                             @if (item.Status != "Done")
                                             {
-                                                <a href="@Url.Action("RequestHandle", "Manager", new {func = 2, taskId =  item.TaskId, requestId = item.RequestId})" class="dropdown-item delete-record text-danger">Delete Request</a>
+                                                <a href="@Url.Action("RequestHandle", "Manager", new {func = 3, taskId =  item.TaskId, requestId = item.RequestId})" class="dropdown-item delete-record text-danger">Delete Request</a>
                                             }
 
                                         </div>

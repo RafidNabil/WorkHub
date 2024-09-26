@@ -104,32 +104,12 @@
     </div>
 }
 
-<!-- Include Bootstrap and jQuery scripts if not already included in the layout -->
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script src="~/Scripts/bootstrap.min.js"></script>
 
-<!-- Custom validation script -->
-<!--<script>
-    (function () {
-        'use strict';
-        window.addEventListener('load', function () {
-            var forms = document.getElementsByClassName('needs-validation');
-            var validation = Array.prototype.filter.call(forms, function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        }, false);
-    })();
-</script> -->
-
 <style>
     .user-checkbox:checked + label::before {
-        content: "✓"; /* Checkmark */
+        content: "✓";
         color: green;
     }
 

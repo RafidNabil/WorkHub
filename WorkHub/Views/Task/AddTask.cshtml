@@ -157,11 +157,11 @@ else if (ViewBag.act == 2)
         const fileList = document.getElementById('fileList');
 
         fileInput.addEventListener('change', function () {
-            fileList.innerHTML = ""; // Clear previous list
+            fileList.innerHTML = ""; 
             const files = fileInput.files;
 
             if (files.length > 0) {
-                fileList.style.display = 'block'; // Show file list if there are files
+                fileList.style.display = 'block'; 
                 for (let i = 0; i < files.length; i++) {
                     const li = document.createElement('li');
                     li.textContent = files[i].name;
@@ -169,7 +169,7 @@ else if (ViewBag.act == 2)
                     fileList.appendChild(li);
                 }
             } else {
-                fileList.style.display = 'none'; // Hide list if no files
+                fileList.style.display = 'none'; 
             }
         });
     });

@@ -19,7 +19,7 @@ namespace WorkHub.Models
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
-        public string Reporter { get; set; } // This will be a dropdown/list in the view
+        public string Reporter { get; set; } 
 
         [BsonRepresentation(BsonType.ObjectId)]
         public string ReporterID { get; set; }
@@ -29,12 +29,12 @@ namespace WorkHub.Models
 
         [DataType(DataType.Date)]
         public DateTime AssignDate { get; set; }
-        public string Status { get; set; } // Dropdown with options: To-Do, In Progress, Done
-        public List<string> Attachments { get; set; } // File upload paths
-        public double EstimationTime { get; set; } // Number input
+        public string Status { get; set; } 
+        public List<string> Attachments { get; set; } 
+        public double EstimationTime { get; set; } 
 
         [BsonRepresentation(BsonType.ObjectId)]
-        public string ProjectID { get; set; } // Foreign key to the project
+        public string ProjectID { get; set; } 
         public List<string> Assignee { get; set; }
 
     }

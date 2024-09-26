@@ -227,14 +227,14 @@
 
     <script>
         $(document).ready(function () {
-            // Real-time validation for email field
+            
             $("#Email").on("input", function () {
                 var email = $(this).val();
                 if (email.endsWith("gmail.com") || email.endsWith("yahoo.com")) {
-                    // Valid email format
-                    $("#email-validation-error").hide(); // Hide validation error message if shown
+                    
+                    $("#email-validation-error").hide(); 
                 } else {
-                    // Invalid email format
+                    
                     $("#email-validation-error").text("Email must end with 'gmail.com' or 'yahoo.com'").show();
                 }
             });

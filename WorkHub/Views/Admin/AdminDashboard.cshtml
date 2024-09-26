@@ -166,23 +166,23 @@
         }]
     };
 
-    // Options for the pie chart - Projects
+    
     var projectOptions = {
         responsive: true,
         maintainAspectRatio: false
     };
 
-    // Get the context of the canvas element - Projects
+    
     var projectCtx = document.getElementById('projectStatusPieChart').getContext('2d');
 
-    // Create the pie chart - Projects
+    
     var projectStatusPieChart = new Chart(projectCtx, {
         type: 'pie',
         data: projectData,
         options: projectOptions
     });
 
-    // Data for the pie chart - Tasks
+    
     var taskData = {
         labels: ['To-Do', 'In Progress', 'Done'],
         datasets: [{
@@ -193,16 +193,16 @@
         }]
     };
 
-    // Options for the pie chart - Tasks
+    
     var taskOptions = {
         responsive: true,
         maintainAspectRatio: false
     };
 
-    // Get the context of the canvas element - Tasks
+    
     var taskCtx = document.getElementById('taskStatusPieChart').getContext('2d');
 
-    // Create the pie chart - Tasks
+    
     var taskStatusPieChart = new Chart(taskCtx, {
         type: 'pie',
         data: taskData,
