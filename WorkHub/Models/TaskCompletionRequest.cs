@@ -28,10 +28,10 @@ namespace WorkHub.Models
         public string Comment { get; set; }
 
         [BsonElement("Status")]
-        public string Status { get; set; } // e.g., "Pending", "Approved", "Rejected"
+        public string Status { get; set; } 
 
         [BsonElement("ReviewDate")]
-        public DateTime? ReviewDate { get; set; } // Nullable in case the request is not yet reviewed
+        public DateTime? ReviewDate { get; set; }
 
     }
 }

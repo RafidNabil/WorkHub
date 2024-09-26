@@ -18,11 +18,18 @@ namespace WorkHub.Controllers
         private IMongoCollection<UserSignUp> _userCollection;
         private IMongoCollection<CreateaProject> _projectCollection;
         private IMongoCollection<Tasks> _taskCollection;
+        public readonly IMongoCollection<UserProfile> _userProfilesCollection;
+        public readonly IMongoCollection<Comment> _commentCollection;
+        public readonly IMongoCollection<Notification> _userNotificationsCollection;
+
         public AdminController()
         {
             _userCollection = MongoDBHelper.GetCollection<UserSignUp>("Users");
             _projectCollection = MongoDBHelper.GetCollection<CreateaProject>("Project");
             _taskCollection = MongoDBHelper.GetCollection<Tasks>("Tasks");
+            _userProfilesCollection = MongoDBHelper.GetCollection<UserProfile>("UserProfiles");
+            _commentCollection = MongoDBHelper.GetCollection<Comment>("Comments");
+            _userNotificationsCollection = MongoDBHelper.GetCollection<Notification>("Notifications");
         }
 
         public ActionResult ManageUsers()
@@ -111,23 +118,23 @@ namespace WorkHub.Controllers
             var users = _userCollection.Find(_ => true).ToList();
             var tasks = _taskCollection.Find(_ => true).ToList();
 
-            // Calculate the number of projects
+            
             int projectCount = projects.Count;
 
-            // Calculate the total number of users
+            
             int totalUsers = users.Count;
 
-            // Calculate the total number of tasks
+            
             int totalTaskss = tasks.Count;
 
-            // Calculate project statuses
+            
             int finishedProjects = projects.Count(p => p.Status == "Finished");
             int ongoingProjects = projects.Count(p => p.Status == "Ongoing");
             int todoTasks = tasks.Count(p => p.Status == "To Do");
             int inprogressTasks = tasks.Count(p => p.Status == "In Progress");
             int doneTasks = tasks.Count(p => p.Status == "Done");
 
-            // Calculate percentages
+            
             int totalProjects = finishedProjects + ongoingProjects;
             double finishedPercentage = totalProjects > 0 ? Math.Round((double)finishedProjects / totalProjects * 100) : 0;
             double ongoingPercentage = totalProjects > 0 ? Math.Round((double)ongoingProjects / totalProjects * 100) : 0;
@@ -137,7 +144,7 @@ namespace WorkHub.Controllers
             double donePercentage = totaltasks > 0 ? Math.Round((double)doneTasks / totaltasks * 100) : 0;
 
 
-            // Pass the data to the view
+            
             ViewBag.ProjectCount = projectCount;
             ViewBag.TotalUsers = totalUsers;
             ViewBag.TotalTasks = totalTaskss;
@@ -170,6 +177,71 @@ namespace WorkHub.Controllers
 
             return View();
 
+        }
+
+
+        public ActionResult AdminUserProfile()
+        {
+            var role = Request.Cookies["UserRole"].Value.ToString();
+            var userId = Request.Cookies["UserID"].Value.ToString();
+            ViewBag.Role = role;
+            ViewBag.UserId = userId;
+
+            List<Tasks> filteredTasks = new List<Tasks>();
+
+            if (!string.IsNullOrEmpty(userId))
+            {
+                var taskCollection = MongoDBHelper.GetCollection<Tasks>("Tasks");
+
+                var filter = Builders<Tasks>.Filter.AnyEq(t => t.Assignee, userId);
+
+                filteredTasks = taskCollection.Find(filter).ToList();
+            }
+
+            var user = _userProfilesCollection.Find(u => u.Id == userId).FirstOrDefault();
+            return View((user, filteredTasks));
+        }
+
+        // GET: Manager
+        public ActionResult AdminUpdateProfile(string UserId)
+        {
+
+            var user = _userProfilesCollection
+                .Find(u => u.Id == UserId)
+                .FirstOrDefault();
+
+            return View(user);
+        }
+
+        [HttpPost]
+        public ActionResult AdminUpdateProfile(UserProfile model)
+        {
+
+            var user = _userProfilesCollection
+            .Find(u => u.Id == model.Id)
+            .FirstOrDefault();
+
+            if (user != null)
+            {
+                user.Username = model.Username;
+                user.Email = model.Email;
+                user.Status = model.Status;
+                user.Country = model.Country;
+                user.Languages = model.Languages.ToList();
+                user.Phone = model.Phone;
+                user.City = model.City;
+                user.Designation = model.Designation;
+                user.ProfilePicture = model.ProfilePicture;
+                user.Facebook = model.Facebook;
+                user.Twitter = model.Twitter;
+                user.LinkedIn = model.LinkedIn;
+                user.GitHub = model.GitHub;
+                user.UpdatedAt = DateTime.Now;
+
+                _userProfilesCollection.ReplaceOne(u => u.Id == model.Id, user);
+            }
+
+            return RedirectToAction("AdminUserProfile");
         }
 
 

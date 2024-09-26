@@ -231,7 +231,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\Admin\AdminController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
-    <Compile Include="Controllers\Developer\DashboardController.cs" />
     <Compile Include="Controllers\Developer\DeveloperController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KanbanController.cs" />
@@ -247,6 +246,7 @@
     <Compile Include="Models\Kanban Models\KanbanCard.cs" />
     <Compile Include="Models\Kanban Models\KanbanColumn.cs" />
     <Compile Include="Models\File.cs" />
+    <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\TaskCompletionRequest.cs" />
     <Compile Include="Models\Tasks.cs" />
     <Compile Include="Models\UserNotification.cs" />
@@ -639,24 +639,6 @@
     <Content Include="Views\Authentication\SignIn.cshtml" />
     <Content Include="Views\Authentication\SignUp.cshtml" />
     <Content Include="Views\Dashboard\DashboardIndex.cshtml" />
-    <Content Include="Views\Developer\ActiveBran.cshtml" />
-    <Content Include="Views\Developer\BranchManagement.cshtml" />
-    <Content Include="Views\Developer\BuildStatus.cshtml" />
-    <Content Include="Views\Developer\CommitHistory.cshtml" />
-    <Content Include="Views\Developer\Dashboard.cshtml" />
-    <Content Include="Views\Developer\DeploymentStatus.cshtml" />
-    <Content Include="Views\Developer\DeveloperIndex.cshtml" />
-    <Content Include="Views\Developer\LogIn.cshtml" />
-    <Content Include="Views\Developer\LogOut.cshtml" />
-    <Content Include="Views\Developer\NewBuild.cshtml" />
-    <Content Include="Views\Developer\NewDep.cshtml" />
-    <Content Include="Views\Developer\Notifications.cshtml" />
-    <Content Include="Views\Developer\Profile.cshtml" />
-    <Content Include="Views\Developer\ProjectDetails.cshtml" />
-    <Content Include="Views\Developer\ProjectProgress.cshtml" />
-    <Content Include="Views\Developer\RecentCom.cshtml" />
-    <Content Include="Views\Developer\RepositoryView.cshtml" />
-    <Content Include="Views\Developer\ViewTasks.cshtml" />
     <Content Include="Views\Kanban\Index.cshtml" />
     <Content Include="Views\Manager\ViewProjects.cshtml" />
     <Content Include="Views\Manager\ProjectDetails.cshtml" />
@@ -675,6 +657,15 @@
     <Content Include="Views\Admin\ViewProject.cshtml" />
     <Content Include="Views\Manager\UserProfile.cshtml" />
     <Content Include="Views\Manager\UpdateProfile.cshtml" />
+    <Content Include="Views\Admin\AdminUpdateProfile.cshtml" />
+    <Content Include="Views\Admin\AdminUserProfile.cshtml" />
+    <Content Include="Views\Developer\DeveloperIndex.cshtml" />
+    <Content Include="Views\Developer\DeveloperDashboard.cshtml" />
+    <Content Include="Views\Developer\MyRequests.cshtml" />
+    <Content Include="Views\Developer\ViewProjects.cshtml" />
+    <Content Include="Views\Developer\ProjectDetails.cshtml" />
+    <Content Include="Views\Developer\UpdateProfile.cshtml" />
+    <Content Include="Views\Developer\UserProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

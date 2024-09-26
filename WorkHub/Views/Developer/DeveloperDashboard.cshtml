@@ -1,0 +1,145 @@
+﻿@model (List<WorkHub.Models.Tasks>, List<WorkHub.Models.CreateaProject>)
+@{
+    ViewBag.Title = "Developer Dashboard";
+    Layout = "~/Views/Developer/DeveloperIndex.cshtml";
+}
+
+<!-- Gantt Chart Section -->
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h2><strong>Tasks in Progress</strong></h2>
+            </div>
+            <!-- Define height for Gantt chart container -->
+            <div id="gantt_chart_div" style="height: 500px; width: 100%;"></div>
+            <link rel="stylesheet" type="text/css" href="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.css">
+            <script src="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.js"></script>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Projects Section -->
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Projects</h5>
+            </div>
+            <div class="card-body">
+                <h6 class="card-title">List of Current Projects</h6>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Project Name</th>
+                            <th>Status</th>
+                            <th>Start Date</th>
+                            <th>Deadline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var project in Model.Item2)
+                        {
+                            <tr>
+                                <td>@project.ProjectName</td>
+
+                                @if (project.Status == "Ongoing")
+                                {
+                                    <td><span class="badge bg-label-primary">@project.Status</span></td>
+                                }
+                                else if (project.Status == "Finished")
+                                {
+                                    <td><span class="badge bg-label-success">Finished</span></td>
+                                }
+                                <td>@project.StartDate.ToString("dd-MM-yyyy")</td>
+                                <td>@project.EndDate.ToString("dd-MM-yyyy")</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tasks Section -->
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Tasks</h5>
+            </div>
+            <div class="card-body">
+                <h6 class="card-title">List of Tasks</h6>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Task Name</th>
+                            <th>Reporter</th>
+                            <th>Status</th>
+                            <th>Deadline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < 5; i++)
+                        {
+                            <tr>
+                                <td>@Model.Item1[i].TaskTitle</td>
+                                <td>@Model.Item1[i].Reporter</td>
+                                <td>@Model.Item1[i].Status</td>
+                                @if (@Model.Item1[i].Status == "Done")
+                                {
+                                    <td><span class="badge bg-label-success me-1">Done</span></td>
+                                }
+                                else if (@Model.Item1[i].Status == "In Progress")
+                                {
+                                    <td><span class="badge bg-label-warning me-1">In Progress</span></td>
+                                }
+                                else if (@Model.Item1[i].Status == "To Do")
+                                {
+                                    <td><span class="badge bg-label-danger me-1">To Do</span></td>
+                                }
+                                else if (@Model.Item1[i].Status == "Pending Approval")
+                                {
+                                    <td><span class="badge bg-label-info me-1">Pending Approval</span></td>
+                                }
+                                <td>@Model.Item1[i].DueDate.ToString("dd-MM-yyyy")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Gantt Chart Script -->
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        
+        gantt.config.date_format = "%Y-%m-%d";
+        gantt.config.columns = [
+            { name: "text", label: "Task Name", width: 200, tree: true },
+            { name: "start_date", label: "Start Date", align: "center", width: 100 },
+            { name: "end_date", label: "End Date", align: "center", width: 100 },
+            { name: "status", label: "Status", align: "center", width: 100 }
+        ];
+
+        gantt.init("gantt_chart_div");
+
+        
+        var tasks = {
+            data: JSON.parse('@Html.Raw(ViewBag.TasksJson)')
+        };
+
+        gantt.parse(tasks);
+    });
+</script>
+
+

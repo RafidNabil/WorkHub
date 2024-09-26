@@ -9,7 +9,7 @@
         <div class="col-md-12">
             <div class="card mb-4">
                 <h5 class="card-header">Profile Details</h5>
-                <div class="card-body">
+                @*<div class="card-body">
                     <div class="d-flex align-items-start align-items-sm-center gap-6 pb-4 border-bottom">
                         <img src="https://robohash.org/1.png" alt="user-avatar" class="d-block w-px-100 h-px-100 rounded" id="uploadedAvatar">
                         <div class="button-wrapper">
@@ -26,7 +26,7 @@
                             <div>Allowed JPG, GIF or PNG. Max size of 800K</div>
                         </div>
                     </div>
-                </div>
+                </div>*@
                 <div class="card-body">
                     <form id="formAccountSettings" method="POST" action="/Manager/UpdateProfile">
                         <input type="hidden" name="Id" value="@Model.Id" />

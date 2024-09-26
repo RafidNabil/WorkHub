@@ -79,7 +79,7 @@
                                         <form action="@Url.Action("MakeRequest", "Task")" method="post" class="d-inline">
                                             <input type="hidden" name="taskId" value="@Model.Item1.Id" />
                                             <input type="hidden" name="developerId" value="@Request.Cookies["UserID"].Value.ToString()" />
-                                            <input type="hidden" name="managerId" value="@ViewBag.ManagerId" />
+                                            <input type="hidden" name="managerId" value="@Model.Item1.ReporterID" />
                                             <div class="mb-3">
                                                 <label for="message-text" class="col-form-label">Message:</label>
                                                 <textarea class="form-control" name="comment" id="message-text"></textarea>
@@ -421,25 +421,25 @@
 <script>
     document.getElementById('fileElem').addEventListener('change', function (event) {
         const fileList = document.getElementById('fileList');
-        fileList.innerHTML = ''; // Clear existing list
+        fileList.innerHTML = '';
         const files = event.target.files;
 
-        // If files are selected
+        
         if (files.length > 0) {
-            // Show the submit button
+            
             document.getElementById('submitBtn').style.display = 'block';
 
-            // Display the list of selected files
+            
             for (let i = 0; i < files.length; i++) {
                 const li = document.createElement('li');
                 li.textContent = files[i].name;
                 fileList.appendChild(li);
             }
-            fileList.style.display = 'block'; // Show file list
+            fileList.style.display = 'block'; 
         } else {
-            // Hide the submit button if no files are selected
+            
             document.getElementById('submitBtn').style.display = 'none';
-            fileList.style.display = 'none'; // Hide file list
+            fileList.style.display = 'none'; 
         }
     });
 </script>
@@ -469,7 +469,7 @@
         display: none; 
     }
 
-    /* Additional styles for file list items */
+    
     #fileList li {
         background-color: #f8f9fa; 
         border: 1px solid #dee2e6; 

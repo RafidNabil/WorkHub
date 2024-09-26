@@ -10,19 +10,19 @@ namespace WorkHub.Models
     public class File
     {
         [BsonId]
-        public ObjectId Id { get; set; }  // Unique identifier for the file
+        public ObjectId Id { get; set; }  
 
-        public string TaskID { get; set; }  // ID of the associated task
+        public string TaskID { get; set; }  
 
-        public string FileName { get; set; }  // Name of the file
+        public string FileName { get; set; }  
 
-        public string FilePath { get; set; }  // Path where the file is stored
+        public string FilePath { get; set; }  
 
-        public string ContentType { get; set; }  // MIME type of the file
+        public string ContentType { get; set; }  
 
-        public long Size { get; set; }  // Size of the file in bytes
+        public long Size { get; set; }  
 
-        public DateTime UploadedDate { get; set; } = DateTime.Now;  // Date when the file was uploaded
+        public DateTime UploadedDate { get; set; } = DateTime.Now;  
 
     }
 }

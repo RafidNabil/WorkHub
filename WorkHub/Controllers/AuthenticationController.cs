@@ -32,7 +32,7 @@ namespace WorkHub.Controllers
                 else if (userRole == "admin")
                     return RedirectToAction("AdminDashboard", "Admin");
                 else if (userRole == "developer")
-                    return RedirectToAction("Dashboard", "Developer");
+                    return RedirectToAction("DeveloperDashboard", "Developer");
             }
 
             return View();
@@ -40,17 +40,21 @@ namespace WorkHub.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SignIn(UserSignUp model)
+        public ActionResult SignIn(UserSignUp model, bool rememberme)
         {
-            
-                var user = _userCollection.AsQueryable().FirstOrDefault(u => u.Email == model.Email);
 
-                if (user != null)
+            var user = _userCollection.AsQueryable().FirstOrDefault(u => u.Email == model.Email);
+
+            if (user != null)
+            {
+                if (user.Password == model.Password)
                 {
-                    if (user.Password == model.Password)
+
+                    if (rememberme == true)
                     {
-                    Response.Cookies["signedIn"].Value = "true";
-                    Response.Cookies["signedIn"].Expires = DateTime.Now.AddDays(1);
+                        Response.Cookies["signedIn"].Value = "true";
+                        Response.Cookies["signedIn"].Expires = DateTime.Now.AddDays(1);
+                    }
 
                     Response.Cookies["UserRole"].Value = user.Role;
                     Response.Cookies["UserRole"].Expires = DateTime.Now.AddDays(1);
@@ -64,24 +68,21 @@ namespace WorkHub.Controllers
                     Session["UserRole"] = user.Role;
 
                     if (user.Role == "manager")
-                    return RedirectToAction("ManagerDashboard", "Manager");
-                    else if(user.Role == "admin")
+                        return RedirectToAction("ManagerDashboard", "Manager");
+                    else if (user.Role == "admin")
                         return RedirectToAction("AdminDashboard", "Admin");
-                    else if(user.Role == "developer")
-                        return RedirectToAction("Dashboard", "Developer");
-                    }
+                    else if (user.Role == "developer")
+                        return RedirectToAction("DeveloperDashboard", "Developer");
                 }
+            }
 
-                ModelState.AddModelError("", "Invalid email or password.");
-                return View(model);
-            
-
-            
+            ModelState.AddModelError("", "Invalid email or password.");
+            return View(model);
         }
 
         public ActionResult SignUp()
         {
-            
+
             /*if (Request.Cookies["signedUp"] != null && Request.Cookies["signedUp"].Value == "true")
             {
 
@@ -116,10 +117,10 @@ namespace WorkHub.Controllers
 
         public ActionResult Logout()
         {
-            // Clear the session
+
             Session.Clear();
 
-            // Remove the authentication cookie
+
             if (Request.Cookies["signedIn"] != null)
             {
                 var cookie = new HttpCookie("signedIn")

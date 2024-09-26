@@ -12,6 +12,7 @@ using System.Web.Mvc;
 using System.Web.UI;
 using WorkHub.Models;
 using WorkHub.Services;
+using Newtonsoft.Json;
 
 namespace WorkHub.Controllers
 {
@@ -23,16 +24,17 @@ namespace WorkHub.Controllers
         public readonly IMongoCollection<Tasks> _tasksCollection;
         public readonly IMongoCollection<UserProfile> _userProfilesCollection;
         public readonly IMongoCollection<Comment> _commentCollection;
+        public readonly IMongoCollection<Notification> _userNotificationsCollection;
 
         public ManagerController()
         {
-            // Initialize MongoDB collections
             _userCollection = MongoDBHelper.GetCollection<UserSignUp>("Users");
             _projectCollection = MongoDBHelper.GetCollection<CreateaProject>("Project");
             _taskCompletionRequestCollection = MongoDBHelper.GetCollection<TaskCompletionRequest>("TaskCompletionRequest");
             _tasksCollection = MongoDBHelper.GetCollection<Tasks>("Tasks");
             _userProfilesCollection = MongoDBHelper.GetCollection<UserProfile>("UserProfiles");
             _commentCollection = MongoDBHelper.GetCollection<Comment>("Comment");
+            _userNotificationsCollection = MongoDBHelper.GetCollection<Notification>("Notifications");
         }
 
         // GET: Manager
@@ -99,15 +101,15 @@ namespace WorkHub.Controllers
 
                     model.StartDate = model.StartDate.AddDays(1);
                     model.EndDate = model.EndDate.AddDays(1);
-                    // Insert the model into MongoDB
+
                     _projectCollection.InsertOne(model);
 
-                    // Optionally, you can redirect to another action upon successful submission
+
                     return RedirectToAction("ManagerDashboard");
                 }
                 else if (func == 2)
                 {
-                    // Fetch the existing project from MongoDB
+
                     var existingProject = _projectCollection.Find(p => p.Id == model.Id).FirstOrDefault();
                     if (existingProject == null)
                     {
@@ -115,7 +117,7 @@ namespace WorkHub.Controllers
                     }
                     else
                     {
-                        // Update the existing project's fields
+
                         existingProject.ProjectName = model.ProjectName;
                         existingProject.Description = model.Description;
                         existingProject.StartDate = model.StartDate.AddDays(1);
@@ -126,7 +128,7 @@ namespace WorkHub.Controllers
                         }
                         existingProject.TeamMembers = model.TeamMembers;
 
-                        // Save the updated project back to MongoDB
+
                         _projectCollection.ReplaceOne(p => p.Id == existingProject.Id, existingProject);
 
                         return RedirectToAction("ManagerDashboard");
@@ -137,14 +139,12 @@ namespace WorkHub.Controllers
             }
             catch (Exception ex)
             {
-                // Handle exceptions, log errors, or show appropriate messages to the user
+
                 ModelState.AddModelError("", "An error occurred while saving the project.");
-                // You might want to log the exception details
-                // Logger.LogException(ex);
+
             }
 
-            // If model state is not valid or an error occurred, return the view with validation errors
-            // Also, ensure to fetch users again to populate the select list
+
             var users = _userCollection.Find(_ => true).ToList();
             ViewBag.Users = users;
             return View(model);
@@ -177,34 +177,34 @@ namespace WorkHub.Controllers
             {
                 if (file != null && file.ContentLength > 0)
                 {
-                    // Generate a unique filename using GridFS ObjectId
+
                     var fileId = ObjectId.GenerateNewId();
                     var fileName = $"{fileId}{Path.GetExtension(file.FileName)}";
 
                     using (var stream = file.InputStream)
                     {
-                        // Upload the file to GridFS bucket
+
                         bucket.UploadFromStream(fileName, stream);
                     }
 
-                    // Create a TaskFile instance to store metadata
+
                     var projectFile = new Models.File
                     {
-                        Id = fileId, // Use the ObjectId generated for the file
-                        TaskID = model.Id.ToString(), // Assuming model has a Task ID
+                        Id = fileId,
+                        TaskID = model.Id.ToString(),
                         FileName = file.FileName,
-                        FilePath = fileName, // You can store the filename or leave it empty as it is in GridFS
+                        FilePath = fileName,
                         ContentType = file.ContentType,
                         Size = file.ContentLength,
                         UploadedDate = DateTime.Now
                     };
 
-                    // Save the TaskFile metadata to the database
+
                     var projectFilesCollection = MongoDBHelper.GetCollection<Models.File>("ProjectFiles");
                     projectFilesCollection.InsertOne(projectFile);
 
-                    // Store the file ID in the model's Attachments list
-                    /*model.Attachments.Add(fileId.ToString());*/ // Add fileId to the list
+
+                    /*model.Attachments.Add(fileId.ToString());*/
                 }
             }
         }
@@ -213,10 +213,10 @@ namespace WorkHub.Controllers
         {
             try
             {
-                // Parse the fileId to an ObjectId
+
                 var objectId = new ObjectId(fileId);
 
-                // Fetch the file metadata from TaskFiles collection
+
                 var projectFilesCollection = MongoDBHelper.GetCollection<Models.File>("ProjectFiles");
                 var projectFile = projectFilesCollection.Find(f => f.Id == objectId).FirstOrDefault();
 
@@ -225,11 +225,11 @@ namespace WorkHub.Controllers
                     return HttpNotFound("File not found.");
                 }
 
-                // Initialize the GridFS bucket
+
                 var database = MongoDBHelper.GetDatabase();
                 var bucket = new GridFSBucket(database);
 
-                // Download the file from GridFS using the filename stored in TaskFiles
+
                 byte[] fileBytes;
                 using (var stream = new MemoryStream())
                 {
@@ -237,12 +237,12 @@ namespace WorkHub.Controllers
                     fileBytes = stream.ToArray();
                 }
 
-                // Return the file as a download
+
                 return File(fileBytes, projectFile.ContentType, projectFile.FileName);
             }
             catch (Exception ex)
             {
-                // Handle exceptions
+
                 ViewBag.Error = "Error downloading file: " + ex.Message;
                 return View("Error");
             }
@@ -253,19 +253,15 @@ namespace WorkHub.Controllers
         {
             if (fileIds != null && fileIds.Length > 0)
             {
-                // Get the database instance from MongoDBHelper
                 var database = MongoDBHelper.GetDatabase();
 
-                // Get the TaskFiles to be deleted
                 var projectFilesCollection = MongoDBHelper.GetCollection<Models.File>("ProjectFiles");
                 var projectFilesToDelete = projectFilesCollection.Find(f => fileIds.Contains(f.Id.ToString())).ToList();
 
                 foreach (var projectFile in projectFilesToDelete)
                 {
-                    // Get the file path which is used as the filename in fs.files
                     var filePath = projectFile.FilePath;
 
-                    // Delete the file from fs.files using the FilePath
                     var filesCollection = database.GetCollection<BsonDocument>("fs.files");
                     var fileDocument = filesCollection.Find(Builders<BsonDocument>.Filter.Eq("filename", filePath)).FirstOrDefault();
 
@@ -273,16 +269,13 @@ namespace WorkHub.Controllers
                     {
                         var fileId = fileDocument["_id"].AsObjectId;
 
-                        // Delete the associated chunks from fs.chunks
                         var chunksCollection = database.GetCollection<BsonDocument>("fs.chunks");
                         chunksCollection.DeleteMany(Builders<BsonDocument>.Filter.Eq("files_id", fileId));
 
-                        // Now delete the file from fs.files
                         filesCollection.DeleteMany(Builders<BsonDocument>.Filter.Eq("_id", fileId));
                     }
                 }
 
-                // Now delete the TaskFile records
                 var filter = Builders<Models.File>.Filter.In(f => f.Id, projectFilesToDelete.Select(tf => tf.Id));
                 projectFilesCollection.DeleteMany(filter);
             }
@@ -294,20 +287,17 @@ namespace WorkHub.Controllers
         {
             try
             {
-                // Fetch projects from MongoDB
+
                 var projects = _projectCollection.Find(_ => true).ToList();
 
-                // Pass projects to the view
+
                 return View(projects);
             }
             catch (Exception ex)
             {
-                // Handle exceptions, log errors, or show appropriate messages to the user
-                ModelState.AddModelError("", "An error occurred while fetching projects.");
-                // You might want to log the exception details
-                // Logger.LogException(ex);
 
-                // Return an empty view or handle the error gracefully
+                ModelState.AddModelError("", "An error occurred while fetching projects.");
+
                 return View(new List<CreateaProject>());
             }
         }
@@ -468,7 +458,6 @@ namespace WorkHub.Controllers
         {
             try
             {
-                // Convert IDs to ObjectId
                 var taskObjectId = new ObjectId(taskId);
                 var requestObjectId = new ObjectId(requestId);
 
@@ -506,8 +495,23 @@ namespace WorkHub.Controllers
                         _taskCompletionRequestCollection.ReplaceOne(r => r.RequestId == requestObjectId, request);
                     }
                 }
+                if (func == 3)
+                {
+                    if (task != null)
+                    {
+                        task.Status = "In Progress";
+                        _tasksCollection.ReplaceOne(t => t.Id == taskId, task);
 
-                return RedirectToAction("TaskDetails", new { id = taskId });
+                    }
+                    if (request != null)
+                    {
+                        request.Status = "Deleted";
+                        request.ReviewDate = DateTime.Now;
+                        _taskCompletionRequestCollection.ReplaceOne(r => r.RequestId == requestObjectId, request);
+                    }
+                }
+
+                return RedirectToAction("TaskDetails", "Task", new { id = taskId });
             }
             catch (Exception ex)
             {
@@ -624,25 +628,80 @@ namespace WorkHub.Controllers
 
         public ActionResult ManagerDashboard()
         {
-            return View();
+            var projects = _projectCollection.Find(_ => true).ToList();
+            var tasks = _tasksCollection.Find(_ => true).ToList();
+
+
+            var tasksData = tasks.Select(task => new
+            {
+                id = task.Id.ToString(),
+                text = task.TaskTitle,
+                start_date = task.AssignDate.ToString("yyyy-MM-dd"),
+                end_date = task.DueDate.ToString("yyyy-MM-dd"),
+                duration = task.EstimationTime,
+                status = "In Progress"
+            });
+
+
+            ViewBag.TasksJson = JsonConvert.SerializeObject(tasksData);
+
+
+            return View((tasks, projects));
+        }
+
+        [HttpGet]
+        public JsonResult GetNotifications()
+        {
+            var userId = Request.Cookies["UserID"]?.Value;
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Json(new { success = false, message = "User not authenticated." }, JsonRequestBehavior.AllowGet);
+            }
+
+            var notifications = _userNotificationsCollection
+                .Find(n => n.UserId == userId)
+                .ToList();
+
+            ViewBag.Unread = _userNotificationsCollection.CountDocuments(n => n.UserId == userId && !n.IsRead);
+
+
+            return Json(notifications, JsonRequestBehavior.AllowGet);
+        }
+
+        public void NotificationCount()
+        {
+
+            var userId = Request.Cookies["UserID"]?.Value;
+            if (string.IsNullOrEmpty(userId))
+            {
+                return;
+            }
+            var notifications = _userNotificationsCollection
+                .Find(n => n.UserId == userId)
+                .ToList();
+
+            foreach (var notification in notifications)
+            {
+                notification.IsRead = true;
+                _userNotificationsCollection.ReplaceOne(n => n.Id == notification.Id, notification);
+            }
+
+            Response.Redirect(Request.UrlReferrer.ToString());
+
         }
 
         public ActionResult DeteleProject(string id)
         {
             try
             {
-                // Delete project from MongoDB
                 _projectCollection.DeleteOne(p => p.Id == id);
 
-                // Optionally, you can redirect to another action upon successful deletion
                 return RedirectToAction("ViewProjects");
             }
             catch (Exception ex)
             {
-                // Handle exceptions, log errors, or show appropriate messages to the user
                 ModelState.AddModelError("", "An error occurred while deleting the project.");
-                // You might want to log the exception details
-                // Logger.LogException(ex);
+
             }
             return View("ViewProjects");
         }

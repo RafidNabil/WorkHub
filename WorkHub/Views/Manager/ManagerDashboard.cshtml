@@ -1,53 +1,27 @@
-﻿@{
+﻿@model (List<WorkHub.Models.Tasks>, List<WorkHub.Models.CreateaProject>)
+@{
     ViewBag.Title = "Manager Dashboard";
     Layout = "~/Views/Manager/ManagerIndex.cshtml";
 }
 
-<!-- Dashboard Overview -->
+<!-- Gantt Chart Section -->
 <div class="row">
     <div class="col-12 mb-4">
         <div class="card">
             <div class="card-header">
-                <h5 class="card-title">
-                    Dashboard Overview
-                    @if (Session["UserRole"] != null)
-                    {
-                        <strong> Role:</strong> @Session["UserRole"].ToString()
-                    }
-                </h5>
+                <h2><strong>Tasks in Progress</strong></h2>
             </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-12 col-lg-4 mb-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h6 class="card-title">Active Projects</h6>
-                                <p class="card-text">Summary of active projects.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 mb-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h6 class="card-title">Recent Task Activities</h6>
-                                <p class="card-text">Recent task activities.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 mb-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h6 class="card-title">Pending Approvals</h6>
-                                <p class="card-text">Pending approvals or actions.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Define height for Gantt chart container -->
+            <div id="gantt_chart_div" style="height: 500px; width: 100%;"></div>
+            <link rel="stylesheet" type="text/css" href="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.css">
+            <script src="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.js"></script>
         </div>
     </div>
 </div>
- Projects
+
+
+
+<!-- Projects Section -->
 <div class="row">
     <div class="col-12 mb-4">
         <div class="card">
@@ -55,46 +29,43 @@
                 <h5 class="card-title">Projects</h5>
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="col-12 mb-4">
-                        <h6 class="card-title">List of Current Projects</h6>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Project Name</th>
-                                    <th>Status</th>
-                                    <th>Deadline</th>
-                                    <th>Team Members</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Project A</td>
-                                    <td><span class="badge bg-label-primary">Active</span></td>
-                                    <td>2024-07-10</td>
-                                    <td>John, Jane, Bob</td>
-                                    <td>
-                                        <button class="btn btn-sm btn-primary">View</button>
-                                        <button class="btn btn-sm btn-secondary">Edit</button>
-                                    </td>
-                                </tr>
-                                Repeat for more projects
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-12 mb-4">
-                        <h6 class="card-title">Create/Edit Project</h6>
-                        <form>
-                            Project form fields here
-                        </form>
-                    </div>
-                </div>
+                <h6 class="card-title">List of Current Projects</h6>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Project Name</th>
+                            <th>Status</th>
+                            <th>Start Date</th>
+                            <th>Deadline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var project in Model.Item2)
+                        {
+                            <tr>
+                                <td>@project.ProjectName</td>
+
+                                @if (project.Status == "Ongoing")
+                                {
+                                    <td><span class="badge bg-label-primary">@project.Status</span></td>
+                                }
+                                else if (project.Status == "Finished")
+                                {
+                                    <td><span class="badge bg-label-success">Finished</span></td>
+                                }
+                                <td>@project.StartDate.ToString("dd-MM-yyyy")</td>
+                                <td>@project.EndDate.ToString("dd-MM-yyyy")</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </div>
- Tasks
+
+<!-- Tasks Section -->
 <div class="row">
     <div class="col-12 mb-4">
         <div class="card">
@@ -102,105 +73,70 @@
                 <h5 class="card-title">Tasks</h5>
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="col-12 mb-4">
-                        <h6 class="card-title">List of Tasks</h6>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Task Name</th>
-                                    <th>Project</th>
-                                    <th>Priority</th>
-                                    <th>Status</th>
-                                    <th>Assigned To</th>
-                                    <th>Deadline</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Task 1</td>
-                                    <td>Project A</td>
-                                    <td><span class="badge bg-label-danger">High</span></td>
-                                    <td><span class="badge bg-label-warning">In Progress</span></td>
-                                    <td>John Doe</td>
-                                    <td>2024-06-20</td>
-                                    <td>
-                                        <button class="btn btn-sm btn-primary">Update</button>
-                                    </td>
-                                </tr>
-                                Repeat for more tasks
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-12 mb-4">
-                        <h6 class="card-title">Create/Edit Task</h6>
-                        <form>
-                            Task form fields here
-                        </form>
-                    </div>
-                </div>
+                <h6 class="card-title">List of Tasks</h6>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Task Name</th>
+                            <th>Reporter</th>
+                            <th>Status</th>
+                            <th>Deadline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < 5; i++)
+                        {
+                            <tr>
+                                <td>@Model.Item1[i].TaskTitle</td>
+                                <td>@Model.Item1[i].Reporter</td>
+                                @if (@Model.Item1[i].Status == "Done")
+                                {
+                                    <td><span class="badge bg-label-success me-1">Done</span></td>
+                                }
+                                else if (@Model.Item1[1].Status == "In Progress")
+                                {
+                                    <td><span class="badge bg-label-warning me-1">In Progress</span></td>
+                                }
+                                else if (@Model.Item1[1].Status == "To Do")
+                                {
+                                    <td><span class="badge bg-label-danger me-1">To Do</span></td>
+                                }
+                                else if (@Model.Item1[1].Status == "Pending Approval")
+                                {
+                                    <td><span class="badge bg-label-info me-1">Pending Approval</span></td>
+                                }
+                                <td>@Model.Item1[i].DueDate.ToString("dd-MM-yyyy")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </div>
- Team
-<div class="row">
-    <div class="col-12 mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title">Team</h5>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-12 mb-4">
-                        <h6 class="card-title">List of Team Members</h6>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Role</th>
-                                    <th>Email</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>John Doe</td>
-                                    <td>Developer</td>
-                                    <td>john.doe@example.com</td>
-                                    <td>
-                                        <button class="btn btn-sm btn-primary">Assign Task</button>
-                                    </td>
-                                </tr>
-                                Repeat for more team members
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
- Reports
-<div class="row">
-    <div class="col-12 mb-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title">Reports</h5>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-12 col-lg-6 mb-4">
-                        <h6 class="card-title">Project Progress</h6>
-                        Insert project progress chart here
-                    </div>
-                    <div class="col-12 col-lg-6 mb-4">
-                        <h6 class="card-title">Task Completion Rates</h6>
-                        Insert task completion chart here
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
+
+<!-- Gantt Chart Script -->
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        
+        gantt.config.date_format = "%Y-%m-%d";
+        gantt.config.columns = [
+            { name: "text", label: "Task Name", width: 200, tree: true },
+            { name: "start_date", label: "Start Date", align: "center", width: 100 },
+            { name: "end_date", label: "End Date", align: "center", width: 100 },
+            { name: "status", label: "Status", align: "center", width: 100 }
+        ];
+
+        gantt.init("gantt_chart_div");
+
+        
+        var tasks = {
+            data: JSON.parse('@Html.Raw(ViewBag.TasksJson)')
+        };
+
+        gantt.parse(tasks);
+    });
+</script>
+
+

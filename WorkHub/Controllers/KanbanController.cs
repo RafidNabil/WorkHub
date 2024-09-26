@@ -34,7 +34,6 @@ namespace WorkHub.Controllers
             List<CreateaProject> projects = _projectsCollection.Find(_ => true).ToList();
             ViewBag.Projects = projects;
 
-
             CreateaProject selectedProject = null;
             if (string.IsNullOrEmpty(id))
             {
@@ -61,7 +60,6 @@ namespace WorkHub.Controllers
                 ;
                 var projectTasks = _tasksCollection.Find(t => t.ProjectID == selectedProject.Id).ToList();
 
-                // Iterate over each task and count the associated files
                 foreach (var task in projectTasks)
                 {
                     var fileCount = _taskFileCollection.CountDocuments(tf => tf.TaskID == task.Id);
@@ -77,7 +75,7 @@ namespace WorkHub.Controllers
             }
             else
             {
-                return RedirectToAction("Index"); // Redirect if no project is found
+                return RedirectToAction("Index");
             }
         }
 
@@ -107,18 +105,18 @@ namespace WorkHub.Controllers
         private void DeleteFiles(string taskid)
         {
             var database = MongoDBHelper.GetDatabase();
-            // Step 1: Get the collection of TaskFiles
+            
             var taskFilesCollection = MongoDBHelper.GetCollection<Models.File>("TaskFiles");
 
-            // Step 2: Find all TaskFiles where TaskID == taskid
+            
             var taskFilesToDelete = taskFilesCollection.Find(tf => tf.TaskID == taskid).ToList();
 
             foreach (var taskFile in taskFilesToDelete)
             {
-                // Get the file path which is used as the filename in fs.files
+                
                 var filePath = taskFile.FilePath;
 
-                // Delete the file from fs.files using the FilePath
+                
                 var filesCollection = database.GetCollection<BsonDocument>("fs.files");
                 var fileDocument = filesCollection.Find(Builders<BsonDocument>.Filter.Eq("filename", filePath)).FirstOrDefault();
 
@@ -126,16 +124,16 @@ namespace WorkHub.Controllers
                 {
                     var fileId = fileDocument["_id"].AsObjectId;
 
-                    // Delete the associated chunks from fs.chunks
+                    
                     var chunksCollection = database.GetCollection<BsonDocument>("fs.chunks");
                     chunksCollection.DeleteMany(Builders<BsonDocument>.Filter.Eq("files_id", fileId));
 
-                    // Now delete the file from fs.files
+                    
                     filesCollection.DeleteMany(Builders<BsonDocument>.Filter.Eq("_id", fileId));
                 }
             }
 
-            // Now delete the TaskFile records
+            
             var filter = Builders<Models.File>.Filter.In(f => f.Id, taskFilesToDelete.Select(tf => tf.Id));
             taskFilesCollection.DeleteMany(filter);
         }
