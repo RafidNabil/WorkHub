@@ -52,12 +52,6 @@ Running the Project
 
     Run the application (F5).
 
-Seed Data (Optional)
-
-If you need initial data for testing:
-
-    Use the MongoDB Compass or any MongoDB client to insert sample projects, tasks, and users into the appropriate collections (e.g., Projects, Tasks, Users).
-
 Key Files and Structure
 
     Controllers/
@@ -81,19 +75,6 @@ Notifications are generated when tasks are assigned or completed. These are stor
 Gantt Chart Integration
 
 The Gantt chart is implemented using DHTMLX Gantt. Task data is passed to the chart using JSON. The chart visualizes tasks with start/end dates and statuses.
-
-csharp
-
-var tasksData = tasks.Select(task => new
-{
-    id = task.Id.ToString(),
-    text = task.TaskTitle,
-    reporter = task.Reporter,
-    start_date = task.AssignDate.ToString("yyyy-MM-dd"),
-    end_date = task.DueDate.ToString("yyyy-MM-dd"),
-    duration = task.EstimationTime,
-    status = "In Progress"
-});
 
 File Upload via GridFS
 
